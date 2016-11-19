@@ -12,6 +12,9 @@
 
     <!-- Styles -->
     <link href="{{ URL::to('/css/app.css') }}" rel="stylesheet">
+    <link href="{{ URL::to('/css/custom.css') }}" rel="stylesheet">
+
+    <script src="https://use.fontawesome.com/cd17390d77.js"></script>
 
     <!-- Scripts -->
     <script>
@@ -36,14 +39,17 @@
 
                     <!-- Branding Image -->
                     <a class="navbar-brand" href="{{ url('/') }}">
-                        {{ config('app.name', 'Laravel') }}
+                        Construction Manager
                     </a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
-                        &nbsp;
+                        @if (!Auth::guest())
+                            <li><a href="{{ url('/home') }}">Construction Sites</a></li>
+                            <li><a href="{{ url('/home') }}">Workers</a></li>
+                        @endif
                     </ul>
 
                     <!-- Right Side Of Navbar -->
@@ -54,11 +60,13 @@
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else
                             <li class="dropdown">
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                                    {{ Auth::user()->name }} <span class="caret"></span>
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" id="username-holder">
+                                    {{ Auth::user()->name }} {{ Auth::user()->lastname }} <span class="caret"></span>
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#">Settings</a></li>
+                                    <li><a href="#">Billing</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();

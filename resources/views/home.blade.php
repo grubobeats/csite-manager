@@ -101,7 +101,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
-                <div class="panel-heading">List of construction sites</div>
+                <div class="panel-heading">{{ trans('dashboard.list_of_construction_sites') }}</div>
 
                 <div class="panel-body">
                     <table class="table table-bordered">

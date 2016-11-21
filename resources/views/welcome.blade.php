@@ -37,10 +37,10 @@
                         {{ trans('landing.welcome') }}
                     </div>
                     <div class="links">
-                        <a href="#">About</a>
-                        <a href="#">What is does?</a>
-                        <a href="#">Try for free!</a>
-                        <a href="#">Pro version</a>
+                        <a href="#">{{ trans('landing.about') }}</a>
+                        <a href="#">{{ trans('landing.what_it_does') }}</a>
+                        <a href="#">{{ trans('landing.try') }}</a>
+                        <a href="#">{{ trans('landing.pro') }}</a>
                     </div>
                 </div>
                 <br>

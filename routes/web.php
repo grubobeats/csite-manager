@@ -12,8 +12,17 @@
 */
 
 Route::get('/', function () {
+    Lang::setLocale(Session::get('locale'));
+
     return view('welcome');
 });
+
+Route::post('/language', array(
+    'before' => 'csrf',
+    'as' => 'language-chooser',
+    'uses' => 'LanguageController@chooser'
+));
+
 
 Auth::routes();
 

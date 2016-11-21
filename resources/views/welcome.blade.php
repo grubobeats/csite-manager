@@ -34,7 +34,7 @@
         </div>
                 <div class="content">
                     <div class="title m-b-md">
-                        Construction Manager
+                        {{ trans('landing.welcome') }}
                     </div>
                     <div class="links">
                         <a href="#">About</a>
@@ -43,8 +43,27 @@
                         <a href="#">Pro version</a>
                     </div>
                 </div>
+                <br>
+
         </div>
 
+        <div class="row">
+            <div class="col-sm-12">
+                <form action="{{ route('language-chooser') }}" method="post">
+                    {{ csrf_field() }}
+                    <select name="language" id="language">
+                        <option value="en">English</option>
+                        <option value="sr">Serbian</option>
+                    </select>
+
+                    <button type="submit" >Change Language</button>
+
+
+                </form>
+
+            </div>
+
+        </div>
 
 
 

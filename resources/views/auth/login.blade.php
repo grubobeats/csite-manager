@@ -56,6 +56,9 @@
 
                                 <a class="btn btn-link" href="{{ url('/password/reset') }}">
                                     Forgot Your Password?
+
+
+                                    {{ trans('landing.welcome') }}
                                 </a>
                             </div>
                         </div>

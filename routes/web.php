@@ -33,6 +33,11 @@ Route::post('/construction-sites/added', array(
     'uses' => 'ConstructionSiteController@addNewConstructionSite'
 ));
 
+Route::get('/construction-sites/delete/{csite_id}', array(
+    'as' => 'deleteConstructionSite',
+    'uses' => 'ConstructionSiteController@deleteConstructionSite'
+));
+
 
 Auth::routes();
 

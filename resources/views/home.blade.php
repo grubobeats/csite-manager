@@ -42,7 +42,7 @@
                             <i class="fa fa-building fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">3</div>
+                            <div class="huge">{{ count($construction_site) }}</div>
                             <div>Construction sites</div>
                         </div>
                     </div>
@@ -100,42 +100,52 @@
 
     <div class="row">
         <div class="col-md-12">
-            <div class="panel panel-default">
-                <div class="panel-heading">
-                    {{ trans('dashboard.list_of_construction_sites') }}
-                    <a href="{{ route('add-csite') }}" class="btn btn-link pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Add new</a>
-                </div>
 
-                <div class="panel-body">
-                    <table class="table table-bordered">
+            @if(count($construction_site) > 0)
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        {{ trans('dashboard.list_of_construction_sites') }}
+                        <a href="{{ route('add-csite') }}" class="btn btn-link pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Add new</a>
+                    </div>
 
-                        <tr>
-                            <th>Id</th>
-                            <th>Construction Site</th>
-                            <th>Address</th>
-                            <th>Investitor</th>
-                            <th>Last diary</th>
-                            <th></th>
-                        </tr>
-                        @foreach($construction_site as $csite)
+                    <div class="panel-body">
+                        <table class="table table-bordered">
+
                             <tr>
-                                <td>1</td>
-                                <td>{{ $csite->name }}</td>
-                                <td>{{ $csite->address }}, {{ $csite->city }}</td>
-                                <td>{{ $csite->investor }}</td>
-                                <td>22.11.2016. 18:43</td>
-                                <td class="text-center">
-                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                        <button type="button" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</button>
-                                        <button type="button" class="btn btn-default">Edit</button>
-                                        <button type="button" class="btn btn-default">Delete</button>
-                                    </div>
-                                </td>
+                                <th>Id</th>
+                                <th>Construction Site</th>
+                                <th>Address</th>
+                                <th>Investitor</th>
+                                <th>Last diary</th>
+                                <th></th>
                             </tr>
-                        @endforeach
-                    </table>
+                            @foreach($construction_site as $key => $csite)
+                                <tr>
+                                    <td>{{ $key + 1 }}</td>
+                                    <td>{{ $csite->name }}</td>
+                                    <td>{{ $csite->address }}, {{ $csite->city }}</td>
+                                    <td>{{ $csite->investor }}</td>
+                                    <td>22.11.2016. 18:43</td>
+                                    <td class="text-center">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                            <button type="button" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</button>
+                                            <button type="button" class="btn btn-default">Edit</button>
+                                            <a href="{{ route('deleteConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
+                        </table>
+                    </div>
                 </div>
-            </div>
+            @else
+
+                <div class="jumbotron">
+                    <h1>Welcome!</h1>
+                    <p>We are glad to meet you here. However, to proceed please <a href="{{ route('add-csite') }}">click here</a>  to first construction site.</p>
+                </div>
+
+            @endif
         </div>
     </div>
 </div>

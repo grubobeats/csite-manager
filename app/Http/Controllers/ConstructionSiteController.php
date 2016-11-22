@@ -29,4 +29,11 @@ class ConstructionSiteController extends Controller
         return redirect()->route('dashboard');
     }
 
+    public function deleteConstructionSite($csite_id) {
+        $csite = ConstructionSite::where('id', $csite_id)->first();
+        $csite->delete();
+
+        return redirect()->route('dashboard')->with(['message' => 'Successfully deleted']);
+    }
+
 }

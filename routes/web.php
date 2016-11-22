@@ -23,7 +23,12 @@ Route::post('/language', array(
     'uses' => 'LanguageController@chooser'
 ));
 
+Route::get('/construction-sites/add', array(
+    'as' => 'add-csite',
+    'uses' => 'ConstructionSiteController@index',
+));
+
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/dashboard', 'HomeController@index');

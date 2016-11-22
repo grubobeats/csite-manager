@@ -20,7 +20,7 @@
                 <a href="{{ url('/login') }}">Login</a>
                 <a href="{{ url('/register') }}">Register</a>
             @else
-                <a href="{{ url('/home') }}">Dashboard</a>
+                <a href="{{ url('/dashboard') }}">Dashboard</a>
                 <a href="{{ url('/logout') }}"
                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">

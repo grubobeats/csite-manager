@@ -129,7 +129,7 @@
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                             <button type="button" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</button>
-                                            <button type="button" class="btn btn-default">Edit</button>
+                                            <a href="{{ route('editConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default">Edit</a>
                                             <a href="{{ route('deleteConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default">Delete</a>
                                         </div>
                                     </td>

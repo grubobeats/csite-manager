@@ -44,22 +44,22 @@
                 <div class="panel-body">
                     <div class="row">
                         <div class="col-sm-6">
-                            <form action="{{ route('added-csite') }}" method="post">
+                            <form action="{{ route('edited-csite', $construction_site->id) }}" method="post">
                                 <div class="form-group">
                                     <label for="name">Name</label>
-                                    <input type="text" class="form-control" id="name" placeholder="Name" name="name">
+                                    <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ $construction_site->name }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="city">City</label>
-                                    <input type="text" class="form-control" id="city" placeholder="City" name="city">
+                                    <input type="text" class="form-control" id="city" placeholder="City" name="city" value="{{ $construction_site->city }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="city">Address</label>
-                                    <input type="text" class="form-control" id="address" placeholder="Address" name="address">
+                                    <input type="text" class="form-control" id="address" placeholder="Address" name="address" value="{{ $construction_site->address }}">
                                 </div>
                                 <div class="form-group">
                                     <label for="city">Investor</label>
-                                    <input type="text" class="form-control" id="investor" placeholder="Investor" name="investor">
+                                    <input type="text" class="form-control" id="investor" placeholder="Investor" name="investor" value="{{ $construction_site->investor }}">
                                 </div>
                                 {{ csrf_field() }}
 

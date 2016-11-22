@@ -7,14 +7,17 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Construction Manager <small>1.0.0</small>
+                Construction Manager <small>v1.0.0</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <a href="/"><i class="fa fa-building"></i> Construction Sites</a>
+                    <a href="/"><i class="fa fa-building"></i> Construction Manager</a>
+                </li>
+                <li>
+                    Dashboard
                 </li>
                 <li class="active">
-                    <i class="fa fa-man"></i> Dashboard
+                    Add Construction Site
                 </li>
             </ol>
         </div>
@@ -31,106 +34,42 @@
     </div>
     <!-- /.row -->
 
-    <!-- /.row -->
-
-    <div class="row">
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-building fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">3</div>
-                            <div>Construction sites</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-pencil-square-o fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">2</div>
-                            <div>Diaries</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-male fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">124</div>
-                            <div>Workers</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-calendar fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
-                            <div>Days left</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
-
-
     <div class="row">
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    {{ trans('dashboard.list_of_construction_sites') }}
-                    <a href="{{ route('add-csite') }}" class="btn btn-link pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Add new</a>
+                    Add new construction site
                 </div>
 
                 <div class="panel-body">
-                    <table class="table table-bordered">
-                        <tr>
-                            <th>Id</th>
-                            <th>Construction Site</th>
-                            <th>Address</th>
-                            <th>Investitor</th>
-                            <th>Last diary</th>
-                            <th></th>
-                        </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Monumental Church</td>
-                            <td>21 Haubstrasse, Laa Un Der Thaya</td>
-                            <td>Oleg Deripasko</td>
-                            <td>22.11.2016. 18:43</td>
-                            <td class="text-center">
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</button>
-                                    <button type="button" class="btn btn-default">Edit</button>
-                                    <button type="button" class="btn btn-default">Delete</button>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <form action="{{ route('added-csite') }}" method="post">
+                                <div class="form-group">
+                                    <label for="name">Name</label>
+                                    <input type="text" class="form-control" id="name" placeholder="Name" name="name">
                                 </div>
-                            </td>
-                        </tr>
-                    </table>
+                                <div class="form-group">
+                                    <label for="city">City</label>
+                                    <input type="text" class="form-control" id="city" placeholder="City" name="city">
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">Address</label>
+                                    <input type="text" class="form-control" id="address" placeholder="Address" name="address">
+                                </div>
+                                <div class="form-group">
+                                    <label for="city">Investor</label>
+                                    <input type="text" class="form-control" id="investor" placeholder="Investor" name="investor">
+                                </div>
+                                {{ csrf_field() }}
+
+                                <button type="submit" class="btn btn-default">Submit</button>
+                            </form>
+                        </div>
+                        <div class="col-sm-6">
+
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\ConstructionSite;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $construction_site = ConstructionSite::all();
+
+        return view('home', [ 'construction_site' => $construction_site]);
     }
 }

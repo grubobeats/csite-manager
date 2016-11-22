@@ -28,7 +28,15 @@ Route::get('/construction-sites/add', array(
     'uses' => 'ConstructionSiteController@index',
 ));
 
+Route::post('/construction-sites/added', array(
+    'as' => 'added-csite',
+    'uses' => 'ConstructionSiteController@addNewConstructionSite'
+));
+
 
 Auth::routes();
 
-Route::get('/dashboard', 'HomeController@index');
+Route::get('/dashboard', array(
+    'as' => 'dashboard',
+    'uses' => 'HomeController@index'
+));

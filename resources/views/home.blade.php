@@ -108,6 +108,7 @@
 
                 <div class="panel-body">
                     <table class="table table-bordered">
+
                         <tr>
                             <th>Id</th>
                             <th>Construction Site</th>
@@ -116,20 +117,22 @@
                             <th>Last diary</th>
                             <th></th>
                         </tr>
-                        <tr>
-                            <td>1</td>
-                            <td>Monumental Church</td>
-                            <td>21 Haubstrasse, Laa Un Der Thaya</td>
-                            <td>Oleg Deripasko</td>
-                            <td>22.11.2016. 18:43</td>
-                            <td class="text-center">
-                                <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                    <button type="button" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</button>
-                                    <button type="button" class="btn btn-default">Edit</button>
-                                    <button type="button" class="btn btn-default">Delete</button>
-                                </div>
-                            </td>
-                        </tr>
+                        @foreach($construction_site as $csite)
+                            <tr>
+                                <td>1</td>
+                                <td>{{ $csite->name }}</td>
+                                <td>{{ $csite->address }}, {{ $csite->city }}</td>
+                                <td>{{ $csite->investor }}</td>
+                                <td>22.11.2016. 18:43</td>
+                                <td class="text-center">
+                                    <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                        <button type="button" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</button>
+                                        <button type="button" class="btn btn-default">Edit</button>
+                                        <button type="button" class="btn btn-default">Delete</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        @endforeach
                     </table>
                 </div>
             </div>

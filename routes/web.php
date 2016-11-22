@@ -48,6 +48,20 @@ Route::get('/construction-sites/edit/{csite_id}', array(
     'uses' => 'ConstructionSiteController@editConstructionSite'
 ));
 
+Route::get('/construction-sites/{csite_id}/diaries/', array(
+    'as' => 'list-diaries',
+    'uses' => 'ConstructionSiteController@listDiaries'
+));
+
+Route::get('/construction-sites/{csite_id}/diaries/add', array(
+    'as' => 'add-diary',
+    'uses' => 'DiaryController@addDiary'
+));
+
+
+
+
+
 Auth::routes();
 
 Route::get('/dashboard', array(

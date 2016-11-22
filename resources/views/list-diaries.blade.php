@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Construction Manager <small>1.0.0</small>
+                Diaries <small>{{ $construction_site->name }}</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -105,7 +105,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         {{ trans('dashboard.list_of_construction_sites') }}
-                        <a href="{{ route('add-csite') }}" class="btn btn-link pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Add new</a>
+                        <a href="{{ route('add-diary', ['csite_id' => $construction_site->id]) }}" class="btn btn-link pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Add new</a>
                     </div>
 
                     <div class="panel-body">
@@ -113,28 +113,12 @@
 
                             <tr>
                                 <th>Id</th>
-                                <th>Construction Site</th>
-                                <th>Address</th>
-                                <th>Investitor</th>
-                                <th>Last diary</th>
+                                <th>Date</th>
+                                <th>Day</th>
+                                <th>Weather</th>
+                                <th>Workers</th>
                                 <th></th>
                             </tr>
-                            @foreach($construction_site as $key => $csite)
-                                <tr>
-                                    <td>{{ $key + 1 }}</td>
-                                    <td>{{ $csite->name }}</td>
-                                    <td>{{ $csite->address }}, {{ $csite->city }}</td>
-                                    <td>{{ $csite->investor }}</td>
-                                    <td>22.11.2016. 18:43</td>
-                                    <td class="text-center">
-                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                            <a href="{{ route('list-diaries', ['csite_id' => $csite->id]) }}" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</a>
-                                            <a href="{{ route('editConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default">Edit</a>
-                                            <a href="{{ route('deleteConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default">Delete</a>
-                                        </div>
-                                    </td>
-                                </tr>
-                            @endforeach
                         </table>
                     </div>
                 </div>

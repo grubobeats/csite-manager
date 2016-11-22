@@ -42,6 +42,7 @@
                 </div>
 
                 <div class="panel-body">
+
                     <div class="row">
                         <div class="col-sm-6">
                             <form action="{{ route('edited-csite', $construction_site->id) }}" method="post">

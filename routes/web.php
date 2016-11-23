@@ -50,14 +50,20 @@ Route::get('/construction-sites/edit/{csite_id}', array(
 
 Route::get('/construction-sites/{csite_id}/diaries/', array(
     'as' => 'list-diaries',
-    'uses' => 'ConstructionSiteController@listDiaries'
+    'uses' => 'DiaryController@listDiaries'
 ));
 
+// GET - Adding new diary
 Route::get('/construction-sites/{csite_id}/diaries/add', array(
     'as' => 'add-diary',
     'uses' => 'DiaryController@addDiary'
 ));
 
+// POST - Adding new diary
+Route::post('/construction-sites/{csite_id}/diaries/added', array(
+    'as' => 'added-diary',
+    'uses' => 'DiaryController@postAddDiary'
+));
 
 
 

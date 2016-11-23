@@ -55,10 +55,6 @@ class ConstructionSiteController extends Controller
         return view('edit-construction-site', ['construction_site' => $csite]);
     }
 
-    public function listDiaries($csite_id) {
-        $csite = ConstructionSite::where('id', $csite_id)->first();
 
-        return view('list-diaries', ['construction_site' => $csite]);
-    }
 
 }

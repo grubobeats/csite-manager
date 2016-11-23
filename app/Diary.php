@@ -6,8 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class Diary extends Model
 {
-    // Connection with ConstructionSite model
     public function constructionSite() {
         return $this->belongsTo('App\ConstructionSite');
+    }
+
+    // Connection with Diary model
+    public function images() {
+        return $this->hasMany('App\Images');
     }
 }

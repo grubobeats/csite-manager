@@ -119,6 +119,22 @@
                                 <th>Workers</th>
                                 <th></th>
                             </tr>
+                            @foreach($diaries as $key => $diary)
+                                <tr>
+                                    <td>{{ ++$key }}</td>
+                                    <td>{{ $diary->date }}</td>
+                                    <td>{{ $diary->day }}</td>
+                                    <td>{{ $diary->weather }}</td>
+                                    <td>{{ $diary->workers }}</td>
+                                    <td class="text-center">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                            <a href="#" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</a>
+                                            <a href="#" class="btn btn-default">Edit</a>
+                                            <a href="#" class="btn btn-default">Delete</a>
+                                        </div>
+                                    </td>
+                                </tr>
+                            @endforeach
                         </table>
                     </div>
                 </div>

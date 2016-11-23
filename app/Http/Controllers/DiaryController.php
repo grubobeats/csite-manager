@@ -59,7 +59,6 @@ class DiaryController extends Controller
                 $random = rand(5,5000);
                 $name = $file->getClientOriginalName();
                 $filename = $user_id . "-" . $csite_id . "-" . $random . "-" . $name;
-
                 Storage::disk('local')->put($filename, File::get($file));
 
                 // Saving to images table in database
@@ -70,11 +69,10 @@ class DiaryController extends Controller
                 $image->diary_key = $diary_key;
                 $image->save();
             }
-
         }
 
+        // Saving to diary table
         $diary = new Diary();
-
         $diary->day = $request['day'];
         $diary->date = $request['date'];
         $diary->weather = $request['weather'];
@@ -85,6 +83,24 @@ class DiaryController extends Controller
         $diary->csite_id = $csite_id;
 
         $diary->save();
+
+        return redirect()->route('list-diaries', $csite_id);
+    }
+
+    public function deleteDiary($csite_id, $diary_id) {
+
+        $diary = Diary::where('id', $diary_id)->first();
+        $images = Images::where('diary_key', $diary->images);
+
+        foreach ($images as $image) {
+            $image_name = $image->name;
+
+            // !!! deleting files is not working for now !!!
+            Storage::delete($image_name);
+        }
+
+        $images->delete();
+        $diary->delete();
 
         return redirect()->route('list-diaries', $csite_id);
     }

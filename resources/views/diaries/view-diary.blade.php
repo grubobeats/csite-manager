@@ -57,7 +57,7 @@
                             <i class="fa fa-pencil-square-o fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">{{ count($diaries) }}</div>
+                            <div class="huge">{{ count($diary) }}</div>
                             <div>Diaries</div>
                         </div>
                     </div>
@@ -100,51 +100,50 @@
 
     <div class="row">
         <div class="col-md-12">
-
-            @if(count($diaries) > 0)
+            @if($diary)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        {{ trans('dashboard.list_of_construction_sites') }}
-                        <a href="{{ route('add-diary', ['csite_id' => $construction_site->id]) }}" class="btn btn-link pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Add new</a>
+                        Diary info
                     </div>
 
                     <div class="panel-body">
                         <table class="table table-bordered">
 
                             <tr>
-                                <th>Id</th>
-                                <th>Date</th>
                                 <th>Day</th>
+                                <th>Date</th>
                                 <th>Weather</th>
                                 <th>Workers</th>
-                                <th></th>
                             </tr>
-                            @foreach($diaries as $key => $diary)
+
+                            <tr>
+                                <th>{{ $diary->day }}</th>
+                                <th>{{ $diary->date }}</th>
+                                <th>{{ $diary->weather }}</th>
+                                <th>{{ $diary->workers }}</th>
+                            </tr>
+                            <tr>
+                                <th colspan="4">{{ $diary->description }}</th>
+                            </tr>
+                            <tr>
+                                <th colspan="4">{{ $diary->issues }}</th>
+                            </tr>
+                            @foreach($images as $key => $image)
                                 <tr>
-                                    <td>{{ ++$key }}</td>
-                                    <td>{{ $diary->date }}</td>
-                                    <td>{{ $diary->day }}</td>
-                                    <td>{{ $diary->weather }}</td>
-                                    <td>{{ $diary->workers }}</td>
-                                    <td class="text-center">
-                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                            <a href="{{ route('view.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</a>
-                                            <a href="#" class="btn btn-default">Edit</a>
-                                            <a href="{{ route('deleteDiary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default">Delete</a>
-                                        </div>
-                                    </td>
+                                    <th colspan="4">
+                                        <img src="{{ route('diary.image', ['filename'=>$image->name]) }}">
+                                    </th>
                                 </tr>
-                            @endforeach
+                             @endforeach
                         </table>
                     </div>
                 </div>
+
             @else
-
                 <div class="jumbotron">
-                    <h3>No diaries</h3>
-                    <p>To start working <a href="{{ route('add-diary', ['csite_id' => $construction_site->id]) }}">click here</a>  to add your first diary.</p>
+                    <h3>Restricted access!</h3>
+                    <p>Unfortunattelly, you can't access this diary, <a href="{{ route('list-diaries', ['csite_id' => $construction_site->id]) }}">click here</a> to go back.</p>
                 </div>
-
             @endif
         </div>
     </div>

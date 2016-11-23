@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\ConstructionSite;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -28,6 +27,11 @@ class HomeController extends Controller
         $user_id = Auth::id();
         $construction_site = ConstructionSite::all()->where('user_id', $user_id);
 
-        return view('home', [ 'construction_site' => $construction_site]);
+        $context = array(
+            'construction_site' => $construction_site,
+
+        );
+
+        return view('home', $context);
     }
 }

@@ -79,7 +79,6 @@
 
                             <div class="form-group">
                                 <label for="images">Images</label>
-                                {{--{{ Form::text('images', 'images', ['class' => 'form-control']) }}--}}
                                 {{ Form::file('images[]', array('multiple'=>true), ['class' => 'form-control']) }}
 
                             </div>

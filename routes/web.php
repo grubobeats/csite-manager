@@ -71,7 +71,17 @@ Route::get('/construction-sites/{csite_id}/diaries/delete/{diary_id}', array(
     'uses' => 'DiaryController@deleteDiary'
 ));
 
+// GET - View diary
+Route::get('/construction-sites/{csite_id}/diaries/view/{diary_id}', array(
+    'as' => 'view.diary',
+    'uses' => 'DiaryController@viewDiary'
+));
 
+// GET RESPONSE - Diary images
+Route::get('/diary-images/{filename}', array(
+    'uses' => 'DiaryController@getDiaryImages',
+    'as' => 'diary.image'
+));
 
 Auth::routes();
 

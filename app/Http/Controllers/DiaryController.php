@@ -6,6 +6,7 @@ use App\Diary;
 use App\ConstructionSite;
 use App\Images;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
@@ -105,5 +106,23 @@ class DiaryController extends Controller
         $diary->delete();
 
         return redirect()->route('list-diaries', $csite_id);
+    }
+
+    public function viewDiary($csite_id, $diary_id) {
+        $csite = ConstructionSite::where('id', $csite_id)->first();
+        $diary = Diary::where('id', $diary_id)->first();
+        $images = Images::all()->where('diary_key', $diary->images);
+
+        $context = array(
+            'construction_site' => $csite,
+            'diary' => $diary,
+            'images' => $images
+        );
+        return view('diaries/view-diary', $context);
+    }
+
+    public function getDiaryImages($filename) {
+        $file = Storage::disk('local')->get($filename);
+        return new Response($file, 200);
     }
 }

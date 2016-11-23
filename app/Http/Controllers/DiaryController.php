@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Storage;
-
+use Illuminate\Support\Facades\DB;
 
 class DiaryController extends Controller
 
@@ -92,12 +92,14 @@ class DiaryController extends Controller
         $diary = Diary::where('id', $diary_id)->first();
         $images = Images::where('diary_key', $diary->images);
 
-        foreach ($images as $image) {
-            $image_name = $image->name;
+        $images_list = DB::table('images')->select('name')->where('diary_key', $diary->images)->get();
 
-            // !!! deleting files is not working for now !!!
-            Storage::delete($image_name);
+        $imgs = array();
+        foreach ($images_list as $key=>$image) {
+            $imgs[] = $image->name;
         }
+
+        Storage::disk('local')->delete($imgs);
 
         $images->delete();
         $diary->delete();

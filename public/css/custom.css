@@ -56,3 +56,7 @@ html, body {
 .huge {
     font-size: 30px;
 }
+
+.diary-image {
+    width: 100%;
+}

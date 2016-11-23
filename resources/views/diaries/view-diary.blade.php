@@ -11,10 +11,16 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <a href="/"><i class="fa fa-building"></i> Construction Sites</a>
+                    <a href="/"><i class="fa fa-building"></i> Construction Manager</a>
+                </li>
+                <li>
+                    <a href="{{ route('dashboard') }}"> <i class="fa fa-man"></i> Dashboard</a>
+                </li>
+                <li>
+                    <a href="{{ route('list-diaries', ['csite_id'=>$construction_site->id]) }}">{{ $construction_site->name }}</a>
                 </li>
                 <li class="active">
-                    <i class="fa fa-man"></i> Dashboard
+                    Diary for day {{ $diary->day }}
                 </li>
             </ol>
         </div>
@@ -123,16 +129,26 @@
                                 <th>{{ $diary->workers }}</th>
                             </tr>
                             <tr>
+                                <th colspan="4">Description</th>
+                            </tr>
+                            <tr>
                                 <th colspan="4">{{ $diary->description }}</th>
+                            </tr>
+                            <tr>
+                                <th colspan="4">Issues</th>
                             </tr>
                             <tr>
                                 <th colspan="4">{{ $diary->issues }}</th>
                             </tr>
+                            <tr>
+                                <th colspan="4">{{ count($images) }} images</th>
+                            </tr>
                             @foreach($images as $key => $image)
                                 <tr>
-                                    <th colspan="4">
-                                        <img src="{{ route('diary.image', ['filename'=>$image->name]) }}">
-                                    </th>
+                                    <td>{{ ++$counter }}</td>
+                                    <td colspan="3">
+                                        <img class="diary-image img-responsive" src="{{ route('diary.image', ['filename'=>$image->name]) }}">
+                                    </td>
                                 </tr>
                              @endforeach
                         </table>

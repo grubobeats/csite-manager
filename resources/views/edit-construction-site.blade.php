@@ -11,11 +11,9 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <a href="/"><i class="fa fa-building"></i> Construction Manager</a>
+                    <a href="/public/"><i class="fa fa-building"></i> Construction Manager</a>
                 </li>
-                <li>
-                    Dashboard
-                </li>
+                <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                 <li class="active">
                     Add Construction Site
                 </li>

@@ -21,7 +21,7 @@ class DiaryController extends Controller
      */
     public function listDiaries($csite_id) {
         $csite = ConstructionSite::where('id', $csite_id)->first();
-        $diaries = Diary::all();
+        $diaries = Diary::all()->where('csite_id', $csite_id);
 
         $context = array(
             'construction_site' => $csite,
@@ -108,6 +108,12 @@ class DiaryController extends Controller
         return redirect()->route('list-diaries', $csite_id);
     }
 
+    /**
+     * @param $csite_id
+     * @param $diary_id
+     * @return array|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|mixed
+     * @description: Showing diaries
+     */
     public function viewDiary($csite_id, $diary_id) {
         $csite = ConstructionSite::where('id', $csite_id)->first();
         $diary = Diary::where('id', $diary_id)->first();
@@ -116,7 +122,8 @@ class DiaryController extends Controller
         $context = array(
             'construction_site' => $csite,
             'diary' => $diary,
-            'images' => $images
+            'images' => $images,
+            'counter' => 0
         );
         return view('diaries/view-diary', $context);
     }

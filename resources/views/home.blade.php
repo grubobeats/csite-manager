@@ -11,11 +11,9 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <a href="/"><i class="fa fa-building"></i> Construction Sites</a>
+                    <a href="/public/"><i class="fa fa-building"></i> Construction Manager</a>
                 </li>
-                <li class="active">
-                    <i class="fa fa-man"></i> Dashboard
-                </li>
+                <li class="active">Dashboard</li>
             </ol>
         </div>
     </div>
@@ -105,10 +103,15 @@
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         {{ trans('dashboard.list_of_construction_sites') }}
-                        <a href="{{ route('add-csite') }}" class="btn btn-link pull-right"><i class="fa fa-plus" aria-hidden="true"></i> Add new</a>
                     </div>
 
                     <div class="panel-body">
+
+                        <a href="{{ route('add-csite') }}" class="btn btn-primary pull-right">Add new <i class="fa fa-plus" aria-hidden="true"></i></a>
+
+                        <div class="divider" style="padding:25px"></div>
+
+
                         <table class="table table-bordered">
 
                             <tr>

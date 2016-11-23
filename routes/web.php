@@ -65,6 +65,18 @@ Route::post('/construction-sites/{csite_id}/diaries/added', array(
     'uses' => 'DiaryController@postAddDiary'
 ));
 
+// GET - Editing exiting diary
+Route::get('/construction-sites/{csite_id}/diaries/{diary_id}/edit', array(
+    'as' => 'edit.diary',
+    'uses' => 'DiaryController@editDiary'
+));
+
+// POST - Editing exiting diary
+Route::post('/construction-sites/{csite_id}/diaries/{diary_id}/edited', array(
+    'as' => 'edited.diary',
+    'uses' => 'DiaryController@postEditDiary'
+));
+
 // GET - Deleting selected diary
 Route::get('/construction-sites/{csite_id}/diaries/delete/{diary_id}', array(
     'as' => 'deleteDiary',

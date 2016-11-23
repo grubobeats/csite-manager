@@ -88,6 +88,35 @@ class DiaryController extends Controller
         return redirect()->route('list-diaries', $csite_id);
     }
 
+    public function editDiary($csite_id, $diary_id) {
+        $csite = ConstructionSite::where('id', $csite_id)->first();
+        $diary = Diary::where('id', $diary_id)->first();
+
+        $context = array(
+            'construction_site' => $csite,
+            'diary' => $diary
+        );
+
+        return view('diaries/edit-diary', $context);
+    }
+
+    public function postEditDiary($csite_id, $diary_id, Request $request) {
+
+        // Saving to diary table
+        $diary = Diary::find($diary_id);
+        $diary->day = $request['day'];
+        $diary->date = $request['date'];
+        $diary->weather = $request['weather'];
+        $diary->workers = $request['workers'];
+        $diary->description = $request['description'];
+        $diary->issues = $request['issues'];
+
+        $diary->update();
+
+
+        return redirect()->route('list-diaries', $csite_id);
+    }
+
     public function deleteDiary($csite_id, $diary_id) {
 
         $diary = Diary::where('id', $diary_id)->first();

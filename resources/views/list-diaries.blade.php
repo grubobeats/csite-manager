@@ -137,7 +137,7 @@
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                             <a href="{{ route('view.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</a>
-                                            <a href="#" class="btn btn-default">Edit</a>
+                                            <a href="{{ route('edit.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default">Edit</a>
                                             <a href="{{ route('deleteDiary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default">Delete</a>
                                         </div>
                                     </td>

@@ -90,7 +90,5 @@
         @yield('content')
     </div>
 
-    <!-- Scripts -->
-    <script src="{{ URL::to('/js/app.js') }}"></script>
-</body>
-</html>
+    @extends('layouts.footer')
+

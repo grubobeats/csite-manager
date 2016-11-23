@@ -49,7 +49,7 @@
                     <ul class="nav navbar-nav">
                         @if (!Auth::guest())
                             <li><a href="{{ url('/dashboard') }}">Construction Sites</a></li>
-                            <li><a href="{{ url('/dashboard') }}">Workers</a></li>
+                            <li class="disabled"><a href="#">Workers</a></li>
                         @endif
                     </ul>
 
@@ -66,8 +66,8 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Settings</a></li>
-                                    <li><a href="#">Billing</a></li>
+                                    <li class="disabled"><a href="#">Settings</a></li>
+                                    <li class="disabled"><a href="#">Billing</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();

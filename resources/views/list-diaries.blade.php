@@ -149,7 +149,7 @@
             @else
 
                 <div class="jumbotron">
-                    <h3>No diaries</h3>
+                    <h3>No diaries.</h3>
                     <p>To start working <a href="{{ route('add-diary', ['csite_id' => $construction_site->id]) }}">click here</a>  to add your first diary.</p>
                 </div>
 

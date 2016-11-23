@@ -16,6 +16,8 @@
     <body>
     <div class="flex-center position-ref full-height">
         <div class="top-right links">
+
+
             @if (Auth::guest())
                 <a href="{{ url('/login') }}">Login</a>
                 <a href="{{ url('/register') }}">Register</a>
@@ -57,10 +59,7 @@
                     </select>
 
                     <button type="submit" >Change Language</button>
-
-
                 </form>
-
             </div>
 
         </div>

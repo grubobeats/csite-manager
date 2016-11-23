@@ -80,13 +80,30 @@
                                 {{ Form::textarea('issues', $diary->issues, ['class' => 'form-control', 'size'=>'50x3']) }}
                             </div>
 
-                            {{--<div class="form-group">--}}
-                                {{--<label for="images">Images</label>--}}
-                                {{--{{ Form::file('images[]', array('multiple'=>true), ['class' => 'form-control']) }}--}}
+                            <div class="form-group">
+                                <label for="images">Images</label>
+                                {{ Form::file('images[]', array('multiple'=>true), ['class' => 'form-control']) }}
 
-                            {{--</div>--}}
+                            </div>
 
                             {{ Form::submit('Submit', ['class'=>'btn btn-primary']) }}
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <table class="table table-bordered">
+                                @foreach($images as $key => $image)
+                                    <tr>
+                                        <td>{{ ++$counter }}</td>
+                                        <td width="300px">
+                                            <img class="diary-image img-responsive" src="{{ route('diary.image', ['filename'=>$image->name]) }}">
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('delete.image', ['image_id'=>$image->id]) }}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                                        </td>
+                                    </tr>
+                                @endforeach
+                            </table>
                         </div>
                     </div>
                     {!! Form::close() !!}

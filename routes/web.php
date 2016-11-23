@@ -95,6 +95,12 @@ Route::get('/diary-images/{filename}', array(
     'as' => 'diary.image'
 ));
 
+// GET - Delete particular image
+Route::get('/diary-images/{image_id}/delete', array(
+    'as' => 'delete.image',
+    'uses' => 'DiaryController@deleteImage'
+));
+
 Auth::routes();
 
 Route::get('/dashboard', array(

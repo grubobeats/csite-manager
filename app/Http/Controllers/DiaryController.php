@@ -91,13 +91,25 @@ class DiaryController extends Controller
     public function editDiary($csite_id, $diary_id) {
         $csite = ConstructionSite::where('id', $csite_id)->first();
         $diary = Diary::where('id', $diary_id)->first();
+        $images = Images::all()->where('diary_key', $diary->images);
 
         $context = array(
             'construction_site' => $csite,
-            'diary' => $diary
+            'diary' => $diary,
+            'images' => $images,
+            'counter' => 0
         );
 
         return view('diaries/edit-diary', $context);
+    }
+
+    public function deleteImage($image_id) {
+        $image = Images::where('id', $image_id)->first();
+        Storage::disk('local')->delete($image->name);
+
+        $image->delete();
+
+        return redirect()->back();
     }
 
     public function postEditDiary($csite_id, $diary_id, Request $request) {

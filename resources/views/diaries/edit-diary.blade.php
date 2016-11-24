@@ -89,21 +89,34 @@
                             {{ Form::submit('Submit', ['class'=>'btn btn-primary']) }}
                         </div>
                     </div>
+
+                    <div class="divider"></div>
+
                     <div class="row">
-                        <div class="col-sm-12">
-                            <table class="table table-bordered">
-                                @foreach($images as $key => $image)
-                                    <tr>
-                                        <td>{{ ++$counter }}</td>
-                                        <td width="300px">
-                                            <img class="diary-image img-responsive" src="{{ route('diary.image', ['filename'=>$image->name]) }}">
-                                        </td>
-                                        <td>
-                                            <a href="{{ route('delete.image', ['image_id'=>$image->id]) }}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
-                                        </td>
-                                    </tr>
-                                @endforeach
-                            </table>
+                        <div class="col-sm-6">
+                            @if(count($images) > 0)
+                                <label>Images:</label>
+                                <table class="table table-bordered table-images">
+                                    @foreach($images as $key => $image)
+                                        <tr>
+                                            <td>{{ ++$counter }}</td>
+                                            <td width="300px">
+                                                <img class="diary-image img-responsive" src="{{ route('diary.image', ['filename'=>$image->name]) }}">
+                                            </td>
+                                            <td>
+                                                <a href="{{ route('delete.image', ['image_id'=>$image->id]) }}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </table>
+                            @else
+                                <div class="well">
+                                    <i class="fa fa-info-circle" aria-hidden="true"></i> You don't have added images for this diary
+                                </div>
+                            @endif
+                        </div>
+                        <div class="col-sm-6">
+
                         </div>
                     </div>
                     {!! Form::close() !!}

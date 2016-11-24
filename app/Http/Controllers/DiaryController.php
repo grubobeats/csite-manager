@@ -30,6 +30,23 @@ class DiaryController extends Controller
         return view('list-diaries', $context);
     }
 
+    public function showDiaryToGuest($csite_id, $diary_id) {
+
+        $this->middleware('auth', ['except' => array('getActivate', 'getLogin')]);
+
+        $csite = ConstructionSite::where('id', $csite_id)->first();
+        $diary = Diary::where('id', $diary_id)->first();
+        $images = Images::all()->where('diary_key', $diary->images);
+
+        $context = array(
+            'construction_site' => $csite,
+            'diary' => $diary,
+            'images' => $images,
+            'counter' => 0
+        );
+        return view('diaries/view-diary-as-guest', $context);
+    }
+
     //
     public function addDiary($csite_id) {
         $csite = ConstructionSite::where('id', $csite_id)->first();
@@ -114,6 +131,9 @@ class DiaryController extends Controller
 
     public function postEditDiary($csite_id, $diary_id, Request $request) {
 
+        $csite = ConstructionSite::where('id', $csite_id)->first();
+
+
         // Saving to diary table
         $diary = Diary::find($diary_id);
         $diary->day = $request['day'];
@@ -124,6 +144,33 @@ class DiaryController extends Controller
         $diary->issues = $request['issues'];
 
         $diary->update();
+
+        // Adding Images
+        // getting all of the post data
+        $files = $request->file('images');
+        $user_id = $csite->user_id;
+
+        // Using unique key for connecting models ( Diary <--> Images)
+        $diary_key = $diary->images;
+
+        // If there are files save them to local folder
+        if ($files) {
+            foreach ($files as $file) {
+                // Saving to local folder
+                $random = rand(5,5000);
+                $name = $file->getClientOriginalName();
+                $filename = $user_id . "-" . $csite_id . "-" . $random . "-" . $name;
+                Storage::disk('local')->put($filename, File::get($file));
+
+                // Saving to images table in database
+                $image = new Images();
+                $image->name = $filename;
+                $image->path = "../storage/app/" . $filename;
+                $image->file_type = "lk";
+                $image->diary_key = $diary_key;
+                $image->save();
+            }
+        }
 
 
         return redirect()->route('list-diaries', $csite_id);

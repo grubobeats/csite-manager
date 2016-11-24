@@ -9,20 +9,7 @@
             <h1 class="page-header">
                 Diaries <small>{{ $construction_site->name }}</small>
             </h1>
-            <ol class="breadcrumb">
-                <li>
-                    <a href="/"><i class="fa fa-building"></i> Construction Manager</a>
-                </li>
-                <li>
-                    <a href="{{ route('dashboard') }}"> <i class="fa fa-man"></i> Dashboard</a>
-                </li>
-                <li>
-                    <a href="{{ route('list-diaries', ['csite_id'=>$construction_site->id]) }}">{{ $construction_site->name }}</a>
-                </li>
-                <li class="active">
-                    Diary for day {{ $diary->day }}
-                </li>
-            </ol>
+            
         </div>
     </div>
     <!-- /.row -->
@@ -36,73 +23,6 @@
         </div>
     </div>
     <!-- /.row -->
-
-    <!-- /.row -->
-
-    <div class="row">
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-building fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">{{ count($construction_site) }}</div>
-                            <div>Construction sites</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-pencil-square-o fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">{{ count($diary) }}</div>
-                            <div>Diaries</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-male fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">124</div>
-                            <div>Workers</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-calendar fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
-                            <div>Days left</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
-
 
     <div class="row">
         <div class="col-md-12">
@@ -118,7 +38,7 @@
                             <a href="{{ route('list-diaries', ['csite_id' => $construction_site->id]) }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go back</a>
                             <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa fa-envelope-o" aria-hidden="true"></i> Send on e-mail</a>
                             <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Export as PDF</a>
-                            <a href="{{ route('guests.link', ['csite_id'=>$construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-primary"><i class="fa fa-share" aria-hidden="true"></i> Send link</a>
+                            <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa fa-share" aria-hidden="true"></i> Send link</a>
                         </div>
 
                         <div class="divider" style="padding:25px"></div>

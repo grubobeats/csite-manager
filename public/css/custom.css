@@ -60,3 +60,12 @@ html, body {
 .diary-image {
     width: 100%;
 }
+
+.table-images > tbody > tr > td {
+    vertical-align: middle;
+    text-align: center;
+}
+
+.divider {
+    padding: 30px 0;
+}

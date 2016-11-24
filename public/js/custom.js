@@ -1,9 +1,15 @@
 $('#get-link').click(function(e){
     var link = $(this).data('link');
 
-    $('.data-holder a').attr('href', link).attr('target', '_blank').text(link);
+    $('.get-link-here a').attr('href', link).attr('target', '_blank').text(link);
 
-    $('.data-holder').show('slow')
+    $('.get-link-here').show('slow')
+});
+
+$('#send-email').click(function(e){
+    var link = $(this).data('link');
+
+    $('.send-email').show('slow')
 });
 
 $('.close-info').click(function(){

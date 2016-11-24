@@ -64,6 +64,11 @@
                             </div>
 
                             <div class="form-group">
+                                <label for="temperature">temperature</label>
+                                {{ Form::number('temperature', $diary->temperature, ['class'=>'form-control']) }}
+                            </div>
+
+                            <div class="form-group">
                                 <label for="workers">Workers</label>
                                 {{ Form::number('workers', $diary->workers, ['class' => 'form-control']) }}
                             </div>

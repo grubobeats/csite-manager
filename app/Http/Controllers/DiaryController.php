@@ -102,6 +102,7 @@ class DiaryController extends Controller
         $diary->workers = $request['workers'];
         $diary->description = $request['description'];
         $diary->issues = $request['issues'];
+        $diary->temperature = $request['temperature'];
         $diary->images = $diary_key;
         $diary->csite_id = $csite_id;
 
@@ -146,6 +147,7 @@ class DiaryController extends Controller
         $diary->weather = $request['weather'];
         $diary->workers = $request['workers'];
         $diary->description = $request['description'];
+        $diary->temperature = $request['temperature'];
         $diary->issues = $request['issues'];
 
         $diary->update();
@@ -208,6 +210,7 @@ class DiaryController extends Controller
      * @description: Showing diaries
      */
     public function viewDiary($csite_id, $diary_id) {
+
         $csite = ConstructionSite::where('id', $csite_id)->first();
         $diary = Diary::where('id', $diary_id)->first();
         $images = Images::all()->where('diary_key', $diary->images);

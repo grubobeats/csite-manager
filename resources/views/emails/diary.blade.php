@@ -274,7 +274,7 @@
 
                             <!-- Callout Panel -->
                             <p class="callout">
-                                Vladan sent you this email, please review this diary.
+                                <span style="text-transform: capitalize">{{ $username->name }} {{ $username->lastname }}</span> sent you this email, please review this diary.<br>
                                 <strong>Construction Manager</strong> is an advanced automatic system for managing construction sites
                             </p><!-- /Callout Panel -->
 
@@ -289,19 +289,23 @@
                                     <td>Date: {{ $diary->date }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Weather: {{ $diary->weather }}</td>
+                                    <td>Weather: {{ $diary->weather }}, {{ $diary->temperature }} &deg;</td>
                                     <td>Workers: {{ $diary->workers }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Description</td>
-                                    <td>{{ $diary->description }}</td>
+                                    <td colspan="2">Description</td>
                                 </tr>
                                 <tr>
-                                    <td>Issues</td>
-                                    <td>{{ $diary->issues }}</td>
+                                    <td colspan="2">{{ $diary->description }}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Images</td>
+                                    <td colspan="2">Issues</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">{{ $diary->issues }}</td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2">Images: {{ count($images) }}</td>
                                 </tr>
                                 @foreach($images as $key => $image)
                                     <tr>
@@ -333,6 +337,7 @@
                     <tr>
                         <td align="center">
                             <p>
+                                To view this on our website <a href="{{ route('guests.link', ['language'=>'en', 'csite_id'=>$csite->id, 'diary_id'=>$diary->id, 'random_link'=>str_random(30)]) }}">click here</a>.
                                 <a href="http://www.constructionmanager.com">Try Construction Manager now - it is free!</a>
                             </p>
                         </td>

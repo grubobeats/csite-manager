@@ -49,32 +49,29 @@
                         <div class="btn-group pull-right" role="group" aria-label="...">
                             <a href="{{ route('list-diaries', ['csite_id' => $construction_site->id]) }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go back</a>
                             <button id="send-email" data-href="{{ route('mail.send.diary', ['diary_id'=>$diary->id, 'csite_id'=> $construction_site->id]) }}" class="btn btn-primary"><i class="fa fa-envelope-o" aria-hidden="true"></i> Send on e-mail</button>
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Export as PDF</a>
                             <button id="get-link" data-link="{{ route('guests.link', [ 'language'=> $language, 'csite_id'=>$construction_site->id, 'diary_id'=>$diary->id, 'random_link'=>str_random(30)]) }}" class="btn btn-primary"><i class="fa fa-share" aria-hidden="true"></i> Get link</button>
                         </div>
 
                         <div class="divider"></div>
 
-                            <div class="alert alert-info alert-dismissable data-holder get-link-here">
+                            <div class="well data-holder get-link-here text-center">
                                 <button type="button" class="close close-info">&times;</button>
                                 Link for client: <a href="#"></a>
                             </div>
 
-                            <div class="alert alert-info alert-dismissable data-holder send-email">
+                            <div class="col-sm-offset-8 col-sm-4 well data-holder send-email text-center">
                                 <button type="button" class="close close-info">&times;</button>
                                 {!! Form::open(['route' => ['mail.send.diary', $diary->id, $construction_site->id], 'files'=>true]) !!}
 
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-sm-12">
 
-                                        <div class="form-group">
-                                            <label for="email">Email</label>
-                                            {{ Form::email('email', null, ['class' => 'form-control']) }}
+                                        <div class="form-inline">
+                                            {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Recepients email here']) }}
+                                            {{ Form::submit('Submit', ['class'=>'btn btn-primary']) }}
+                                            <br>
                                         </div>
 
-                                        {{ Form::submit('Submit', ['class'=>'btn btn-primary']) }}
-                                    </div>
-                                    <div class="col-sm-6">
 
                                     </div>
                                 </div>
@@ -95,7 +92,7 @@
                             <tr>
                                 <th>{{ $diary->day }}</th>
                                 <th>{{ $diary->date }}</th>
-                                <th>{{ $diary->weather }}</th>
+                                <th>{{ $diary->weather }}, {{ $diary->temperature }} &deg;</th>
                                 <th>{{ $diary->workers }}</th>
                             </tr>
                             <tr>

@@ -60,7 +60,7 @@
 
                             <div class="form-group">
                                 <label for="weather">Weather</label>
-                                {{ Form::select('weather', ['1' => 'suncano', '2'=> 'Maglovito', '3'=>'Kisovito', '4'=>'Snezno'], $diary->weather, ['class'=>'form-control']) }}
+                                {{ Form::select('weather', ['suncano' => 'Suncano', 'vedro' => 'Vedro', 'maglovito'=> 'Maglovito', 'kisovito'=>'Kisovito', 'snezno'=>'Snezno'], $diary->weather, ['class'=>'form-control']) }}
                             </div>
 
                             <div class="form-group">

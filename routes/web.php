@@ -116,7 +116,7 @@ Route::get('/{language}/view-diary/45096{csite_id}234098432/{diary_id}{random_li
 Route::post('/lkk432359{diary_id}4981ljh/fdsfdsf{csite_id}fsdfs/sent-mail', array(
     'as' => 'mail.send.diary',
     'uses' => 'MailController@sendDiary'
-))->middleware('auth');
+));
 
 
 

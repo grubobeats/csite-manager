@@ -50,7 +50,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="name">Day</label>
-                                {{ Form::number('day', '1', ['class' => 'form-control']) }}
+                                {{ Form::number('day', ++$last_diary, ['class' => 'form-control']) }}
                             </div>
 
                             <div class="form-group">

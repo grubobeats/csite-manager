@@ -83,7 +83,7 @@
                             <tr>
                                 <th>{{ $diary->day }}</th>
                                 <th>{{ $diary->date }}</th>
-                                <th>{{ $diary->weather }}</th>
+                                <th>{{ $diary->weather }}, {{ $diary->temperature }} &deg;</th>
                                 <th>{{ $diary->workers }}</th>
                             </tr>
                             <tr>

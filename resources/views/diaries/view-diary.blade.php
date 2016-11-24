@@ -7,7 +7,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Diaries <small>{{ $construction_site->name }}</small>
+                Diary <small>day {{ $diary->day }}</small>
             </h1>
             <ol class="breadcrumb">
                 <li>

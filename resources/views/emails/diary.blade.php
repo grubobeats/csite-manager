@@ -337,7 +337,7 @@
                     <tr>
                         <td align="center">
                             <p>
-                                To view this on our website <a href="{{ route('guests.link', ['language'=>'en', 'csite_id'=>$csite->id, 'diary_id'=>$diary->id, 'random_link'=>str_random(30)]) }}">click here</a>.
+                                To view this on our website <a href="{{ route('guests.link', ['language'=>'en', 'csite_id'=>$csite->id, 'diary_id'=>$diary->id, 'random_link'=>'8734282358975']) }}">click here</a>.
                                 <a href="http://www.constructionmanager.com">Try Construction Manager now - it is free!</a>
                             </p>
                         </td>

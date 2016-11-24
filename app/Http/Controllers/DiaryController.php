@@ -40,7 +40,7 @@ class DiaryController extends Controller
         Lang::setLocale($language);
 
         $csite = ConstructionSite::where('id', $csite_id)->first();
-        $diary = Diary::where('id', $diary_id)->first();
+        $diary = Diary::all()->where('id', $diary_id)->first();
         $images = Images::all()->where('diary_key', $diary->images);
 
         $context = array(
@@ -56,7 +56,19 @@ class DiaryController extends Controller
     public function addDiary($csite_id) {
         $csite = ConstructionSite::where('id', $csite_id)->first();
 
-        return view('add-diary', ['construction_site' => $csite]);
+        if (Diary::where('csite_id', $csite_id)->count() > 0) {
+            $last_diary = Diary::where('csite_id', $csite_id)->orderBy('day', 'desc')->first();
+        } else {
+            $last_diary = new Diary;
+
+        }
+
+        $context = array(
+            'construction_site' => $csite,
+            'last_diary' => $last_diary->day
+        );
+
+        return view('add-diary', $context);
     }
 
     /**
@@ -221,9 +233,7 @@ class DiaryController extends Controller
             'diary' => $diary,
             'images' => $images,
             'counter' => 0,
-            'language' => $language,
-            'pre_link1' => str_random(16),
-            'pre_link2' => str_random(16)
+            'language' => $language
         );
         return view('diaries/view-diary', $context);
     }

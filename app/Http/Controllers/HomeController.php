@@ -29,7 +29,6 @@ class HomeController extends Controller
 
         $context = array(
             'construction_site' => $construction_site,
-
         );
 
         return view('home', $context);

@@ -10,12 +10,13 @@ use App\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Request;
+use Illuminate\Support\Facades\DB;
 
 class MailController extends Controller
 {
     public function sendDiary($diary_id, $csite_id){
         $csite = ConstructionSite::all()->find($csite_id)->first();
-        $diary = Diary::all()->find($diary_id)->first();
+        $diary = DB::table('diaries')->where('id', $diary_id)->first();
         $images = Images::all()->where('diary_key', $diary->images);
         $reciver = Request::input('email');
 
@@ -46,6 +47,7 @@ class MailController extends Controller
             'counter' => 0,
             'username' => $username
         );
+
 
         Mail::send('emails.diary', $context, function($message){
             $reciver = Request::input('email');

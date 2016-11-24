@@ -102,7 +102,7 @@ Route::get('/diary-images/{image_id}/delete', array(
 ));
 
 // GET - Guest link
-Route::get('/view-diary/69235{csite_id}3465382/5032{diary_id}9254289', array(
+Route::get('/{language}/view-diary/45096{csite_id}234098432/{diary_id}{random_link}', array(
     'as' => 'guests.link',
     'uses' => 'DiaryController@showDiaryToGuest'
 ));

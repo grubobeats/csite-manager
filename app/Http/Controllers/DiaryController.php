@@ -7,8 +7,11 @@ use App\ConstructionSite;
 use App\Images;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Lang;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\DB;
 
@@ -30,9 +33,11 @@ class DiaryController extends Controller
         return view('list-diaries', $context);
     }
 
-    public function showDiaryToGuest($csite_id, $diary_id) {
+    public function showDiaryToGuest($language, $csite_id, $diary_id) {
 
         $this->middleware('auth', ['except' => array('getActivate', 'getLogin')]);
+
+        Lang::setLocale($language);
 
         $csite = ConstructionSite::where('id', $csite_id)->first();
         $diary = Diary::where('id', $diary_id)->first();
@@ -206,12 +211,16 @@ class DiaryController extends Controller
         $csite = ConstructionSite::where('id', $csite_id)->first();
         $diary = Diary::where('id', $diary_id)->first();
         $images = Images::all()->where('diary_key', $diary->images);
+        $language = App::getLocale() ? App::getLocale() : "en";
 
         $context = array(
             'construction_site' => $csite,
             'diary' => $diary,
             'images' => $images,
-            'counter' => 0
+            'counter' => 0,
+            'language' => $language,
+            'pre_link1' => str_random(16),
+            'pre_link2' => str_random(16)
         );
         return view('diaries/view-diary', $context);
     }

@@ -9,7 +9,6 @@
             <h1 class="page-header">
                 Diaries <small>{{ $construction_site->name }}</small>
             </h1>
-            
         </div>
     </div>
     <!-- /.row -->
@@ -35,13 +34,16 @@
                     <div class="panel-body">
 
                         <div class="btn-group pull-right" role="group" aria-label="...">
-                            <a href="{{ route('list-diaries', ['csite_id' => $construction_site->id]) }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go back</a>
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa fa-envelope-o" aria-hidden="true"></i> Send on e-mail</a>
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Export as PDF</a>
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa fa-share" aria-hidden="true"></i> Send link</a>
+                            <button class="btn btn-primary"><i class="fa fa-envelope-o" aria-hidden="true"></i> Send on e-mail</button>
+                            <button class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Export as PDF</button>
+                            <button class="btn btn-primary"><i class="fa fa-share" aria-hidden="true"></i> Get link</button>
+                        </div>
+                        <div class="divider"></div>
+
+                        <div class="well data-holder">
+                            Some date
                         </div>
 
-                        <div class="divider" style="padding:25px"></div>
 
                         <table class="table table-bordered">
 

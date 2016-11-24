@@ -26,7 +26,6 @@
         </div>
     </div>
     <!-- /.row -->
-
     <div class="row">
         <div class="col-lg-12">
             <div class="alert alert-info alert-dismissable">
@@ -118,10 +117,15 @@
                             <a href="{{ route('list-diaries', ['csite_id' => $construction_site->id]) }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go back</a>
                             <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa fa-envelope-o" aria-hidden="true"></i> Send on e-mail</a>
                             <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa fa-file-pdf-o" aria-hidden="true"></i> Export as PDF</a>
-                            <a href="{{ route('guests.link', ['csite_id'=>$construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-primary"><i class="fa fa-share" aria-hidden="true"></i> Send link</a>
+                            <button id="get-link" data-link="{{ route('guests.link', [ 'language'=> $language, 'csite_id'=>$construction_site->id, 'diary_id'=>$diary->id, 'random_link'=>str_random(30)]) }}" class="btn btn-primary"><i class="fa fa-share" aria-hidden="true"></i> Get link</button>
                         </div>
 
-                        <div class="divider" style="padding:25px"></div>
+                        <div class="divider"></div>
+
+                            <div class="alert alert-info alert-dismissable data-holder">
+                                <button type="button" class="close close-info">&times;</button>
+                                Link for client: <a href="#"></a>
+                            </div>
 
                         <table class="table table-bordered">
 

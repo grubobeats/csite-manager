@@ -69,3 +69,7 @@ html, body {
 .divider {
     padding: 30px 0;
 }
+
+.data-holder {
+    display: none;
+}

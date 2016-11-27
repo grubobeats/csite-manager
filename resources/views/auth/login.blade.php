@@ -1,6 +1,15 @@
 @extends('layouts.app')
 
 @section('content')
+
+<style>
+  body {
+    background: url(http://www.pcrnet.co.uk/imgs/bg.jpg);
+    background-size: cover;
+  }
+
+</style>
+
 <div class="container">
     <div class="row">
         <div class="col-md-8 col-md-offset-2">

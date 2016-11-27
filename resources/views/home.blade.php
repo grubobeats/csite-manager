@@ -145,7 +145,7 @@
 
                 <div class="jumbotron">
                     <h1>Welcome!</h1>
-                    <p>We are glad to meet you here. However, to proceed please <a href="{{ route('add-csite') }}">click here</a>  to first construction site.</p>
+                    <p>We are glad to meet you here. However, to proceed please <a href="{{ route('add-csite') }}">click here</a> to make first construction site.</p>
                 </div>
 
             @endif

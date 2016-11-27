@@ -15,3 +15,20 @@ $('#send-email').click(function(e){
 $('.close-info').click(function(){
     $('.data-holder').hide('slow');
 });
+
+$('.haveLoader').click(function(event){
+  // event.preventDefault();
+  var target = $( event.target );
+  var html = '<i class="fa fa-cog fa-spin fa-fw"></i> ';
+
+  if ( target.is( "button, a" ) ) {
+    target.html(html);
+  }
+
+  if ( target.is( "input" ) ) {
+    target.val('Loading...');
+  }
+
+  $(this).addClass('avoid-clicks').html(html);
+
+});

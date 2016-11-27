@@ -68,7 +68,7 @@
 
                                         <div class="form-inline">
                                             {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Recepients email here']) }}
-                                            {{ Form::submit('Submit', ['class'=>'btn btn-primary']) }}
+                                            {{ Form::submit('Submit', ['class'=>'btn btn-primary haveLoader']) }}
                                             <br>
                                         </div>
 

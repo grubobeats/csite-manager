@@ -58,7 +58,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="city">Investor</label>
-                                    <input type="text" class="form-control" id="investor" placeholder="Investor" name="investor" value="{{ $construction_site->investor }}">
+                                    <input type="text" class="form-control haveLoader" id="investor" placeholder="Investor" name="investor" value="{{ $construction_site->investor }}">
                                 </div>
                                 {{ csrf_field() }}
 

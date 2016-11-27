@@ -21,6 +21,8 @@
         window.Laravel = <?php echo json_encode([
             'csrfToken' => csrf_token(),
         ]); ?>
+
+        var rootPath = "{{ URL::to('/') }}";
     </script>
 </head>
 
@@ -91,4 +93,3 @@
     </div>
 
     @extends('layouts.footer')
-

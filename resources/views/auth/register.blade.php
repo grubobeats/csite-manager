@@ -100,5 +100,12 @@
             </div>
         </div>
     </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <p class="well text-center">
+          Already a member? <a href="{{ url('/login') }}">Log in to your account</a>.
+        </p>
+      </div>
+    </div>
 </div>
 @endsection

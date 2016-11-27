@@ -64,5 +64,12 @@
             </div>
         </div>
     </div>
+    <div class="row">
+      <div class="col-md-8 col-md-offset-2">
+        <p class="well text-center">
+          New to Construction Manager? <a href="{{ url('/register') }}">Create an account</a>.
+        </p>
+      </div>
+    </div>
 </div>
 @endsection

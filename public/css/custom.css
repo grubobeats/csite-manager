@@ -73,3 +73,7 @@ html, body {
 .data-holder {
     display: none;
 }
+
+.avoid-clicks {
+  pointer-events: none;
+}

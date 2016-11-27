@@ -111,8 +111,8 @@
                     <div class="panel-body">
 
                         <div class="btn-group pull-right" role="group" aria-label="...">
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go back</a>
-                            <a href="{{ route('add-diary', ['csite_id' => $construction_site->id]) }}" class="btn btn-primary">Add new <i class="fa fa-plus" aria-hidden="true"></i></a>
+                            <a href="{{ route('dashboard') }}" class="btn btn-primary haveLoader"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go back</a>
+                            <a href="{{ route('add-diary', ['csite_id' => $construction_site->id]) }}" class="btn btn-primary haveLoader">Add new <i class="fa fa-plus" aria-hidden="true"></i></a>
                         </div>
 
                         <div class="divider" style="padding:25px"></div>
@@ -136,9 +136,9 @@
                                     <td>{{ $diary->workers }}</td>
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                            <a href="{{ route('view.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</a>
-                                            <a href="{{ route('edit.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default">Edit</a>
-                                            <a href="{{ route('deleteDiary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default">Delete</a>
+                                            <a href="{{ route('view.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default haveLoader"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</a>
+                                            <a href="{{ route('edit.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default haveLoader">Edit</a>
+                                            <a href="{{ route('deleteDiary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default haveLoader">Delete</a>
                                         </div>
                                     </td>
                                 </tr>

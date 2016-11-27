@@ -107,7 +107,7 @@
 
                     <div class="panel-body">
 
-                        <a href="{{ route('add-csite') }}" class="btn btn-primary pull-right">Add new <i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <a href="{{ route('add-csite') }}" class="btn btn-primary pull-right haveLoader">Add new <i class="fa fa-plus" aria-hidden="true"></i></a>
 
                         <div class="divider" style="padding:25px"></div>
 
@@ -131,9 +131,9 @@
                                     <td>22.11.2016. 18:43</td>
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                            <a href="{{ route('list-diaries', ['csite_id' => $csite->id]) }}" class="btn btn-default"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</a>
-                                            <a href="{{ route('editConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default">Edit</a>
-                                            <a href="{{ route('deleteConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default">Delete</a>
+                                            <a href="{{ route('list-diaries', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</a>
+                                            <a href="{{ route('editConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader">Edit</a>
+                                            <a href="{{ route('deleteConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader">Delete</a>
                                         </div>
                                     </td>
                                 </tr>

@@ -61,7 +61,7 @@
                                 </div>
                                 {{ csrf_field() }}
 
-                                <button type="submit" class="btn btn-default">Submit</button>
+                                <button type="submit" class="btn btn-default haveLoader">Submit</button>
                             </form>
                         </div>
                         <div class="col-sm-6 text-right">

@@ -28,16 +28,17 @@ class PaymentsController extends Controller
     // Create a charge: this will charge the user's card
     try {
       $charge = \Stripe\Charge::create(array(
-        "amount" => 1000, // Amount in cents - Add dynamic value
-        "currency" => "eur",
-        "source" => $token,
-        "description" => "Example charge" // add description for services
+          "amount" => 1000, // Amount in cents - Add dynamic value
+          "currency" => "eur",
+          "source" => $token,
+          "description" => "Example charge" // add description for services
         ));
-    } catch(\Stripe\Error\Card $e) {
+    } catch (\Stripe\Error\Card $e) {
       // The card has been declined
 
     }
 
     return redirect()->back();
   }
+
 }

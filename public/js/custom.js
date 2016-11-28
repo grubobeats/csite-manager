@@ -38,7 +38,6 @@ $('.haveLoader').click(function(event){
  * Stripe integration
  */
 
-Stripe.setPublishableKey('pk_test_jnQoANlW94gaHnZ8LXl7V6AH');
 
 $(function() {
   var $form = $('#payment-form');

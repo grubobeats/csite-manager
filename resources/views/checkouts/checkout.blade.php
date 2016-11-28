@@ -21,10 +21,7 @@
 
     <div class="row">
         <div class="col-lg-12">
-            <div class="alert alert-info alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="fa fa-info-circle"></i>  <strong>Like Construction Manager?</strong> <a href="#" class="alert-link">Donate developers</a> for new features!
-            </div>
+            @include('includes.donate-developers')
         </div>
     </div>
     <!-- /.row -->
@@ -62,8 +59,10 @@
         <input type="submit" class="submit" value="Submit Payment">
       </form>
     </div>
-
-    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
-
 </div>
+@endsection
+
+@section('scripts')
+    <script type="text/javascript" src="https://js.stripe.com/v2/"></script>
+    <script>Stripe.setPublishableKey('pk_test_jnQoANlW94gaHnZ8LXl7V6AH');</script>
 @endsection

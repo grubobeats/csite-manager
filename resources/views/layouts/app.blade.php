@@ -14,7 +14,7 @@
     <link href="{{ URL::to('/css/app.css') }}" rel="stylesheet">
     <link href="{{ URL::to('/css/custom.css') }}" rel="stylesheet">
 
-    <script src="https://use.fontawesome.com/cd17390d77.js"></script>
+
 
     <!-- Scripts -->
     <script>

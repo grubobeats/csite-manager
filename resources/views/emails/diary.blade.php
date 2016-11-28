@@ -275,7 +275,6 @@
                             <!-- Callout Panel -->
                             <p class="callout">
                                 <span style="text-transform: capitalize">{{ $username->name }} {{ $username->lastname }}</span> sent you this email, please review this diary.<br>
-                                <strong>Construction Manager</strong> is an advanced automatic system for managing construction sites
                             </p><!-- /Callout Panel -->
 
 
@@ -296,13 +295,13 @@
                                     <td colspan="2">Description</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">{{ $diary->description }}</td>
+                                    <td colspan="2">{{ $description }}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">Issues</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">{{ $diary->issues }}</td>
+                                    <td colspan="2">{{ $issues }}</td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">Images: {{ count($images) }}</td>

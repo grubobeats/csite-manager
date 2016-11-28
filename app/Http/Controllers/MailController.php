@@ -22,6 +22,9 @@ class MailController extends Controller
 
         $exiting_email = Mailing::all()->where('email', $reciver)->first();
 
+        $description = strip_tags($diary->description);
+        $issues = strip_tags($diary->issues);
+
         // If user is logged in than enter user id near email in mailing list database.
         if ( Auth::check() ) {
             $user_id = Auth::id();
@@ -40,10 +43,14 @@ class MailController extends Controller
 
         $username = User::all()->find($user_id)->first();
 
+
+
         $context = array(
             'diary' => $diary,
             'images' => $images,
             'csite' => $csite,
+            'description' => $description,
+            'issues' => $issues,
             'counter' => 0,
             'username' => $username
         );

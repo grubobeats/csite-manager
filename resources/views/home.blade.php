@@ -22,7 +22,6 @@
     <div class="row">
         <div class="col-lg-12">
             @include('includes.donate-developers')
-            
         </div>
     </div>
     <!-- /.row -->

@@ -28,10 +28,7 @@
     <!-- /.row -->
     <div class="row">
         <div class="col-lg-12">
-            <div class="alert alert-info alert-dismissable">
-                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-                <i class="fa fa-info-circle"></i>  <strong>Like Construction Manager?</strong> <a href="#" class="alert-link">Donate developers</a> for new features!
-            </div>
+            @include('includes.donate-developers')
         </div>
     </div>
     <!-- /.row -->
@@ -99,7 +96,7 @@
                                 <th colspan="4">Description</th>
                             </tr>
                             <tr>
-                                <th colspan="4">{{ $diary->description }}</th>
+                                <th colspan="4" id="description">{{ $diary->description }}</th>
                             </tr>
                             <tr>
                                 <th colspan="4">Issues</th>
@@ -131,4 +128,18 @@
         </div>
     </div>
 </div>
+@endsection
+
+
+@section('scripts')
+    <script>
+        $(document).ready(function () {
+            var raw_description = $('#description').text();
+            var raw_iddues = $('#issues').text();
+
+            $('#description').html(raw_description);
+            $('#issues').html(raw_iddues);
+        }, 3000);
+
+    </script>
 @endsection

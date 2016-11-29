@@ -3,18 +3,18 @@
 @section('content')
 <div class="container">
     @if (Session::has('email-sent'))
-        @include('includes.success', ['message'=>'Your mail is sent successfully!'])
+        @include('includes.success', ['message'=> trans('global.email-sent')])
     @endif
 
     @if(count($errors) > 0)
-        @include('includes.error-handler', ['message'=>'Your email is not sent. Please fix the errors bellow and try again.'])
+        @include('includes.error-handler', ['message'=>trans('global.email-error')])
     @endif
 
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Diary <small>day {{ $diary->day }}</small>
+                @lang('view-diary.diaries') <small>@lang('view-diary.day') {{ $diary->day }}</small>
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -27,7 +27,7 @@
                     <a href="{{ route('list-diaries', ['csite_id'=>$construction_site->id]) }}">{{ $construction_site->name }}</a>
                 </li>
                 <li class="active">
-                    Diary for day {{ $diary->day }}
+                    @lang('global.diary-for-day'): {{ $diary->day }}
                 </li>
             </ol>
         </div>

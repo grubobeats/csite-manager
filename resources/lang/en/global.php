@@ -21,4 +21,9 @@ return [
     'diary-deleted' => 'Diary successfully deleted.',
     'diary-edited' => 'Saved changes in diary.',
     'diary-added' => 'Added new diary.',
+
+    'diary-for-day' => 'Diary for day',
+
+    'email-sent' => 'Your mail is sent successfully!',
+    'email-error' => 'Your email is not sent. Please fix the errors bellow and try again.',
 ];

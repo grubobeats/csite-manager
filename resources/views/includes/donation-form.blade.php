@@ -76,12 +76,10 @@
             </fieldset>
             <input type="hidden" id="card-number-clean" name="card_number" data-stripe="number" value="">
             <fieldset>
-                <label for="card-holder">Card holder</label>
-                <input type="text" name="name" id="card-holder" />
+                <input type="text" name="name" id="card-holder" placeholder="Card holder">
             </fieldset>
             <fieldset>
-                <label for="amount">Amount <i class="fa fa-eur" aria-hidden="true"></i></label>
-                <input type="number" name="amount" />
+                <input type="number" name="amount" placeholder="Amount in euros">
             </fieldset>
             <fieldset class="fieldset-expiration">
                 <label for="card-expiration-month">Expiration date</label>
@@ -230,7 +228,7 @@
             border: none;
             box-shadow: none;
             text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-            margin-top: 90px;
+            margin-top: 10px;
         }
         .form button .fa {
             margin-right: 6px;

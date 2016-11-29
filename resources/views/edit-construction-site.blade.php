@@ -48,20 +48,20 @@
                                     <input type="text" class="form-control" id="name" placeholder="Name" name="name" value="{{ $construction_site->name }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="city">>@lang('forms.city')</label>
+                                    <label for="city">@lang('forms.city')</label>
                                     <input type="text" class="form-control" id="city" placeholder="City" name="city" value="{{ $construction_site->city }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="city">>@lang('forms.address')</label>
+                                    <label for="city">@lang('forms.address')</label>
                                     <input type="text" class="form-control" id="address" placeholder="Address" name="address" value="{{ $construction_site->address }}">
                                 </div>
                                 <div class="form-group">
-                                    <label for="city">>@lang('forms.investor')</label>
+                                    <label for="city">@lang('forms.investor')</label>
                                     <input type="text" class="form-control haveLoader" id="investor" placeholder="Investor" name="investor" value="{{ $construction_site->investor }}">
                                 </div>
                                 {{ csrf_field() }}
 
-                                <button type="submit" class="btn btn-default">>@lang('forms.save-csite')</button>
+                                <button type="submit" class="btn btn-default">@lang('forms.save-csite')</button>
                             </form>
                         </div>
                         <div class="col-sm-6 text-right">

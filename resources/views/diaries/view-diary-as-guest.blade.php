@@ -3,11 +3,11 @@
 @section('content')
 <div class="container">
     @if (Session::has('email-sent'))
-        @include('includes.success', ['message'=>'Your mail is sent successfully!'])
+        @include('includes.success', ['message'=>trans('global.email-sent')])
     @endif
 
     @if(count($errors) > 0)
-        @include('includes.error-handler', ['message'=>'Your email is not sent. Please fix the errors bellow and try again.'])
+        @include('includes.error-handler', ['message'=>trans('global.email-error')])
     @endif
 
     <!-- Page Heading -->

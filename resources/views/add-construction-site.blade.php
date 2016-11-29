@@ -18,7 +18,7 @@
                 </li>
                 <li><a href="{{ route('dashboard') }}">Dashboard</a></li>
                 <li class="active">
-                    Add Construction Site
+                    @lang('forms.add-new-csite')
                 </li>
             </ol>
         </div>
@@ -36,7 +36,7 @@
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    Add new construction site
+                    @lang('forms.add-new-csite')
                 </div>
 
                 <div class="panel-body">
@@ -44,24 +44,24 @@
                         <div class="col-sm-6">
                             <form action="{{ route('added-csite') }}" method="post">
                                 <div class="form-group">
-                                    <label for="name">Name</label>
+                                    <label for="name">@lang('forms.name')</label>
                                     <input type="text" class="form-control" id="name" placeholder="Name" name="name">
                                 </div>
                                 <div class="form-group">
-                                    <label for="city">City</label>
+                                    <label for="city">@lang('forms.city')</label>
                                     <input type="text" class="form-control" id="city" placeholder="City" name="city">
                                 </div>
                                 <div class="form-group">
-                                    <label for="city">Address</label>
+                                    <label for="city">@lang('forms.address')</label>
                                     <input type="text" class="form-control" id="address" placeholder="Address" name="address">
                                 </div>
                                 <div class="form-group">
-                                    <label for="city">Investor</label>
+                                    <label for="city">@lang('forms.investor')</label>
                                     <input type="text" class="form-control" id="investor" placeholder="Investor" name="investor">
                                 </div>
                                 {{ csrf_field() }}
 
-                                <button type="submit" class="btn btn-default haveLoader">Submit</button>
+                                <button type="submit" class="btn btn-default haveLoader">@lang('forms.save-csite')</button>
                             </form>
                         </div>
                         <div class="col-sm-6 text-right">

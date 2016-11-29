@@ -284,27 +284,27 @@
                             <!--- column 2 -->
                             <table align="left" class="column">
                                 <tr>
-                                    <td>Day: {{ $diary->day }}</td>
-                                    <td>Date: {{ $diary->date }}</td>
+                                    <td>@lang('forms.date'): {{ $diary->day }}</td>
+                                    <td>@lang('forms.day'): {{ $diary->date }}</td>
                                 </tr>
                                 <tr>
-                                    <td>Weather: {{ $diary->weather }}, {{ $diary->temperature }} &deg;</td>
-                                    <td>Workers: {{ $diary->workers }}</td>
+                                    <td>@lang('forms.weather'): {{ $diary->weather }}, {{ $diary->temperature }} &deg; C</td>
+                                    <td>@lang('forms.workers'): {{ $diary->workers }}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Description</td>
+                                    <td colspan="2">@lang('forms.description')</td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">{{ $description }}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Issues</td>
+                                    <td colspan="2">@lang('forms.issues')</td>
                                 </tr>
                                 <tr>
                                     <td colspan="2">{{ $issues }}</td>
                                 </tr>
                                 <tr>
-                                    <td colspan="2">Images: {{ count($images) }}</td>
+                                    <td colspan="2">@lang('forms.images'): {{ count($images) }}</td>
                                 </tr>
                                 @foreach($images as $key => $image)
                                     <tr>

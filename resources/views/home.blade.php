@@ -3,15 +3,15 @@
 @section('content')
 <div class="container">
     @if (Session::has('added'))
-        @include('includes.success', ['message'=>'Added new construction site.'])
+        @include('includes.success', ['message'=>trans('global.csite-added')])
     @endif
 
     @if (Session::has('edited'))
-        @include('includes.success', ['message'=>'Saved changes'])
+        @include('includes.success', ['message'=>trans('global.csite-edited')])
     @endif
 
     @if (Session::has('deleted'))
-        @include('includes.deleted', ['message'=>'Construction site deleted.'])
+        @include('includes.deleted', ['message'=>trans('global.csite-deleted')])
     @endif
     <!-- Page Heading -->
     <div class="row">
@@ -48,7 +48,7 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">{{ count($construction_site) }}</div>
-                            <div>Construction sites</div>
+                            <div>@lang('global.construction-sites')</div>
                         </div>
                     </div>
                 </div>
@@ -63,7 +63,7 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">2</div>
-                            <div>Diaries</div>
+                            <div>@lang('global.diaries')</div>
                         </div>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
                         </div>
                         <div class="col-xs-9 text-right">
                             <div class="huge">124</div>
-                            <div>Workers</div>
+                            <div>@lang('global.workers')</div>
                         </div>
                     </div>
                 </div>
@@ -114,7 +114,7 @@
 
                     <div class="panel-body">
 
-                        <a href="{{ route('add-csite') }}" class="btn btn-primary pull-right haveLoader">Add new <i class="fa fa-plus" aria-hidden="true"></i></a>
+                        <a href="{{ route('add-csite') }}" class="btn btn-primary pull-right haveLoader">@lang('forms.add-new-csite') <i class="fa fa-plus" aria-hidden="true"></i></a>
 
                         <div class="divider" style="padding:25px"></div>
 
@@ -123,10 +123,10 @@
 
                             <tr>
                                 <th>Id</th>
-                                <th>Construction Site</th>
-                                <th>Address</th>
-                                <th>Investitor</th>
-                                <th>Last diary</th>
+                                <th>@lang('forms.construction-site')</th>
+                                <th>@lang('forms.name')</th>
+                                <th>@lang('forms.investor')</th>
+                                <th>@lang('forms.last-diary')</th>
                                 <th></th>
                             </tr>
                             @foreach($construction_site as $key => $csite)
@@ -138,9 +138,9 @@
                                     <td>22.11.2016. 18:43</td>
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                            <a href="{{ route('list-diaries', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</a>
-                                            <a href="{{ route('editConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader">Edit</a>
-                                            <a href="{{ route('deleteConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader">Delete</a>
+                                            <a href="{{ route('list-diaries', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader"><i class="fa fa-folder-open-o" aria-hidden="true"></i> @lang('forms.open')</a>
+                                            <a href="{{ route('editConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader">@lang('forms.edit')</a>
+                                            <a href="{{ route('deleteConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader">@lang('forms.delete')</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -151,8 +151,8 @@
             @else
 
                 <div class="jumbotron">
-                    <h1>Welcome!</h1>
-                    <p>We are glad to meet you here. However, to proceed please <a href="{{ route('add-csite') }}">click here</a> to make first construction site.</p>
+                    <h1>@lang('global.welcome')</h1>
+                    <p>@lang('global.we-are-glad') <a href="{{ route('add-csite') }}">@lang('global.click-here')</a> @lang('global.to-create-first-csite')</p>
                 </div>
 
             @endif

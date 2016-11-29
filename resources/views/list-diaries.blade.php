@@ -3,15 +3,15 @@
 @section('content')
 <div class="container">
     @if (Session::has('added'))
-        @include('includes.success', ['message'=>'Added new diary.'])
+        @include('includes.success', ['message'=>trans('global.diary-added')])
     @endif
 
     @if (Session::has('edited'))
-        @include('includes.success', ['message'=>'Saved changes in diary.'])
+        @include('includes.success', ['message'=>trans('global.diary-edited')])
     @endif
 
     @if (Session::has('deleted'))
-        @include('includes.deleted', ['message'=>'Diary successfully deleted.'])
+        @include('includes.deleted', ['message'=>trans('global.diary-deleted')])
     @endif
     <!-- Page Heading -->
     <div class="row">
@@ -39,73 +39,6 @@
     </div>
     <!-- /.row -->
 
-    <!-- /.row -->
-
-    <div class="row">
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-building fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">{{ count($construction_site) }}</div>
-                            <div>Construction sites</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-pencil-square-o fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">{{ count($diaries) }}</div>
-                            <div>Diaries</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-male fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">124</div>
-                            <div>Workers</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-3 col-md-6">
-            <div class="panel panel-primary">
-                <div class="panel-heading">
-                    <div class="row">
-                        <div class="col-xs-3">
-                            <i class="fa fa-calendar fa-5x"></i>
-                        </div>
-                        <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
-                            <div>Days left</div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.row -->
-
-
     <div class="row">
         <div class="col-md-12">
 
@@ -128,10 +61,10 @@
 
                             <tr>
                                 <th>Id</th>
-                                <th>Date</th>
-                                <th>Day</th>
-                                <th>Weather</th>
-                                <th>Workers</th>
+                                <th>@lang('forms.date')</th>
+                                <th>@lang('forms.day')</th>
+                                <th>@lang('forms.weather')</th>
+                                <th>@lang('forms.workers')</th>
                                 <th></th>
                             </tr>
                             @foreach($diaries as $key => $diary)
@@ -143,9 +76,9 @@
                                     <td>{{ $diary->workers }}</td>
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                            <a href="{{ route('view.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default haveLoader"><i class="fa fa-folder-open-o" aria-hidden="true"></i> Open</a>
-                                            <a href="{{ route('edit.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default haveLoader">Edit</a>
-                                            <a href="{{ route('deleteDiary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default haveLoader">Delete</a>
+                                            <a href="{{ route('view.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default haveLoader"><i class="fa fa-folder-open-o" aria-hidden="true"></i> @lang('forms.open')</a>
+                                            <a href="{{ route('edit.diary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default haveLoader">@lang('forms.edit')</a>
+                                            <a href="{{ route('deleteDiary', ['csite_id' => $construction_site->id, 'diary_id'=>$diary->id]) }}" class="btn btn-default haveLoader">@lang('forms.delete')</a>
                                         </div>
                                     </td>
                                 </tr>
@@ -156,8 +89,8 @@
             @else
 
                 <div class="jumbotron">
-                    <h3>No diaries.</h3>
-                    <p>To start working <a href="{{ route('add-diary', ['csite_id' => $construction_site->id]) }}">click here</a>  to add your first diary.</p>
+                    <h3>@lang('global.no-diaries')</h3>
+                    <p>@lang('global.to-start-working') <a href="{{ route('add-diary', ['csite_id' => $construction_site->id]) }}">@lang('global.click-here')</a> @lang('global.to-add-first-diary')</p>
                 </div>
 
             @endif

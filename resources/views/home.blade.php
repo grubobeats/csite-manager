@@ -2,7 +2,17 @@
 
 @section('content')
 <div class="container">
+    @if (Session::has('added'))
+        @include('includes.success', ['message'=>'Added new construction site.'])
+    @endif
 
+    @if (Session::has('edited'))
+        @include('includes.success', ['message'=>'Saved changes'])
+    @endif
+
+    @if (Session::has('deleted'))
+        @include('includes.deleted', ['message'=>'Construction site deleted.'])
+    @endif
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">

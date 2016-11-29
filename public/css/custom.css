@@ -77,3 +77,7 @@ html, body {
 .avoid-clicks {
   pointer-events: none;
 }
+
+#donation-form {
+    display: none;
+}

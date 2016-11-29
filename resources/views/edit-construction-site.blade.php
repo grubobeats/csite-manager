@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
-
+    @if(count($errors) > 0)
+        @include('includes.error-handler', ['message'=>'Construction site is not added. Please fix the errors bellow and try again.'])
+    @endif
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">

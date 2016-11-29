@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container">
+    @if (Session::has('email-sent'))
+        @include('includes.success', ['message'=>'Your mail is sent successfully!'])
+    @endif
+
+    @if(count($errors) > 0)
+        @include('includes.error-handler', ['message'=>'Your email is not sent. Please fix the errors bellow and try again.'])
+    @endif
 
     <!-- Page Heading -->
     <div class="row">

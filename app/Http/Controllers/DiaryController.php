@@ -79,6 +79,15 @@ class DiaryController extends Controller
      */
     public function postAddDiary($csite_id, Request $request){
 
+        $this->validate($request, array(
+            'day' => 'required',
+            'date' => 'required',
+            'weather' => 'required',
+            'workers' => 'required',
+            'description' => 'required',
+            'temperature' => 'required',
+        ));
+
         // getting all of the post data
         $files = $request->file('images');
         $user_id = Auth::user()->id;
@@ -120,7 +129,7 @@ class DiaryController extends Controller
 
         $diary->save();
 
-        return redirect()->route('list-diaries', $csite_id);
+        return redirect()->route('list-diaries', $csite_id)->with([ 'added' => true ]);
     }
 
     public function editDiary($csite_id, $diary_id) {
@@ -149,8 +158,16 @@ class DiaryController extends Controller
 
     public function postEditDiary($csite_id, $diary_id, Request $request) {
 
-        $csite = ConstructionSite::where('id', $csite_id)->first();
+        $this->validate($request, array(
+            'day' => 'required',
+            'date' => 'required',
+            'weather' => 'required',
+            'workers' => 'required',
+            'description' => 'required',
+            'temperature' => 'required',
+        ));
 
+        $csite = ConstructionSite::where('id', $csite_id)->first();
 
         // Saving to diary table
         $diary = Diary::find($diary_id);
@@ -192,7 +209,7 @@ class DiaryController extends Controller
         }
 
 
-        return redirect()->route('list-diaries', $csite_id);
+        return redirect()->route('list-diaries', $csite_id)->with([ 'edited' => true ]);
     }
 
     public function deleteDiary($csite_id, $diary_id) {
@@ -212,7 +229,7 @@ class DiaryController extends Controller
         $images->delete();
         $diary->delete();
 
-        return redirect()->route('list-diaries', $csite_id);
+        return redirect()->route('list-diaries', $csite_id)->with( [ 'deleted' => true ] );
     }
 
     /**

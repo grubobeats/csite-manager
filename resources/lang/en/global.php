@@ -23,7 +23,27 @@ return [
     'diary-added' => 'Added new diary.',
 
     'diary-for-day' => 'Diary for day',
-
     'email-sent' => 'Your mail is sent successfully!',
     'email-error' => 'Your email is not sent. Please fix the errors bellow and try again.',
+
+    // Donation
+    'donation-description' => 'Non montes parturient tincidunt per fusce commodo vestibulum nisi sit potenti vestibulum feugiat tellus nullam a condimentum montes.Fringilla himenaeos eu suspendisse pulvinar senectus hendrerit volutpat inceptos at condimentum donec ac ad condimentum ac condimentum nec vestibulum facilisi parturient condimentum condimentum tempus mi a.A at penatibus a a aenean adipiscing nascetur a fames a ullamcorper molestie a phasellus adipiscing vestibulum urna purus vestibulum libero.Adipiscing condimentum pharetra hac potenti commodo ridiculus vestibulum nam enim ac parturient adipiscing nec sem.Potenti rhoncus arcu curae sodales ullamcorper posuere eu a enim gravida condimentum id fames.',
+    
+    'donation' => 'Donation',
+    'card-holder' => 'Card holder name',
+    'card-number' => 'Card number',
+    'expires' => 'Expires',
+    'amount-in-euros' => 'Amount in euros',
+    'exp_date' => 'Expiration date',
+    'month' => 'Month',
+    'year' => 'Year',
+    'donate' => 'Donate',
+
+    // Welcome page
+    'choose-language' => 'Choose language',
+    'dashboard' => 'Dashboard',
+    'logout' => 'Logout',
+    'login' => 'Login',
+    'register' => 'Register',
+
 ];

@@ -25,11 +25,11 @@
                     </div>
                     <div class="number"></div>
                     <div class="card-holder">
-                        <label>Card holder</label>
+                        <label>@lang('global.card-holder')</label>
                         <div></div>
                     </div>
                     <div class="card-expiration-date">
-                        <label>Expires</label>
+                        <label>@lang('global.expires')</label>
                         <div></div>
                     </div>
                 </div>
@@ -58,7 +58,7 @@
                     </div>
                     <div class="ccv">
                         <label>CCV</label>
-                        <div></div>
+                        <div>123</div>
                     </div>
                 </div>
             </div>
@@ -68,24 +68,24 @@
             {{ csrf_field() }}
             <input type="hidden" value="" id="stripeToken" name="stripeToken" value="0">
             <fieldset>
-                <label for="card-number">Card Number</label>
-                <input type="num" id="card-number" class="input-cart-number" maxlength="4" />
-                <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" />
-                <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" />
-                <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" />
+                <label for="card-number">@lang('global.card-number')</label>
+                <input type="num" id="card-number" class="input-cart-number" maxlength="4" placeholder="xxxx">
+                <input type="num" id="card-number-1" class="input-cart-number" maxlength="4" placeholder="xxxx">
+                <input type="num" id="card-number-2" class="input-cart-number" maxlength="4" placeholder="xxxx">
+                <input type="num" id="card-number-3" class="input-cart-number" maxlength="4" placeholder="xxxx">
             </fieldset>
             <input type="hidden" id="card-number-clean" name="card_number" data-stripe="number" value="">
             <fieldset>
-                <input type="text" name="name" id="card-holder" placeholder="Card holder">
+                <input type="text" name="name" id="card-holder" placeholder="@lang('global.card-holder')">
             </fieldset>
             <fieldset>
-                <input type="number" name="amount" placeholder="Amount in euros">
+                <input type="number" name="amount" placeholder="@lang('global.amount-in-euros')">
             </fieldset>
             <fieldset class="fieldset-expiration">
-                <label for="card-expiration-month">Expiration date</label>
+                <label for="card-expiration-month">@lang('global.exp_date')</label>
                 <div class="select">
                     <select id="card-expiration-month" name="exp_month" data-stripe="exp_month">
-                        <option></option>
+                        <option>@lang('global.month')</option>
                         <option>01</option>
                         <option>02</option>
                         <option>03</option>
@@ -102,7 +102,7 @@
                 </div>
                 <div class="select">
                     <select id="card-expiration-year" name="exp_year" data-stripe="exp_year">
-                        <option></option>
+                        <option>@lang('global.year')</option>
                         <option>2016</option>
                         <option>2017</option>
                         <option>2018</option>
@@ -118,9 +118,9 @@
             </fieldset>
             <fieldset class="fieldset-ccv">
                 <label for="card-ccv">CCV</label>
-                <input type="text" id="card-ccv" name="ccv" maxlength="3" data-stripe="cvc" />
+                <input type="text" id="card-ccv" name="ccv" maxlength="3" data-stripe="cvc" placeholder="123">
             </fieldset>
-            <button class="btn btn-success" type="submit"><i class="fa fa-lock"></i> Donate</button>
+            <button class="btn btn-success" type="submit"><i class="fa fa-check-circle-o"></i> @lang('global.donate')</button>
         </form>
     </div>
 
@@ -137,8 +137,7 @@
         --------------------*/
         .form fieldset {
             border: none;
-            padding: 0;
-            padding: 10px 0;
+            padding: 10px 3px;
             position: relative;
             clear: both;
         }

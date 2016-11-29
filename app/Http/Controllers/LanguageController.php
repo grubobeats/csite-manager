@@ -1,4 +1,4 @@
-<?php
+2<?php
 
 namespace App\Http\Controllers;
 
@@ -10,6 +10,5 @@ class LanguageController extends Controller
         $request->session()->set('locale', $request->input('language'));
 
         return redirect()->back();
-
     }
 }

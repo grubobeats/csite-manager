@@ -86,6 +86,8 @@ class DiaryController extends Controller
             'workers' => 'required',
             'description' => 'required',
             'temperature' => 'required',
+            'images.*' => 'image|between:10,3000', // Checking is it image or not and it's size
+            'images' => 'between:0,5' // Availible number of images
         ));
 
         // getting all of the post data
@@ -165,6 +167,8 @@ class DiaryController extends Controller
             'workers' => 'required',
             'description' => 'required',
             'temperature' => 'required',
+            'images.*' => 'image|between:10,3000', // Checking is it image or not and it's size
+            'images' => 'between:0,5' // Availible number of images
         ));
 
         $csite = ConstructionSite::where('id', $csite_id)->first();

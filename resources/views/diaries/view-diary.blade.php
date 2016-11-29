@@ -103,7 +103,7 @@
                                     </th>
                                 </tr>
                                 <tr>
-                                    <th colspan="4">{{ $diary->issues }}</th>
+                                    <th colspan="4" id="issues">{{ $diary->issues }}</th>
                                 </tr>
                             @endif
                         </table>

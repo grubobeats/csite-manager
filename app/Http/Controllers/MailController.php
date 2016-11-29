@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\ConstructionSite;
-use App\Diary;
 use App\Images;
 use App\Mailing;
 use App\User;
@@ -11,10 +10,16 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Http\Request as AnotherRequest;
 
 class MailController extends Controller
 {
-    public function sendDiary($diary_id, $csite_id){
+    public function sendDiary(AnotherRequest $request, $diary_id, $csite_id){
+
+        $this->validate($request, [
+            'email' => 'required|email',
+        ]);
+
         $csite = ConstructionSite::all()->find($csite_id)->first();
         $diary = DB::table('diaries')->where('id', $diary_id)->first();
         $images = Images::all()->where('diary_key', $diary->images);
@@ -43,8 +48,6 @@ class MailController extends Controller
 
         $username = User::all()->find($user_id)->first();
 
-
-
         $context = array(
             'diary' => $diary,
             'images' => $images,
@@ -62,7 +65,7 @@ class MailController extends Controller
             $message->to($reciver)->from('info@csmanager.com')->subject('New construction diary');
         });
 
-        return redirect()->back();
+        return redirect()->back()->with(['email-sent'=>true]);
     }
 
 

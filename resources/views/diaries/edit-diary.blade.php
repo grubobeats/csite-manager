@@ -88,7 +88,7 @@
 
                             </div>
 
-                            {{ Form::submit('Submit', ['class'=>'btn btn-primary']) }}
+                            <button type="submit" class="btn btn-primary haveLoader">Save changes</button>
                         </div>
                     </div>
 

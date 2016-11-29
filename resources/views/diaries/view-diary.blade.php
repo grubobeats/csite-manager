@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="container">
+    @if (Session::has('email-sent'))
+        @include('includes.success', ['message'=>'Your mail is sent successfully!'])
+    @endif
+
+    @if(count($errors) > 0)
+        @include('includes.error-handler', ['message'=>'Your email is not sent. Please fix the errors bellow and try again.'])
+    @endif
 
     <!-- Page Heading -->
     <div class="row">
@@ -26,6 +33,7 @@
         </div>
     </div>
     <!-- /.row -->
+
     <div class="row">
         <div class="col-lg-12">
             @include('includes.donate-developers')
@@ -56,26 +64,9 @@
                                 Link for client: <a href="#"></a>
                             </div>
 
-                            <div class="col-sm-offset-8 col-sm-4 well data-holder send-email text-center">
-                                <button type="button" class="close close-info">&times;</button>
-                                {!! Form::open(['route' => ['mail.send.diary', $diary->id, $construction_site->id], 'files'=>true]) !!}
-
-                                <div class="row">
-                                    <div class="col-sm-12">
-
-                                        <div class="form-inline">
-                                            {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Recepients email here']) }}
-                                            {{ Form::submit('Submit', ['class'=>'btn btn-primary haveLoader']) }}
-                                            <br>
-                                        </div>
+                            @include('includes.diary-send-email')
 
 
-                                    </div>
-                                </div>
-
-
-                                {!! Form::close() !!}
-                            </div>
 
                         <table class="table table-bordered">
 
@@ -98,12 +89,26 @@
                             <tr>
                                 <th colspan="4" id="description">{{ $diary->description }}</th>
                             </tr>
-                            <tr>
-                                <th colspan="4">Issues</th>
-                            </tr>
-                            <tr>
-                                <th colspan="4">{{ $diary->issues }}</th>
-                            </tr>
+
+                            @if( $diary->issues === "")
+                                <tr class="success">
+                                    <th colspan="4">
+                                        No issues.
+                                    </th>
+                                </tr>
+                            @else
+                                <tr class="danger">
+                                    <th colspan="4">
+                                        Issues:
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th colspan="4">{{ $diary->issues }}</th>
+                                </tr>
+                            @endif
+                        </table>
+                        <br>
+                        <table class="table table-bordered">
                             <tr>
                                 <th colspan="4">{{ count($images) }} images</th>
                             </tr>

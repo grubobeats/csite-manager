@@ -5,8 +5,8 @@
     <div class="row">
         <div class="col-sm-12">
             <div class="form-inline">
-                {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => 'Enter recipients email here']) }}
-                <button type="submit" class="btn btn-primary haveLoader">Send email</button>
+                {{ Form::email('email', null, ['class' => 'form-control', 'placeholder' => trans('forms.recipients-email')]) }}
+                <button type="submit" class="btn btn-primary haveLoader">@lang('view-diary.send-on-email')</button>
                 <br>
             </div>
         </div>

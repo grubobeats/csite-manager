@@ -14,7 +14,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Diaries <small>{{ $construction_site->name }}</small>
+                @lang('view-diary.diaries') <small>@lang('view-diary.day') {{ $diary->day }}</small>
             </h1>
         </div>
     </div>
@@ -32,37 +32,34 @@
             @if($diary)
                 <div class="panel panel-default">
                     <div class="panel-heading">
-                        Diary info
+                        @lang('view-diary.diary-info')
                     </div>
 
                     <div class="panel-body">
 
                         <div class="btn-group pull-right" role="group" aria-label="...">
-                            <button id="send-email" data-href="{{ route('mail.send.diary', ['diary_id'=>$diary->id, 'csite_id'=> $construction_site->id]) }}" class="btn btn-primary"><i class="fa fa-envelope-o" aria-hidden="true"></i> Send on e-mail</button>
-                            <button id="get-link" data-link="{{ route('guests.link', [ 'language'=> \Illuminate\Support\Facades\App::getLocale(), 'csite_id'=>$construction_site->id, 'diary_id'=>$diary->id, 'random_link'=>str_random(30)]) }}" class="btn btn-primary"><i class="fa fa-share" aria-hidden="true"></i> Get link</button>
+                            <button id="send-email" data-href="{{ route('mail.send.diary', ['diary_id'=>$diary->id, 'csite_id'=> $construction_site->id]) }}" class="btn btn-primary"><i class="fa fa-envelope-o" aria-hidden="true"></i> @lang('view-diary.send-on-email')</button>
+                            <button id="get-link" data-link="{{ route('guests.link', [ 'language'=> \Illuminate\Support\Facades\App::getLocale(), 'csite_id'=>$construction_site->id, 'diary_id'=>$diary->id, 'random_link'=>str_random(30)]) }}" class="btn btn-primary"><i class="fa fa-share" aria-hidden="true"></i> @lang('view-diary.get-link')</button>
                         </div>
 
                         <div class="divider"></div>
 
                         <div class="well data-holder get-link-here text-center">
                             <button type="button" class="close close-info">&times;</button>
-                            Link for client: <a href="#"></a>
+                            @lang('view-diary.link-for-client') <a href="#"></a>
                         </div>
 
                         @include('includes.diary-send-email')
 
-                        <div class="well data-holder">
-                            Some date
-                        </div>
 
 
                         <table class="table table-bordered">
 
                             <tr>
-                                <th>Day</th>
-                                <th>Date</th>
-                                <th>Weather</th>
-                                <th>Workers</th>
+                                <th>@lang('forms.day')</th>
+                                <th>@lang('forms.date')</th>
+                                <th>@lang('forms.weather')</th>
+                                <th>@lang('forms.workers')</th>
                             </tr>
 
                             <tr>
@@ -72,19 +69,32 @@
                                 <th>{{ $diary->workers }}</th>
                             </tr>
                             <tr>
-                                <th colspan="4">Description</th>
+                                <th colspan="4">@lang('forms.description')</th>
                             </tr>
                             <tr>
                                 <th colspan="4" id="description">{{ $diary->description }}</th>
                             </tr>
                             <tr>
-                                <th colspan="4" id="issuse">Issues</th>
+                                <th colspan="4" id="issuse">@lang('forms.images')</th>
                             </tr>
+                            @if( $diary->issues === "")
+                                <tr class="success">
+                                    <th colspan="4">
+                                        @lang('view-diary.no-issues')
+                                    </th>
+                                </tr>
+                            @else
+                                <tr class="danger">
+                                    <th colspan="4">
+                                        @lang('view-diary.issues')
+                                    </th>
+                                </tr>
+                                <tr>
+                                    <th colspan="4" id="issues">{{ $diary->issues }}</th>
+                                </tr>
+                            @endif
                             <tr>
-                                <th colspan="4">{{ $diary->issues }}</th>
-                            </tr>
-                            <tr>
-                                <th colspan="4">{{ count($images) }} images</th>
+                                <th colspan="4">@lang('forms.images'): {{ count($images) }}</th>
                             </tr>
                             @foreach($images as $key => $image)
                                 <tr>
@@ -100,8 +110,8 @@
 
             @else
                 <div class="jumbotron">
-                    <h3>Restricted access!</h3>
-                    <p>Unfortunattelly, you can't access this diary, <a href="{{ route('list-diaries', ['csite_id' => $construction_site->id]) }}">click here</a> to go back.</p>
+                    <h3>@lang('view-diary.restricted-access')</h3>
+                    <p>@lang('view-diary.no-access') <a href="{{ route('list-diaries', ['csite_id' => $construction_site->id]) }}">@lang('view-diary.click-here')</a> @lang('view-diary.to-g-back')</p>
                 </div>
             @endif
         </div>

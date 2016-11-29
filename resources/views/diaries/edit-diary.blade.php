@@ -46,49 +46,49 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="name">Day</label>
+                                <label for="name">{{ trans('forms.day') }}</label>
                                 {{ Form::number('day', $diary->day, ['class' => 'form-control']) }}
                             </div>
 
                             <div class="form-group">
-                                <label for="date">Date</label>
+                                <label for="date">{{ trans('forms.date') }}</label>
                                 {{ Form::date('date', $diary->date, ['class'=>'form-control']) }}
                             </div>
 
                             <div class="form-group">
-                                <label for="weather">Weather</label>
-                                {{ Form::select('weather', ['suncano' => 'Suncano', 'vedro' => 'Vedro', 'maglovito'=> 'Maglovito', 'kisovito'=>'Kisovito', 'snezno'=>'Snezno'], $diary->weather, ['class'=>'form-control']) }}
+                                <label for="weather">{{ trans('forms.weather') }}</label>
+                                {{ Form::select('weather', ['1' => trans('forms.select-sunny'), '2' => trans('forms.select-dust'), '3' => trans('forms.select-rainy'), '4' => trans('forms.select-snowing') ], $diary->weather, ['class'=>'form-control']) }}
                             </div>
 
                             <div class="form-group">
-                                <label for="temperature">temperature</label>
+                                <label for="temperature">{{ trans('forms.temperature') }}</label>
                                 {{ Form::number('temperature', $diary->temperature, ['class'=>'form-control']) }}
                             </div>
 
                             <div class="form-group">
-                                <label for="workers">Workers</label>
+                                <label for="workers">{{ trans('forms.workers') }}</label>
                                 {{ Form::number('workers', $diary->workers, ['class' => 'form-control']) }}
                             </div>
 
                         </div>
                         <div class="col-sm-6 text-right">
                             <div class="form-group">
-                                <label for="description">Description</label>
+                                <label for="description">{{ trans('forms.description') }}</label>
                                 {{ Form::textarea('description', $diary->description, ['class' => 'form-control', 'size'=>'50x5']) }}
                             </div>
 
                             <div class="form-group">
-                                <label for="issues">Issues</label>
+                                <label for="issues">{{ trans('forms.issues') }}</label>
                                 {{ Form::textarea('issues', $diary->issues, ['class' => 'form-control', 'size'=>'50x3']) }}
                             </div>
 
                             <div class="form-group">
-                                <label for="images">Images</label>
+                                <label for="images">{{ trans('forms.images') }}</label>
                                 {{ Form::file('images[]', array('multiple'=>true), ['class' => 'form-control']) }}
 
                             </div>
 
-                            <button type="submit" class="btn btn-primary haveLoader">Save changes</button>
+                            <button type="submit" class="btn btn-primary haveLoader">{{ trans('forms.save-changes') }}</button>
                         </div>
                     </div>
 
@@ -106,7 +106,7 @@
                                                 <img class="diary-image img-responsive" src="{{ route('diary.image', ['filename'=>$image->name]) }}">
                                             </td>
                                             <td>
-                                                <a href="{{ route('delete.image', ['image_id'=>$image->id]) }}" class="btn btn-danger"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
+                                                <a href="{{ route('delete.image', ['image_id'=>$image->id]) }}" class="btn btn-danger haveLoader"><i class="fa fa-trash-o" aria-hidden="true"></i> Delete</a>
                                             </td>
                                         </tr>
                                     @endforeach

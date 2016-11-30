@@ -15,7 +15,16 @@ class PaymentsController extends Controller
     * Show checkout page
     */
     public function pay() {
-    return view('checkouts.checkout');
+
+        $user = Auth::user();
+
+        $subscription = $user->subscription('main');
+
+        $context = array(
+            'subscription' => $subscription
+        );
+
+        return view('checkouts.checkout', $context);
     }
 
     /**

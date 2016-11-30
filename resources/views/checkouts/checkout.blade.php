@@ -26,7 +26,8 @@
     </div>
     <!-- /.row -->
     <div class="row">
-        @if(\Illuminate\Support\Facades\Auth::user()->subscribed('main'))
+
+        @if($subscription)
             <h1>subscribed</h1>
         @else
             <h1>not subscribed</h1>

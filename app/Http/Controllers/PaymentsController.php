@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Donation;
 use App\User;
+use App\Subscriptions;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Stripe\Stripe;
 
@@ -68,6 +68,10 @@ class PaymentsController extends Controller
         }
 
         return redirect()->route('checkout.success');
+    }
+
+    public function makeSubscription() {
+
     }
 
     public function success() {

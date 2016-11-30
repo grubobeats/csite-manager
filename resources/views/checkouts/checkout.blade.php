@@ -26,37 +26,24 @@
     </div>
     <!-- /.row -->
     <div class="row">
+        @if(\Illuminate\Support\Facades\Auth::user()->subscribed('main'))
+            <h1>subscribed</h1>
+        @else
+            <h1>not subscribed</h1>
+        @endif
 
-      <form action="{{ route('post.checkout') }}" method="POST" id="payment-form">
+      <form action="{{ route('subscription.checkout') }}" method="POST" id="payment-form">
         {{ csrf_field() }}
-        <input type="hidden" value="" id="stripeToken" name="stripeToken" value="0">
-        <span class="payment-errors"></span>
 
-        <div class="form-row">
-          <label>
-            <span>Card Number</span>
-            <input type="text" size="20" data-stripe="number" value="4242424242424242">
-          </label>
-        </div>
-
-        <div class="form-row">
-          <label>
-            <span>Expiration (MM/YY)</span>
-            <input type="text" size="2" data-stripe="exp_month" value="12">
-          </label>
-          <span> / </span>
-          <input type="text" size="2" data-stripe="exp_year" value="2016">
-        </div>
-
-        <div class="form-row">
-          <label>
-            <span>CVC</span>
-            <input type="text" size="4" data-stripe="cvc" value="123">
-          </label>
-        </div>
-
-
-        <input type="submit" class="submit" value="Submit Payment">
+          <script
+              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+              data-key="pk_test_jnQoANlW94gaHnZ8LXl7V6AH"
+              data-amount="500"
+              data-name="Subscription"
+              data-description="Premium plan"
+              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
+              data-locale="auto">
+          </script>
       </form>
     </div>
 </div>

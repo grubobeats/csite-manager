@@ -61,11 +61,12 @@ class MailController extends Controller
 
         Mail::send('emails.diary', $context, function($message){
             $reciver = Request::input('email');
+            $subject = trans('emails.new-diary');
 
-            $message->to($reciver)->from('info@csmanager.com')->subject('New construction diary');
+            $message->to($reciver)->from('info@csmanager.com')->subject($subject);
         });
 
-        return redirect()->back()->with(['email-sent'=>true]);
+        return redirect()->back()->with(['email-sent' => true]);
     }
 
 

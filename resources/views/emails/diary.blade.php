@@ -277,15 +277,11 @@
                                 <span style="text-transform: capitalize">{{ $username->name }} {{ $username->lastname }}</span> @lang('emails.sent-you-this-email')<br>
                             </p><!-- /Callout Panel -->
 
-
-                            <br/>
-                            <br/>
-
                             <!--- column 2 -->
                             <table align="left" class="column">
                                 <tr>
-                                    <td>@lang('forms.date'): {{ $diary->day }}</td>
-                                    <td>@lang('forms.day'): {{ $diary->date }}</td>
+                                    <td>@lang('forms.day'): {{ $diary->day }}</td>
+                                    <td>@lang('forms.date'): {{ $diary->date }}</td>
                                 </tr>
                                 <tr>
                                     <td>@lang('forms.weather'): {{ \App\Http\Controllers\DiaryController::weather($diary->weather) }}, {{ $diary->temperature }} &deg;C</td>
@@ -297,12 +293,24 @@
                                 <tr>
                                     <td colspan="2">{{ $description }}</td>
                                 </tr>
-                                <tr>
-                                    <td colspan="2">@lang('forms.issues')</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2">{{ $issues }}</td>
-                                </tr>
+
+                                @if( $issues === "")
+                                    <tr>
+                                        <td colspan="2">
+                                            @lang('view-diary.no-issues')
+                                        </td>
+                                    </tr>
+                                @else
+                                    <tr>
+                                        <td colspan="2">
+                                            @lang('view-diary.issues')
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2" id="issues">{{ $issues }}</td>
+                                    </tr>
+                                @endif
+
                                 <tr>
                                     <td colspan="2">@lang('forms.images'): {{ count($images) }}</td>
                                 </tr>

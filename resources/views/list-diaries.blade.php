@@ -53,7 +53,7 @@
                         <div class="btn-group pull-left" role="group" aria-label="...">
                             {!! Form::open(['method'=>'GET', 'route'=>['list-diaries', '20'], 'role'=>'search', 'class'=>'form-inline']) !!}
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="search" placeholder="Search..." name="search">
+                                    <input type="text" class="form-control" id="search" placeholder="@lang('global.search')" name="search">
                                 </div>
                                 <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
                             {!! Form::close() !!}

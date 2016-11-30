@@ -54,4 +54,6 @@ return [
     'csite-error' => 'Construction site is not added. Please fix the errors bellow and try again.',
     'diary-error' => 'Diary not saved. Please fix the errors bellow and try again.',
 
+    // search
+    'search' => 'Search'
 ];

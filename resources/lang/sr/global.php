@@ -55,4 +55,6 @@ return [
     'csite-error' => 'Gradilište nije saćuvano. Molimo Vas ispravite greške ispod i pokušajte ponovo.',
     'diary-error' => 'Dnevnik nije sačuvan. Molimo Vas ispravite greške ispod i pokušajte ponovo.',
 
+    // search
+    'search' => 'Pretraga'
 ];

@@ -33,6 +33,9 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
+
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
                     <li class="dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@lang('global.choose-language') <span class="caret"></span></a>
                         <ul class="dropdown-menu">
@@ -40,8 +43,7 @@
                             <li><a href="{{ route('language', ['lang'=>'sr']) }}">Srpski</a></li>
                         </ul>
                     </li>
-                </ul>
-                <ul class="nav navbar-nav navbar-right">
+
                     @if (Auth::guest())
                         <li><a href="{{ url('/login') }}">@lang('global.login')</a></li>
                         <li><a href="{{ url('/register') }}">@lang('global.register')</a></li>

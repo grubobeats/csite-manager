@@ -57,7 +57,7 @@
 
                         <div class="divider" style="padding:25px"></div>
 
-                        <table class="table table-bordered">
+                        <table class="table table-responsive">
 
                             <tr>
                                 <th>Id</th>

@@ -59,6 +59,13 @@
                     <ul class="nav navbar-nav navbar-right">
                         <!-- Authentication Links -->
                         @if (Auth::guest())
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@lang('global.choose-language') <span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ route('language', ['lang'=>'en']) }}">English</a></li>
+                                    <li><a href="{{ route('language', ['lang'=>'sr']) }}">Srpski</a></li>
+                                </ul>
+                            </li>
                             <li><a href="{{ url('/login') }}">Login</a></li>
                             <li><a href="{{ url('/register') }}">Register</a></li>
                         @else

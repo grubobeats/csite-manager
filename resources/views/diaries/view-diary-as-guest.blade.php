@@ -10,16 +10,6 @@
         @include('includes.error-handler', ['message'=>trans('global.email-error')])
     @endif
 
-    <ul class="nav navbar-nav pull-right">
-        <li class="dropdown">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@lang('global.choose-language') <span class="caret"></span></a>
-            <ul class="dropdown-menu">
-                <li><a href="{{ route('language', ['lang'=>'en']) }}">English</a></li>
-                <li><a href="{{ route('language', ['lang'=>'sr']) }}">Srpski</a></li>
-            </ul>
-        </li>
-    </ul>
-
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -63,7 +53,7 @@
 
 
 
-                        <table class="table table-bordered">
+                        <table class="table table-responsive">
 
                             <tr>
                                 <th>@lang('forms.day')</th>
@@ -84,9 +74,6 @@
                             <tr>
                                 <th colspan="4" id="description">{{ $diary->description }}</th>
                             </tr>
-                            <tr>
-                                <th colspan="4" id="issuse">@lang('forms.images')</th>
-                            </tr>
                             @if( $diary->issues === "")
                                 <tr class="success">
                                     <th colspan="4">
@@ -99,7 +86,7 @@
                                         @lang('view-diary.issues')
                                     </th>
                                 </tr>
-                                <tr>
+                                <tr class="danger">
                                     <th colspan="4" id="issues">{{ $diary->issues }}</th>
                                 </tr>
                             @endif

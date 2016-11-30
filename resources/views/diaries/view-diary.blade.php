@@ -68,7 +68,7 @@
 
 
 
-                        <table class="table table-bordered">
+                        <table class="table table-responsive">
 
                             <tr>
                                 <th>@lang('forms.day')</th>
@@ -102,7 +102,7 @@
                                         @lang('view-diary.issues')
                                     </th>
                                 </tr>
-                                <tr>
+                                <tr class="danger">
                                     <th colspan="4" id="issues">{{ $diary->issues }}</th>
                                 </tr>
                             @endif

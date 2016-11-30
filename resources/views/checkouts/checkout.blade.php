@@ -42,7 +42,9 @@
               data-name="Subscription"
               data-description="Premium plan"
               data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-              data-locale="auto">
+              data-locale="auto"
+              data-allow-remember-me="false"
+              data-email="{{ \Illuminate\Support\Facades\Auth::user()->email }}">
           </script>
       </form>
     </div>

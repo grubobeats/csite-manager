@@ -20,7 +20,7 @@ class MailController extends Controller
             'email' => 'required|email',
         ]);
 
-        $csite = ConstructionSite::all()->find($csite_id)->first();
+        $csite = ConstructionSite::all()->where('id', $csite_id)->first();
         $diary = DB::table('diaries')->where('id', $diary_id)->first();
         $images = Images::all()->where('diary_key', $diary->images);
         $reciver = Request::input('email');

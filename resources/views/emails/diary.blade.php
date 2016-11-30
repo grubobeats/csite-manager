@@ -310,14 +310,13 @@
                                         <td colspan="2" id="issues">{{ $issues }}</td>
                                     </tr>
                                 @endif
-
                                 <tr>
                                     <td colspan="2">@lang('forms.images'): {{ count($images) }}</td>
                                 </tr>
                                 @foreach($images as $key => $image)
                                     <tr>
                                         <td colspan="2">
-                                            <img class="diary-image img-responsive" src="{{ route('diary.image', ['filename'=>$image->name]) }}">
+                                            <img class="diary-image img-responsive" src="{{ $message->embed(route('diary.image', ['filename'=>$image->name])) }}">
                                         </td>
                                     </tr>
                                 @endforeach

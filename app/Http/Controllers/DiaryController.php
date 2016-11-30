@@ -41,9 +41,19 @@ class DiaryController extends Controller
      * @param $csite_id
      * @return array|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|mixed
      */
-    public function listDiaries($csite_id) {
+    public function listDiaries(Request $request, $csite_id) {
+        $search = $request->input('search');
+
         $csite = ConstructionSite::where('id', $csite_id)->first();
-        $diaries = Diary::where('csite_id', $csite_id)->orderBy('day', 'desc')->paginate(10);
+        // $diaries = Diary::where('csite_id', $csite_id)->orderBy('day', 'desc')->paginate(10);
+
+        $diaries = Diary::where(array(
+            ['csite_id', '=', $csite_id],
+            ['description', 'like', "%$search%" ],
+            ))
+            ->orWhere('issues', 'like', "%$search%")
+            ->orderBy('day', 'desc')->paginate(10);
+
 
         $context = array(
             'construction_site' => $csite,
@@ -70,6 +80,7 @@ class DiaryController extends Controller
             'images' => $images,
             'counter' => 0
         );
+
         return view('diaries/view-diary-as-guest', $context);
     }
 

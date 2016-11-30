@@ -16,4 +16,5 @@ return [
 
     'no-issues' => 'Bez problema',
     'issues' => 'Problemi:',
+    'add-new' => 'Dodati',
 ];

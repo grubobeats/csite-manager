@@ -17,20 +17,13 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-// POST - Change language
-//Route::post('/language', array(
-//    'before' => 'csrf',
-//    'as' => 'language-chooser',
-//    'uses' => 'LanguageController@chooser'
-//));
-
+// GET - Change language
 Route::get('/choose-language/{lang}', function($lang){
     Lang::setLocale($lang);
     Session::set('locale', $lang);
 
     return redirect()->back();
 })->name('language');
-
 
 /**
  * Just for authenticated users

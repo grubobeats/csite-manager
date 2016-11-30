@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     @if(count($errors) > 0)
-        @include('includes.error-handler', ['message'=>'Construction site is not added. Please fix the errors bellow and try again.'])
+        @include('includes.error-handler', ['message'=>trans('global.csite-error')])
     @endif
 
     <!-- Page Heading -->

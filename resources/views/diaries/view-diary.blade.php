@@ -80,7 +80,7 @@
                             <tr>
                                 <th>{{ $diary->day }}</th>
                                 <th>{{ $diary->date }}</th>
-                                <th>{{ $diary->weather }}, {{ $diary->temperature }} &deg;</th>
+                                <th>{{ \App\Http\Controllers\DiaryController::weather($diary->weather) }}, {{ $diary->temperature }} &deg;C</th>
                                 <th>{{ $diary->workers }}</th>
                             </tr>
                             <tr>

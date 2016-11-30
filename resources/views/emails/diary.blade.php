@@ -274,7 +274,7 @@
 
                             <!-- Callout Panel -->
                             <p class="callout">
-                                <span style="text-transform: capitalize">{{ $username->name }} {{ $username->lastname }}</span> sent you this email, please review this diary.<br>
+                                <span style="text-transform: capitalize">{{ $username->name }} {{ $username->lastname }}</span> @lang('emails.sent-you-this-email')<br>
                             </p><!-- /Callout Panel -->
 
 
@@ -288,7 +288,7 @@
                                     <td>@lang('forms.day'): {{ $diary->date }}</td>
                                 </tr>
                                 <tr>
-                                    <td>@lang('forms.weather'): {{ $diary->weather }}, {{ $diary->temperature }} &deg; C</td>
+                                    <td>@lang('forms.weather'): {{ \App\Http\Controllers\DiaryController::weather($diary->weather) }}, {{ $diary->temperature }} &deg;C</td>
                                     <td>@lang('forms.workers'): {{ $diary->workers }}</td>
                                 </tr>
                                 <tr>
@@ -336,8 +336,9 @@
                     <tr>
                         <td align="center">
                             <p>
-                                To view this on our website <a href="{{ route('guests.link', ['language'=>'en', 'csite_id'=>$csite->id, 'diary_id'=>$diary->id, 'random_link'=>'8734282358975']) }}">click here</a>.
-                                <a href="http://www.constructionmanager.com">Try Construction Manager now - it is free!</a>
+                                @lang('emails.to-view-this') <a href="{{ route('guests.link', ['language'=>'en', 'csite_id'=>$csite->id, 'diary_id'=>$diary->id, 'random_link'=>'8734282358975']) }}">@lang('global.click-here')</a>.
+                                <br>
+                                <a href="http://www.constructionmanager.com">@lang('emails.try-cs-manager')</a>
                             </p>
                         </td>
                     </tr>

@@ -39,11 +39,19 @@ return [
     'year' => 'Year',
     'donate' => 'Donate',
 
+    'like-cs-manager' => 'Like Construction Manager?',
+    'donate-developers' => 'donate developers',
+    'for-new-features' => 'for new features',
+
     // Welcome page
     'choose-language' => 'Choose language',
     'dashboard' => 'Dashboard',
     'logout' => 'Logout',
     'login' => 'Login',
     'register' => 'Register',
+
+    // errors
+    'csite-error' => 'Construction site is not added. Please fix the errors bellow and try again.',
+    'diary-error' => 'Diary not saved. Please fix the errors bellow and try again.',
 
 ];

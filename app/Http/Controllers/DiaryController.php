@@ -18,13 +18,32 @@ use Illuminate\Support\Facades\DB;
 class DiaryController extends Controller
 
 {
+    static function weather($weather_id) {
+        $weather = "";
+        switch ($weather_id){
+            case "1":
+                $weather = trans('forms.select-sunny');
+                break;
+            case "2":
+                $weather = trans('forms.select-dust');
+                break;
+            case "3":
+                $weather = trans('forms.select-rainy');
+                break;
+            case "4":
+                $weather = trans('forms.select-snowing');
+                break;
+        }
+
+        return $weather;
+    }
     /**
      * @param $csite_id
      * @return array|\Illuminate\Contracts\View\Factory|\Illuminate\View\View|mixed
      */
     public function listDiaries($csite_id) {
         $csite = ConstructionSite::where('id', $csite_id)->first();
-        $diaries = Diary::all()->where('csite_id', $csite_id);
+        $diaries = Diary::where('csite_id', $csite_id)->orderBy('day', 'desc')->get();
 
         $context = array(
             'construction_site' => $csite,
@@ -82,7 +101,7 @@ class DiaryController extends Controller
         $this->validate($request, array(
             'day' => 'required',
             'date' => 'required',
-            'weather' => 'required',
+            'weather' => 'required|not_in:0',
             'workers' => 'required',
             'description' => 'required',
             'temperature' => 'required',

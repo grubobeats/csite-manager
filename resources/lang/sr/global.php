@@ -40,10 +40,19 @@ return [
     'year' => 'Godina',
     'donate' => 'Doniraj',
 
+    'like-cs-manager' => 'Sviđa vam se "Construction Manager"?',
+    'donate-developers' => 'donirajte programere',
+    'for-new-features' => 'za nove opcije',
+
     // Welcome page
     'choose-language' => 'Izaberite jezik',
     'dashboard' => 'Administracija',
     'logout' => 'Izlaz',
     'login' => 'Ulaz',
     'register' => 'Registracija',
+
+    // errors
+    'csite-error' => 'Gradilište nije saćuvano. Molimo Vas ispravite greške ispod i pokušajte ponovo.',
+    'diary-error' => 'Dnevnik nije sačuvan. Molimo Vas ispravite greške ispod i pokušajte ponovo.',
+
 ];

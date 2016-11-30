@@ -16,4 +16,5 @@ return [
 
     'no-issues' => 'No issues',
     'issues' => 'Issues',
+    'add-new' => 'Add new'
 ];

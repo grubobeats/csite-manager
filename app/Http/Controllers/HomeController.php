@@ -25,7 +25,7 @@ class HomeController extends Controller
     public function index()
     {
         $user_id = Auth::id();
-        $construction_site = ConstructionSite::all()->where('user_id', $user_id);
+        $construction_site = ConstructionSite::where('user_id', $user_id)->orderBy('id', 'desc')->get();
 
         $context = array(
             'construction_site' => $construction_site,

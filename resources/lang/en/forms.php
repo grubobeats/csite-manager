@@ -1,6 +1,7 @@
 <?php
 
 return [
+    'select-zero' => 'Choose...',
     'select-sunny' => 'Sunny',
     'select-dust' => 'Dusty',
     'select-rainy' => 'Rainy',

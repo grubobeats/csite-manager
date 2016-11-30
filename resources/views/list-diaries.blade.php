@@ -51,8 +51,8 @@
                     <div class="panel-body">
 
                         <div class="btn-group pull-right" role="group" aria-label="...">
-                            <a href="{{ route('dashboard') }}" class="btn btn-primary haveLoader"><i class="fa fa-arrow-left" aria-hidden="true"></i> Go back</a>
-                            <a href="{{ route('add-diary', ['csite_id' => $construction_site->id]) }}" class="btn btn-primary haveLoader">Add new <i class="fa fa-plus" aria-hidden="true"></i></a>
+                            <a href="{{ route('dashboard') }}" class="btn btn-primary haveLoader"><i class="fa fa-arrow-left" aria-hidden="true"></i> @lang('view-diary.go-back')</a>
+                            <a href="{{ route('add-diary', ['csite_id' => $construction_site->id]) }}" class="btn btn-primary haveLoader">@lang('view-diary.add-new') <i class="fa fa-plus" aria-hidden="true"></i></a>
                         </div>
 
                         <div class="divider" style="padding:25px"></div>
@@ -72,7 +72,7 @@
                                     <td>{{ ++$key }}</td>
                                     <td>{{ $diary->date }}</td>
                                     <td>{{ $diary->day }}</td>
-                                    <td>{{ $diary->weather }}</td>
+                                    <td>{{ \App\Http\Controllers\DiaryController::weather($diary->weather) }}</td>
                                     <td>{{ $diary->workers }}</td>
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">

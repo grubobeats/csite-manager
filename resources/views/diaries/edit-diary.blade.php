@@ -2,7 +2,9 @@
 
 @section('content')
 <div class="container">
-
+    @if(count($errors) > 0)
+        @include('includes.error-handler', ['message'=>trans('global.diary-error')])
+    @endif
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">
@@ -57,7 +59,7 @@
 
                             <div class="form-group">
                                 <label for="weather">{{ trans('forms.weather') }}</label>
-                                {{ Form::select('weather', ['1' => trans('forms.select-sunny'), '2' => trans('forms.select-dust'), '3' => trans('forms.select-rainy'), '4' => trans('forms.select-snowing') ], $diary->weather, ['class'=>'form-control']) }}
+                                {{ Form::select('weather', ['0' => trans('forms.select-zero'), '1' => trans('forms.select-sunny'), '2' => trans('forms.select-dust'), '3' => trans('forms.select-rainy'), '4' => trans('forms.select-snowing') ], $diary->weather, ['class'=>'form-control']) }}
                             </div>
 
                             <div class="form-group">

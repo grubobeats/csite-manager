@@ -56,7 +56,9 @@ class DiaryController extends Controller
 
         $this->middleware('auth', ['except' => array('getActivate', 'getLogin')]);
 
-        Lang::setLocale($language);
+        if(!Session::get('locale')) {
+            Lang::setLocale($language);
+        }
 
         $csite = ConstructionSite::where('id', $csite_id)->first();
         $diary = Diary::all()->where('id', $diary_id)->first();

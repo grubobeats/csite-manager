@@ -58,7 +58,6 @@ class MailController extends Controller
             'username' => $username
         );
 
-
         Mail::send('emails.diary', $context, function($message){
             $reciver = Request::input('email');
             $subject = trans('emails.new-diary');

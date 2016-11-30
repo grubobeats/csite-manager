@@ -10,6 +10,16 @@
         @include('includes.error-handler', ['message'=>trans('global.email-error')])
     @endif
 
+    <ul class="nav navbar-nav pull-right">
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">@lang('global.choose-language') <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+                <li><a href="{{ route('language', ['lang'=>'en']) }}">English</a></li>
+                <li><a href="{{ route('language', ['lang'=>'sr']) }}">Srpski</a></li>
+            </ul>
+        </li>
+    </ul>
+
     <!-- Page Heading -->
     <div class="row">
         <div class="col-lg-12">

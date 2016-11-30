@@ -47,13 +47,16 @@ class DiaryController extends Controller
         $csite = ConstructionSite::where('id', $csite_id)->first();
         // $diaries = Diary::where('csite_id', $csite_id)->orderBy('day', 'desc')->paginate(10);
 
+        // Perform search or just show diaries
         $diaries = Diary::where(array(
-            ['csite_id', '=', $csite_id],
+            ['csite_id', $csite_id],
             ['description', 'like', "%$search%" ],
             ))
-            ->orWhere('issues', 'like', "%$search%")
+            ->orWhere(array(
+                ['csite_id', $csite_id],
+                ['issues', 'like', "%$search%" ],
+            ))
             ->orderBy('day', 'desc')->paginate(10);
-
 
         $context = array(
             'construction_site' => $csite,

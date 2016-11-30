@@ -62,7 +62,7 @@
                             <i class="fa fa-pencil-square-o fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">2</div>
+                            <div class="huge">{{ $count_diaries }}</div>
                             <div>@lang('global.diaries')</div>
                         </div>
                     </div>

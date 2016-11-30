@@ -51,11 +51,11 @@
                     <div class="panel-body">
 
                         <div class="btn-group pull-left" role="group" aria-label="...">
-                            {!! Form::open(['method'=>'GET', 'route'=>['list-diaries', '20'], 'role'=>'search', 'class'=>'form-inline']) !!}
+                            {!! Form::open(['method'=>'GET', 'route'=>['list-diaries', $construction_site->id ], 'role'=>'search', 'class'=>'form-inline']) !!}
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="search" placeholder="@lang('global.search')" name="search">
                                 </div>
-                                <button type="submit" class="btn btn-default"><i class="fa fa-search" aria-hidden="true"></i></button>
+                                <button type="submit" class="btn btn-default haveLoader"><i class="fa fa-search" aria-hidden="true"></i></button>
                             {!! Form::close() !!}
                         </div>
 

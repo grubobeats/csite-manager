@@ -43,7 +43,7 @@ class DiaryController extends Controller
      */
     public function listDiaries($csite_id) {
         $csite = ConstructionSite::where('id', $csite_id)->first();
-        $diaries = Diary::where('csite_id', $csite_id)->orderBy('day', 'desc')->get();
+        $diaries = Diary::where('csite_id', $csite_id)->orderBy('day', 'desc')->paginate(10);
 
         $context = array(
             'construction_site' => $csite,

@@ -86,6 +86,8 @@
                         </table>
                     </div>
                 </div>
+
+                {{ $diaries->links() }}
             @else
 
                 <div class="jumbotron">

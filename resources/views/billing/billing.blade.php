@@ -2,18 +2,15 @@
 
 @section('content')
     <div class="container">
+        @if( Session::has('canceled') )
+            @include('includes.deleted', ['message'=>'You canceled your subscription.'])
+        @endif
+
         <div class="row">
             <div class="col-sm-4">
 
             </div>
             <div class="col-sm-8">
-
-                @if( Session::has('canceled') )
-                    <div class="well">
-                        Subscription canceled
-                    </div>
-                @endif
-
                 <div>
                     <!-- Nav tabs -->
                     <ul class="nav nav-tabs" role="tablist">
@@ -36,11 +33,12 @@
                                             <th>Expiring in</th>
                                             <th></th>
                                         </tr>
+
                                         @if($user->subscribed('main'))
                                             <tr>
-                                                <td>21.07.2016.</td>
+                                                <td>{{ $user->subscription('main')->created_at }}</td>
                                                 <td>5 eur</td>
-                                                <td>26 days</td>
+                                                <td>{{ $user->subscription('main')->ends_at }}</td>
                                                 <td>
                                                     {!! Form::open(['route'=>'cancel-subscription']) !!}
                                                         <button class="btn btn-sm btn-danger">Cancel subscription now</button>
@@ -61,7 +59,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="3" align="right">
-                                                    <button class="btn btn-default">Prolong subscription</button>
+                                                    <a href="{{  route('checkout') }}" class="btn btn-default">Prolong subscription</a>
                                                 </td>
                                             </tr>
                                         @else
@@ -72,7 +70,7 @@
                                             </tr>
                                             <tr>
                                                 <td colspan="4" align="right">
-                                                    <button class="btn btn-default">Prolong subscription</button>
+                                                    <a href="{{  route('checkout') }}" class="btn btn-default">Make subscription</a>
                                                 </td>
                                             </tr>
                                         @endif

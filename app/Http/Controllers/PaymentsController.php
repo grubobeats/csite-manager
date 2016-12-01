@@ -7,6 +7,7 @@ use App\User;
 use App\Subscriptions;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Input;
 use Stripe\Stripe;
 
 class PaymentsController extends Controller
@@ -18,14 +19,8 @@ class PaymentsController extends Controller
 
         $user = Auth::user();
 
-        if($user->subscription('main')) {
-            $subscription = true;
-        } else {
-            $subscription = false;
-        }
-
         $context = array(
-            'subscription' => $subscription
+            'user' => $user
         );
 
         return view('checkouts.checkout', $context);
@@ -88,11 +83,12 @@ class PaymentsController extends Controller
     }
 
     public function makeSubscription() {
-        $user = \Illuminate\Support\Facades\Auth::user();
-        $token = \Illuminate\Support\Facades\Input::get('stripeToken');
+        $user = Auth::user();
+        $token = Input::get('stripeToken');
 
         $user->newSubscription('main', 'monthly')->create($token);
 
         return view('checkouts/success')->with(['subscribed'=>true]);
     }
+
 }

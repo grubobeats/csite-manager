@@ -26,31 +26,24 @@
     </div>
     <!-- /.row -->
     <div class="row">
+        <table class="table table-responsive">
+            <tr>
+                <td>Your status:</td>
+                <td>
+                    @if($user->subscribed('main'))
+                        <p>subscribed</p>
+                    @else
+                        <p>not subscribed</p>
+                    @endif
+                </td>
+            </tr>
+        </table>
 
-        @if($subscription)
-            <h1>subscribed</h1>
-        @else
-            <h1>not subscribed</h1>
-        @endif
 
-      <form action="{{ route('subscription.checkout') }}" method="POST" id="payment-form">
-        {{ csrf_field() }}
 
-          <script
-              src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-              data-key="pk_test_jnQoANlW94gaHnZ8LXl7V6AH"
-              data-amount="500"
-              data-name="Subscription"
-              data-description="Premium plan"
-              data-image="https://stripe.com/img/documentation/checkout/marketplace.png"
-              data-locale="auto"
-              data-allow-remember-me="false"
-              data-email="{{ \Illuminate\Support\Facades\Auth::user()->email }}">
-          </script>
-      </form>
+        @include('includes.pricing-plans')
+
+
     </div>
 </div>
-@endsection
-
-@section('scripts')
 @endsection

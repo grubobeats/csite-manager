@@ -20,8 +20,20 @@ class BillingController extends Controller
 
     public function cancelSubscription() {
         $user = Auth::user();
+        // $user->subscription('main')->cancel();
         $user->subscription('main')->cancelNow();
 
         return redirect()->back()->with(['canceled'=>true]);
     }
+
+    public function makeSubscription(Request $request) {
+
+        $user = Auth::user();
+        $token = $request['token'];
+
+        $user->newSubscription('main', 'monthly')->create($token);
+
+        return "true";
+    }
+
 }

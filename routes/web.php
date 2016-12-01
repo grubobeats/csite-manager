@@ -130,10 +130,20 @@ Route::get('/subscription', array(
 ));
 
 // POST - 2. Process subscription
-Route::post('/subscribed', array(
+Route::get('/subscribed', array(
     'as' => 'subscription.checkout',
     'uses' => 'PaymentsController@makeSubscription'
 ));
+
+
+Route::post('/subs/', array(
+    'as' => 'sex',
+    'uses' => 'BillingController@makeSubscription'
+));
+
+
+
+
 
 // 1. GET - Go to checkout page
 Route::get('/donation', array(

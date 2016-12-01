@@ -88,8 +88,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li class="disabled"><a href="#">Settings</a></li>
-                                    <li><a href="{{ route('billing') }}">Billing</a></li>
+                                    <li><a href="{{ route('billing') }}">Account</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();

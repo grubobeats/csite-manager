@@ -1,21 +1,4 @@
 <style>
-    @import url(https://fonts.googleapis.com/css?family=Yanone+Kaffeesatz:400,700,300);
-    body {
-        font-family: 'Roboto', sans-serif;
-    }
-    body a {
-        text-decoration: none;
-        color: white;
-    }
-    body .container {
-        width: 938px;
-        position: absolute;
-        top: 50%;
-        left: 30px;
-        right: 0;
-        transform: translateY(-50%);
-        margin: auto;
-    }
     body .container .card {
         margin: 0 auto;
         display: inline-block;
@@ -26,10 +9,11 @@
         position: relative;
         transition: all .2s;
         cursor: pointer;
-        opacity: 0.5;
+        /*opacity: 0.5;*/
         box-shadow: 0px 17px 46px -10px #777777;
-        height: 470px;
+        height: 375px;
         border-radius: 14px;
+        line-height: 1;
     }
     body .container .card:nth-of-type(1) {
         animation: intro 1s 0.1s forwards;
@@ -119,7 +103,7 @@
         font-weight: 800;
         text-transform: uppercase;
         color: rgba(255, 255, 255, 0.64);
-        margin-top: 40px;
+        margin-top: 15px;
         font-size: 25px;
         letter-spacing: 1px;
     }

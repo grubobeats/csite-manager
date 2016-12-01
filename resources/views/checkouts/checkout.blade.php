@@ -7,41 +7,38 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Construction Manager <small>1.0.0</small>
+                Subscription
             </h1>
             <ol class="breadcrumb">
                 <li>
                     <a href="/public/"><i class="fa fa-building"></i> Construction Manager</a>
                 </li>
-                <li class="active">Dashboard</li>
+                <li class="active">Subscription</li>
             </ol>
         </div>
     </div>
     <!-- /.row -->
-
     <div class="row">
-        <div class="col-lg-12">
-            @include('includes.donate-developers')
+
+
+        <div class="col-sm-6">
+            <table class="table table-responsive">
+                <tr>
+                    <td>Your status:</td>
+                    <td>
+                        @if($user->subscribed('main'))
+                            <p>subscribed</p>
+                        @else
+                            <p>not subscribed</p>
+                        @endif
+                    </td>
+                </tr>
+            </table>
+            test text
         </div>
-    </div>
-    <!-- /.row -->
-    <div class="row">
-        <table class="table table-responsive">
-            <tr>
-                <td>Your status:</td>
-                <td>
-                    @if($user->subscribed('main'))
-                        <p>subscribed</p>
-                    @else
-                        <p>not subscribed</p>
-                    @endif
-                </td>
-            </tr>
-        </table>
-
-
-
-        @include('includes.pricing-plans')
+        <div class="col-sm-6">
+            @include('includes.pricing-plans')
+        </div>
 
 
     </div>

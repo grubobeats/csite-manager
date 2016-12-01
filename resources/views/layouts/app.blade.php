@@ -72,6 +72,19 @@
                             <li class="dropdown">
                                 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" id="username-holder">
                                     {{ Auth::user()->name }} {{ Auth::user()->lastname }} <span class="caret"></span>
+                                    @if(Auth::user()->donated)
+                                        <span class="fa-stack">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-thumbs-o-up fa-stack-1x fa-inverse" aria-hidden="true" title="You donated and helped us. Thank you!"></i>
+                                        </span>
+                                    @endif
+
+                                    @if(Auth::user()->subscribed('main'))
+                                        <span class="fa-stack">
+                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-handshake-o fa-stack-1x fa-inverse" aria-hidden="true" title="You are subscribed"></i>
+                                        </span>
+                                    @endif
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">

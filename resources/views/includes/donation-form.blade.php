@@ -67,6 +67,7 @@
         <form action="{{ route('post.checkout') }}" method="post" id="payment-form" class="form" autocomplete="off" novalidate>
             {{ csrf_field() }}
             <input type="hidden" value="" id="stripeToken" name="stripeToken" value="0">
+            <span class="payment-errors" style="color: #FF4837"></span>
             <fieldset>
                 <label for="card-number">@lang('global.card-number')</label>
                 <input type="num" id="card-number" class="input-cart-number" maxlength="4" placeholder="xxxx">
@@ -360,7 +361,7 @@
             margin: 0 auto;
             top: 103px;
             left: 19px;
-            font-size: 38px;
+            font-size: 34px;
         }
         .credit-card-box label {
             font-size: 10px;

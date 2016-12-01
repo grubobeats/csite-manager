@@ -18,7 +18,11 @@ class PaymentsController extends Controller
 
         $user = Auth::user();
 
-        $subscription = $user->subscription('main');
+        if($user->subscription('main')) {
+            $subscription = true;
+        } else {
+            $subscription = false;
+        }
 
         $context = array(
             'subscription' => $subscription
@@ -41,6 +45,25 @@ class PaymentsController extends Controller
 
         $user_id = Auth::id();
 
+        // Stripe test or live secret API key
+        Stripe::setApiKey('sk_test_Y0L6a7WV76B297VS9sDwljv2');
+
+        $amount = $request->input('amount') * 100;
+        $token = $request->input('stripeToken');
+
+        // Create a charge: this will charge the user's card
+        try {
+          $charge = \Stripe\Charge::create(array(
+              "amount" => $amount, // Amount in cents - Add dynamic value
+              "currency" => "eur",
+              "source" => $token,
+              "description" => "Donation" // add description for services
+            ));
+
+        } catch (\Stripe\Error\Card $e) {
+
+        }
+
         // Adding informations to donations table in db
         $donor = new Donation();
         $donor->user_id = $user_id;
@@ -57,35 +80,19 @@ class PaymentsController extends Controller
         $user->donated = true;
         $user->update();
 
-        // Stripe test or live secret API key
-        Stripe::setApiKey('sk_test_Y0L6a7WV76B297VS9sDwljv2');
-
-        $amount = $request->input('amount') * 100;
-        $token = $request->input('stripeToken');
-
-        // Create a charge: this will charge the user's card
-        try {
-          $charge = \Stripe\Charge::create(array(
-              "amount" => $amount, // Amount in cents - Add dynamic value
-              "currency" => "eur",
-              "source" => $token,
-              "description" => "Donation" // add description for services
-            ));
-        } catch (\Stripe\Error\Card $e) {
-          // The card has been declined
-
-        }
-
-        return redirect()->route('checkout.success');
-    }
-
-    public function makeSubscription() {
-
+        return redirect()->route('checkout.success')->with(['donated'=>true]);
     }
 
     public function success() {
-
         return view('checkouts/success');
     }
 
+    public function makeSubscription() {
+        $user = \Illuminate\Support\Facades\Auth::user();
+        $token = \Illuminate\Support\Facades\Input::get('stripeToken');
+
+        $user->newSubscription('main', 'monthly')->create($token);
+
+        return view('checkouts/success')->with(['subscribed'=>true]);
+    }
 }

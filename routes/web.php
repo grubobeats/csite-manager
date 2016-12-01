@@ -121,25 +121,33 @@ Route::post('/lkk432359{diary_id}4981ljh/fdsfdsf{csite_id}fsdfs/sent-mail', arra
 
 /***************  Proccessing payments ***************/
 
-// GET - Go to checkout page
-Route::get('/checkout', array(
+// GET - 1. Go to subscription page
+Route::get('/subscription', array(
   'as' => 'checkout',
   'uses' => 'PaymentsController@pay'
 ));
 
-// post - Go to checkout page
-Route::post('/checkout-post', array(
-  'as' => 'post.checkout',
-  'uses' => 'PaymentsController@postPay'
+// POST - 2. Process subscription
+Route::post('/subscribed', array(
+    'as' => 'subscription.checkout',
+    'uses' => 'PaymentsController@makeSubscription'
 ));
 
-// GET - Go to checkout page
+// 1. GET - Go to checkout page
 Route::get('/donation', array(
     'as' => 'donation',
     'uses' => 'PaymentsController@donate'
 ));
 
-// GET - Thank you page (going after checkout)
+// 2. POST - Go to checkout page
+Route::post('/checkout-donated', array(
+  'as' => 'post.checkout',
+  'uses' => 'PaymentsController@postPay'
+));
+
+
+
+// 3. GET - Thank you page (going after checkout)
 Route::get('/checkout/success', array(
     'as' => 'checkout.success',
     'uses' => 'PaymentsController@success'
@@ -148,18 +156,7 @@ Route::get('/checkout/success', array(
 
 
 
-// post - Go to checkout page
-Route::post('/checkout-post', function() {
 
-    $user = \Illuminate\Support\Facades\Auth::user();
-    $token = \Illuminate\Support\Facades\Input::get('stripeToken');
-
-    $user->newSubscription('main', 'monthly')->create($token);
-
-
-    return 'Done';
-
-})->name('subscription.checkout');
 
 
 

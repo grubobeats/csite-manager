@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Donation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -11,9 +12,13 @@ class BillingController extends Controller
 
         $user = Auth::user();
 
+        $donations = Donation::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
+
+
 
         $context = array(
             'user' => $user,
+            'donations' => $donations,
         );
         return view('billing/billing', $context);
     }

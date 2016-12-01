@@ -74,14 +74,14 @@
                                     {{ Auth::user()->name }} {{ Auth::user()->lastname }} <span class="caret"></span>
                                     @if(Auth::user()->donated)
                                         <span class="fa-stack">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-circle fa-stack-2x text-info" ></i>
                                             <i class="fa fa-thumbs-o-up fa-stack-1x fa-inverse" aria-hidden="true" title="You donated and helped us. Thank you!"></i>
                                         </span>
                                     @endif
 
                                     @if(Auth::user()->subscribed('main'))
                                         <span class="fa-stack">
-                                            <i class="fa fa-circle fa-stack-2x"></i>
+                                            <i class="fa fa-circle fa-stack-2x text-info"></i>
                                             <i class="fa fa-handshake-o fa-stack-1x fa-inverse" aria-hidden="true" title="You are subscribed"></i>
                                         </span>
                                     @endif
@@ -89,7 +89,7 @@
 
                                 <ul class="dropdown-menu" role="menu">
                                     <li class="disabled"><a href="#">Settings</a></li>
-                                    <li class="disabled"><a href="#">Billing</a></li>
+                                    <li><a href="{{ route('billing') }}">Billing</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();

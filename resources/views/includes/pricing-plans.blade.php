@@ -205,7 +205,7 @@
 <div class="modal fade" id="submiting" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
     <div class="modal-dialog" role="document">
         <div class="jumbotron text-center modal-payment">
-            <h2><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Submiting your payment...</h2>
+            <h2><i class="fa fa-spinner fa-spin fa-fw"></i> Submiting your payment...</h2>
             <p>Please don't close this window</p>
         </div>
     </div>
@@ -238,22 +238,23 @@
     <script src="https://checkout.stripe.com/checkout.js"></script>
 
     <script>
-//        $('#submiting').modal('show');
-
         function changeModal(){
 
             $('.modal-payment h2')
-                .fadeOut(1000)
-                .delay('1000')
-                .fadeIn('slow')
                 .html('<i class="fa fa-check" aria-hidden="true"></i> Payment accepted!')
                 .parent('.jumbotron')
                 .addClass('alert-success');
 
-            $('.modal-payment p').fadeOut(1000);
+            $('.modal-payment p')
+                .delay('1000')
+                .html('Thank you.<br>You will be redirected automatically.')
+
             setTimeout(function(){
                 $('#submiting').modal('hide');
-            }, 3000);
+                setTimeout(function(){
+                    location.href = '{{ route('dashboard') }}';
+                },1000);
+            }, 5000);
         }
 
         var handler = StripeCheckout.configure({
@@ -291,7 +292,8 @@
                 name: 'Premium plan',
                 description: 'Monthly subscription',
                 amount: 500,
-                email: '{{ $user->email }}'
+                email: '{{ $user->email }}',
+                allowRememberMe: false
             });
             e.preventDefault();
         });

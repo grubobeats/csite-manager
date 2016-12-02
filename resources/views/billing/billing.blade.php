@@ -65,6 +65,7 @@
 
                                     <h3>Subscription</h3>
 
+                                    @if($user->subscribed('main'))
                                     <table class="table table-responsive">
                                         <tr>
                                             <th>Date</th>
@@ -73,30 +74,22 @@
                                             <th></th>
                                         </tr>
 
-                                        @if($user->subscribed('main'))
-                                            <tr>
-                                                <td>{{ $user->subscription('main')->created_at->format('d-m-Y') }}</td>
-                                                <td>5 eur</td>
-                                                <td>{{ $user->subscription('main')->ends_at }}</td>
-                                                <td align="right">
-                                                    {!! Form::open(['route'=>'cancel-subscription']) !!}
-                                                    <button class="btn btn-sm btn-danger">Cancel subscription now</button>
-                                                    {!! Form::close() !!}
-                                                </td>
-                                            </tr>
-                                        @else
-                                            <tr class="warning">
-                                                <td colspan="4">
-                                                    You are not subscribed.
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td colspan="4" align="right">
-                                                    <a href="{{  route('checkout') }}" class="btn btn-default"><i class="fa fa-check" aria-hidden="true"></i> Make subscription</a>
-                                                </td>
-                                            </tr>
-                                        @endif
+                                        <tr>
+                                            <td>{{ $user->subscription('main')->created_at->format('d-m-Y') }}</td>
+                                            <td>5 eur</td>
+                                            <td>{{ $user->subscription('main')->ends_at }}</td>
+                                            <td align="right">
+                                                {!! Form::open(['route'=>'cancel-subscription']) !!}
+                                                <button class="btn btn-sm btn-danger">Cancel subscription now</button>
+                                                {!! Form::close() !!}
+                                            </td>
+                                        </tr>
                                     </table>
+                                    @else
+                                        <div class="jumbotron text-center alert-warning">
+                                            <h2>You are not subscribed yet <br><a href="{{ route('checkout') }}">click to subscribe</a> and unlock pro features. It is just 5 euros per month!</h2>
+                                        </div>
+                                    @endif
                             </div>
                         </div>
 

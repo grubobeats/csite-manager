@@ -138,9 +138,11 @@
                                     <td>22.11.2016. 18:43</td>
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                            <a href="{{ route('list-diaries', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader"><i class="fa fa-folder-open-o" aria-hidden="true"></i> @lang('forms.open')</a>
-                                            <a href="{{ route('editConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader">@lang('forms.edit')</a>
-                                            <a href="{{ route('deleteConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader">@lang('forms.delete')</a>
+                                            <a href="{{ route('list-diaries', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader" title="@lang('forms.open')"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a>
+                                            <a href="{{ route('editConstructionSite', ['csite_id' => $csite->id]) }}" class="btn btn-default haveLoader" title="@lang('forms.edit')"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+                                            <a
+                                                href="{{ route('deleteConstructionSite', ['csite_id' => $csite->id]) }}"
+                                                class="btn btn-default haveLoader" title="@lang('forms.delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                         </div>
                                     </td>
                                 </tr>

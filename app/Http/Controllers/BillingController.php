@@ -14,11 +14,16 @@ class BillingController extends Controller
 
         $donations = Donation::where('user_id', $user->id)->orderBy('created_at', 'desc')->get();
 
+        $all_donations = 0;
 
+        foreach ($donations as $donation) {
+            $all_donations += $donation->amount;
+        }
 
         $context = array(
             'user' => $user,
             'donations' => $donations,
+            'all_donations' => $all_donations
         );
         return view('billing/billing', $context);
     }

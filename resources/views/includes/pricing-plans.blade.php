@@ -202,6 +202,15 @@
 
 </style>
 
+<div class="modal fade" id="submiting" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="jumbotron text-center modal-payment">
+            <h2><i class="fa fa-circle-o-notch fa-spin fa-fw"></i> Submiting your payment...</h2>
+            <p>Please don't close this window</p>
+        </div>
+    </div>
+</div>
+
     <section class='card'>
         <div class='card_inner'>
             <div class='card_inner__circle'>
@@ -229,6 +238,24 @@
     <script src="https://checkout.stripe.com/checkout.js"></script>
 
     <script>
+//        $('#submiting').modal('show');
+
+        function changeModal(){
+
+            $('.modal-payment h2')
+                .fadeOut(1000)
+                .delay('1000')
+                .fadeIn('slow')
+                .html('<i class="fa fa-check" aria-hidden="true"></i> Payment accepted!')
+                .parent('.jumbotron')
+                .addClass('alert-success');
+
+            $('.modal-payment p').fadeOut(1000);
+            setTimeout(function(){
+                $('#submiting').modal('hide');
+            }, 3000);
+        }
+
         var handler = StripeCheckout.configure({
             key: 'pk_test_jnQoANlW94gaHnZ8LXl7V6AH',
             image: 'https://stripe.com/img/documentation/checkout/marketplace.png',
@@ -236,7 +263,7 @@
             token: function(token) {
                 // You can access the token ID with `token.id`.
                 // Get the token ID to your server-side code for use.
-
+                $('#submiting').modal('show');
                 $.ajax({
                     type: "POST",
                     url: "{{ route('sex') }}",
@@ -247,6 +274,7 @@
                     success: function (message) {
                         console.log('success');
                         console.log(message);
+                        changeModal();
                     },
                     error: function (message) {
                         console.log('error');

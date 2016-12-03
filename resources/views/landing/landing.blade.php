@@ -102,7 +102,6 @@
 						<i class="fh5co-intro-icon icon-book-open"></i>
 						<h2>Diaries</h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#" class="btn btn-primary">Get In Touch</a></p>
 					</div>
 				</div>
 				<div class="fh5co-block to-animate" style="background-image: url({{ URL::to('landing_files/images/img_8.jpg') }} ));">
@@ -112,7 +111,6 @@
 						<i class="fh5co-intro-icon icon-people"></i>
 						<h2>Workers</h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#" class="btn btn-primary">Click Me</a></p>
 					</div>
 				</div>
 				<div class="fh5co-block to-animate" style="background-image: url({{ URL::to('landing_files/images/img_10.jpg') }} ));">
@@ -122,7 +120,6 @@
 						<i class="fh5co-intro-icon icon-control-play"></i>
 						<h2>Control</h2>
 						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-						<p><a href="#" class="btn btn-primary">Why Us?</a></p>
 					</div>
 				</div>
 			</div>
@@ -251,39 +248,35 @@
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
 						<figure><img src="{{ URL::to('landing_files/images/person1.jpg') }}" alt="Image"></figure>
-						<h3>Jean Smith</h3>
-						<span class="fh5co-position">Web Designer</span>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<ul class="social social-circle">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
+						<h3>Basic</h3>
+						<span class="fh5co-position">100% free</span>
+						<p>Maintain your construction diaries for unlimited number of construction sites.</p>
+						<ul class="social">
+							<li><button class="btn btn-success" href="#">	Register</button></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
 						<figure><img src="{{ URL::to('landing_files/images/person2.jpg') }}" alt="Image"></figure>
-						<h3>Rob Smith</h3>
-						<span class="fh5co-position">Web Developer</span>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<ul class="social social-circle">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-github"></i></a></li>
+						<h3>Pro Monthly</h3>
+						<span class="fh5co-position">Premium subscription</span>
+						<p>Everything from basic plan plus new features for maintaining workers, unlimited amount of pictures to be saved on our servers</p>
+
+						<ul class="social">
+							<li><button class="btn btn-success" href="#">Subscribe & Register</button></li>
 						</ul>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
 						<figure><img src="{{ URL::to('landing_files/images/person3.jpg') }}" alt="Image"></figure>
-						<h3>Larry Ben</h3>
-						<span class="fh5co-position">Web Designer</span>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts</p>
-						<ul class="social social-circle">
-							<li><a href="#"><i class="icon-twitter"></i></a></li>
-							<li><a href="#"><i class="icon-facebook"></i></a></li>
-							<li><a href="#"><i class="icon-dribbble"></i></a></li>
+						<h3>Pro Yearly</h3>
+						<span class="fh5co-position">Mega premium subscription</span>
+						<p>Everything from basic plan plus new features for maintaining workers, unlimited amount of pictures to be saved on our servers</p>
+
+						<ul class="social">
+							<li><button class="btn btn-success" href="#">Subscribe & Register</button></li>
 						</ul>
 					</div>
 				</div>
@@ -336,16 +329,37 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-center">
-					<h2 class="to-animate">Get In Touch</h2>
+					<h2 class="to-animate">Register now!</h2>
+					{{--<div class="row">--}}
+						{{--<div class="col-md-8 col-md-offset-2 subtext to-animate">--}}
+							{{--<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>--}}
+						{{--</div>--}}
+					{{--</div>--}}
+					<button class="btn btn-lg btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Click Here</button>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<section id="fh5co-counters" style="background: rgba(0,0,0,0.05);" >
+
+
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12 section-heading text-center">
+					<h2>Get In Touch</h2>
 					<div class="row">
-						<div class="col-md-8 col-md-offset-2 subtext to-animate">
+						<div class="col-md-8 col-md-offset-2 subtext">
 							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
 						</div>
 					</div>
 				</div>
 			</div>
+
+
+
 			<div class="row row-bottom-padded-md">
-				<div class="col-md-6 to-animate">
+				<div class="col-md-6">
 					<h3>Contact Info</h3>
 					<ul class="fh5co-contact-info">
 						<li class="fh5co-contact-address ">
@@ -353,12 +367,12 @@
 							5555 Love Paradise 56 New Clity 5655, <br>Excel Tower United Kingdom
 						</li>
 						<li><i class="icon-phone"></i> (123) 465-6789</li>
-						<li><i class="icon-envelope"></i>info@freehtml5.co</li>
-						<li><i class="icon-globe"></i> <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></li>
+						<li><i class="icon-envelope"></i>vladan.paunovic.bg@gmail.com</li>
+						<li><i class="icon-globe"></i> <a href="http://givemejobtoday.com/" target="_blank">givemejobtoday.com</a></li>
 					</ul>
 				</div>
 
-				<div class="col-md-6 to-animate">
+				<div class="col-md-6">
 					<h3>Contact Form</h3>
 					<div class="form-group ">
 						<label for="name" class="sr-only">Name</label>
@@ -379,13 +393,13 @@
 					<div class="form-group ">
 						<input class="btn btn-primary btn-lg" value="Send Message" type="submit">
 					</div>
-					</div>
 				</div>
-
 			</div>
+
 		</div>
+
+
 	</section>
-	
 	
 	<footer id="footer" role="contentinfo">
 		<a href="#" class="gotop js-gotop"><i class="icon-arrow-up2"></i></a>

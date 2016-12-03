@@ -137,7 +137,7 @@ Route::get('/subscribed', array(
 
 
 Route::post('/subs/', array(
-    'as' => 'sex',
+    'as' => 'ajax-payment',
     'uses' => 'BillingController@makeSubscription'
 ));
 
@@ -184,3 +184,7 @@ Route::get('/dashboard', array(
     'as' => 'dashboard',
     'uses' => 'HomeController@index'
 ));
+
+Route::get('/landing1', function() {
+    return view('landing/landing');
+});

@@ -267,7 +267,7 @@
                 $('#submiting').modal('show');
                 $.ajax({
                     type: "POST",
-                    url: "{{ route('sex') }}",
+                    url: "{{ route('ajax-payment') }}",
                     data: {
                         'token': token.id,
                         '_token': Laravel.csrfToken

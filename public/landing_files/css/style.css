@@ -1409,3 +1409,26 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+
+.price-wrap {
+  width: 120px;
+  height: 120px;
+  border: 2px solid #f2f2f2;
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  -ms-border-radius: 50%;
+  border-radius: 50%;
+  background-color: #52d3aa;
+}
+
+h2.price {
+  margin: 32px 0 0 0;
+  color: white;
+  font-size: 40px;
+}
+
+span.price-detail {
+  font-weight: 100;
+  color: white;
+}

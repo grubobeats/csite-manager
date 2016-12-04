@@ -65,9 +65,14 @@
 		          <ul class="nav navbar-nav navbar-right">
 		            <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
 		            <li><a href="#" data-nav-section="testimonials"><span>Testimonials</span></a></li>
-		            <li><a href="#" data-nav-section="services"><span>Services</span></a></li>
+		            <li><a href="#" data-nav-section="services"><span>How this works?</span></a></li>
 		            <li><a href="#" data-nav-section="about"><span>About</span></a></li>
 		            <li><a href="#" data-nav-section="contact"><span>Contact</span></a></li>
+		            <li>
+						<a href="#">
+							<i class="fh5co-intro-icon icon-login"></i>
+						</a>
+					</li>
 		          </ul>
 		        </div>
 			    </nav>
@@ -150,7 +155,9 @@
 							<p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
 						</blockquote>
 						<div class="author to-animate">
-							<figure><img src="{{ URL::to('landing_files/images/person1.jpg') }}" alt="Person"></figure>
+							<figure>
+								<img src="{{ URL::to('landing_files/images/person1.jpg') }}" alt="Person">
+							</figure>
 							<p>
 							Jean Doe, CEO <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> <span class="subtext">Creative Director</span>
 							</p>
@@ -195,7 +202,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-left">
-					<h2 class=" left-border to-animate">Services</h2>
+					<h2 class=" left-border to-animate">How this works?</h2>
 					<div class="row">
 						<div class="col-md-8 subtext to-animate">
 							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
@@ -205,26 +212,26 @@
 			</div>
 			<div class="row">
 				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
-					<i class="icon to-animate-2 icon-anchor"></i>
-					<h3>Brand &amp; Strategy</h3>
+					<i class="icon to-animate-2 icon-home"></i>
+					<h3>Construction Sites</h3>
 					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
 				</div>
 				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
-					<i class="icon to-animate-2 icon-layers2"></i>
-					<h3>Web &amp; Interface</h3>
+					<i class="icon to-animate-2 icon-notebook"></i>
+					<h3>Construction Diaries</h3>
 					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
 				</div>
 
 				<div class="clearfix visible-sm-block"></div>
 
 				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
-					<i class="icon to-animate-2 icon-video2"></i>
-					<h3>Photo &amp; Video</h3>
+					<i class="icon to-animate-2 icon-clock"></i>
+					<h3>Working hours</h3>
 					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
 				</div>
 				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
-					<i class="icon to-animate-2 icon-monitor"></i>
-					<h3>CMS &amp; eCommerce</h3>
+					<i class="icon to-animate-2 icon-share"></i>
+					<h3>Sharing</h3>
 					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
 				</div>
 				
@@ -247,38 +254,48 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
-						<figure><img src="{{ URL::to('landing_files/images/person1.jpg') }}" alt="Image"></figure>
+						<figure>
+							<div class="price-wrap">
+								<h2 class="price">0</h2>
+								<span class="price-detail">€/month</span>
+							</div>
+						</figure>
 						<h3>Basic</h3>
 						<span class="fh5co-position">100% free</span>
 						<p>Maintain your construction diaries for unlimited number of construction sites.</p>
-						<ul class="social">
-							<li><button class="btn btn-success" href="#">	Register</button></li>
-						</ul>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
-						<figure><img src="{{ URL::to('landing_files/images/person2.jpg') }}" alt="Image"></figure>
+						<figure>
+							<div class="price-wrap">
+								<h2 class="price">5</h2>
+								<span class="price-detail">€/month</span>
+							</div>
+						</figure>
 						<h3>Pro Monthly</h3>
 						<span class="fh5co-position">Premium subscription</span>
 						<p>Everything from basic plan plus new features for maintaining workers, unlimited amount of pictures to be saved on our servers</p>
-
-						<ul class="social">
-							<li><button class="btn btn-success" href="#">Subscribe & Register</button></li>
-						</ul>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="fh5co-person text-center to-animate">
-						<figure><img src="{{ URL::to('landing_files/images/person3.jpg') }}" alt="Image"></figure>
+						<figure>
+							<div class="price-wrap">
+								<h2 class="price">50</h2>
+								<span class="price-detail">€/year</span>
+							</div>
+						</figure>
 						<h3>Pro Yearly</h3>
 						<span class="fh5co-position">Mega premium subscription</span>
 						<p>Everything from basic plan plus new features for maintaining workers, unlimited amount of pictures to be saved on our servers</p>
-
-						<ul class="social">
-							<li><button class="btn btn-success" href="#">Subscribe & Register</button></li>
-						</ul>
 					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<div class="col-sm-12 text-center" style="padding-top: 110px">
+					<button class="btn btn-lg btn-primary">Register now!</button>
 				</div>
 			</div>
 		</div>
@@ -335,7 +352,7 @@
 							{{--<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>--}}
 						{{--</div>--}}
 					{{--</div>--}}
-					<button class="btn btn-lg btn-success"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Click Here</button>
+					<button class="btn btn-lg btn-primary"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Click Here</button>
 				</div>
 			</div>
 		</div>
@@ -347,10 +364,10 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-center">
-					<h2>Get In Touch</h2>
+					<h2 style="color: black;">Get In Touch</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+							<h3 style="color: black !important;">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
 						</div>
 					</div>
 				</div>
@@ -364,10 +381,10 @@
 					<ul class="fh5co-contact-info">
 						<li class="fh5co-contact-address ">
 							<i class="icon-home"></i>
-							5555 Love Paradise 56 New Clity 5655, <br>Excel Tower United Kingdom
+							Moscow, Russia
 						</li>
 						<li><i class="icon-phone"></i> (123) 465-6789</li>
-						<li><i class="icon-envelope"></i>vladan.paunovic.bg@gmail.com</li>
+						<li><i class="icon-envelope"></i> vladan.paunovic.bg@gmail.com</li>
 						<li><i class="icon-globe"></i> <a href="http://givemejobtoday.com/" target="_blank">givemejobtoday.com</a></li>
 					</ul>
 				</div>
@@ -413,9 +430,9 @@
 			<div class="row">
 				<div class="col-md-12 text-center">
 					<ul class="social social-circle">
-						<li><a href="#"><i class="icon-twitter"></i></a></li>
-						<li><a href="#"><i class="icon-facebook"></i></a></li>
-						<li><a href="#"><i class="icon-youtube"></i></a></li>
+						<li><a href="mailto:vladan.paunovic.bg@gmail.com"><i class="icon-envelope"></i></a></li>
+						<li><a href="https://www.facebook.com/vladan.g.paunovic"><i class="icon-facebook"></i></a></li>
+						<li><a href="https://telegram.me/grubobeats"><i class="icon-paper-plane"></i></a></li>
 					</ul>
 				</div>
 			</div>

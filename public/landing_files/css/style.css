@@ -1423,7 +1423,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 h2.price {
-  margin: 32px 0 0 0;
+  margin: 27px 0 0 0;
   color: white;
   font-size: 40px;
 }
@@ -1431,4 +1431,17 @@ h2.price {
 span.price-detail {
   font-weight: 100;
   color: white;
+}
+
+ul.fh5co-contact-info, ul.fh5co-contact-info a {
+  list-style-type: none;
+  color: white;
+}
+
+.form-control {
+  color: white;
+}
+
+.contact-info {
+  color: #fff;
 }

@@ -65,11 +65,12 @@
 		          <ul class="nav navbar-nav navbar-right">
 		            <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
 		            <li><a href="#" data-nav-section="testimonials"><span>Testimonials</span></a></li>
-		            <li><a href="#" data-nav-section="services"><span>How this works?</span></a></li>
-		            <li><a href="#" data-nav-section="about"><span>About</span></a></li>
+		            <li><a href="#" data-nav-section="services"><span>What this does?</span></a></li>
+		            <li><a href="#" data-nav-section="about"><span>Premium</span></a></li>
 		            <li><a href="#" data-nav-section="contact"><span>Contact</span></a></li>
+		            <li><a href="#" class="external"><span>Blog</span></a></li>
 		            <li>
-						<a href="#">
+						<a href="/public/login" class="external">
 							<i class="fh5co-intro-icon icon-login"></i>
 						</a>
 					</li>
@@ -100,33 +101,40 @@
 	<section id="fh5co-intro">
 		<div class="container">
 			<div class="row row-bottom-padded-lg">
+
+				<div class="fh5co-block to-animate" style="background-image: url({{ URL::to('landing_files/images/img_10.jpg') }} ));">
+					<div class="overlay-darker"></div>
+					<div class="overlay"></div>
+					<div class="fh5co-text">
+						<i class="fh5co-intro-icon icon-home"></i>
+						<h2>Construction sites</h2>
+						<p>This tool can help you to handle unlimited number of construction sites with all their data so you can always find information that you need.</p>
+					</div>
+				</div>
+
 				<div class="fh5co-block to-animate" style="background-image: url({{ URL::to('landing_files/images/img_7.jpg') }} );">
 					<div class="overlay-darker"></div>
 					<div class="overlay"></div>
 					<div class="fh5co-text">
 						<i class="fh5co-intro-icon icon-book-open"></i>
 						<h2>Diaries</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<p>Our biggest feature and reason for existing of this tool is our Diaries section. With this tool you are able to handle all data of construction diaries.
+							<a href="#">Read more</a> about diaries
+						</p>
 					</div>
 				</div>
+
 				<div class="fh5co-block to-animate" style="background-image: url({{ URL::to('landing_files/images/img_8.jpg') }} ));">
 					<div class="overlay-darker"></div>
 					<div class="overlay"></div>
 					<div class="fh5co-text">
 						<i class="fh5co-intro-icon icon-people"></i>
 						<h2>Workers</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
+						<p>Manage all your workers (unlimited number), their salaries, hourly rates, working hours, analyses and much more.
+							More about <a href="#">workers</a> section.</p>
 					</div>
 				</div>
-				<div class="fh5co-block to-animate" style="background-image: url({{ URL::to('landing_files/images/img_10.jpg') }} ));">
-					<div class="overlay-darker"></div>
-					<div class="overlay"></div>
-					<div class="fh5co-text">
-						<i class="fh5co-intro-icon icon-control-play"></i>
-						<h2>Control</h2>
-						<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-					</div>
-				</div>
+
 			</div>
 			<div class="row watch-video text-center to-animate">
 				<span>Watch the video</span>
@@ -143,7 +151,7 @@
 					<h2 class="to-animate">Testimonials</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+							<h3>Some of people from internationally known companies all over the world are already using our services.</h3>
 						</div>
 					</div>
 				</div>
@@ -197,15 +205,16 @@
 		</div>
 	</section>
 
-
 	<section id="fh5co-services" data-section="services">
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-left">
-					<h2 class=" left-border to-animate">How this works?</h2>
+					<h2 class=" left-border to-animate">What this does?</h2>
 					<div class="row">
 						<div class="col-md-8 subtext to-animate">
-							<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+							<h3>
+								This tool is developed for construction managers, construction entrepreneurs and everyone who needs full control on diaries and their workers in construction bussiness.
+							</h3>
 						</div>
 					</div>
 				</div>
@@ -214,12 +223,12 @@
 				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
 					<i class="icon to-animate-2 icon-home"></i>
 					<h3>Construction Sites</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
+					<p>Many of you had a big problem to manage, keep and track information about construction sites when you have more than just one. Well - no more, we are helping you to keep all information in one place, on cloud, easily reachable and secure.</p>
 				</div>
 				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
 					<i class="icon to-animate-2 icon-notebook"></i>
 					<h3>Construction Diaries</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
+					<p>Our biggest feature is construction diaries section where you can write about everything that happened particular day, upload photos, connect diaries with construction sites, generate dynamic weather informations from yahoo weather and much more.</p>
 				</div>
 
 				<div class="clearfix visible-sm-block"></div>
@@ -227,12 +236,12 @@
 				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
 					<i class="icon to-animate-2 icon-clock"></i>
 					<h3>Working hours</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
+					<p>If you as many of us had issues to properly manage working hours of each worker, construction site, calculating salaries based by hourly rate of each worker than you certainly need this tool. We made it easy to use and efficient.</p>
 				</div>
 				<div class="col-md-6 col-sm-6 fh5co-service to-animate">
 					<i class="icon to-animate-2 icon-share"></i>
 					<h3>Sharing</h3>
-					<p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean</p>
+					<p>Very often you have to share your diaries with your co-workers, investor, other managers or just with you on other devices. We solved this problem very easily by enabling quick email and unique link sharing for every worker and diary.</p>
 				</div>
 				
 			</div>
@@ -246,7 +255,7 @@
 					<h2 class="to-animate">Pricing plans</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext to-animate">
-							<h3>Our tool is 100% free!<br>However if you want to activate pro features subscribe to our monthly plans.</h3>
+							<h3>Our tool is 100% free!<br>However if you want to activate premium features subscribe to our monthly plans.</h3>
 						</div>
 					</div>
 				</div>
@@ -358,26 +367,27 @@
 		</div>
 	</section>
 
-	<section id="fh5co-counters" style="background: rgba(0,0,0,0.05);" >
+	<section id="fh5co-counters" style="background-color: rgb(82, 211, 170);">
 
 
 		<div class="container">
 			<div class="row">
 				<div class="col-md-12 section-heading text-center">
-					<h2 style="color: black;">Get In Touch</h2>
+					<h2 style="color: white;">Get In Touch</h2>
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2 subtext">
-							<h3 style="color: black !important;">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>
+							<h3 style="color: white !important;">
+								For all business inquires, questions and suggestions please feel free to write us about it. All critics and suggestions are highly appreciated here.
+							</h3>
 						</div>
 					</div>
 				</div>
 			</div>
 
 
-
-			<div class="row row-bottom-padded-md">
+			<div class="row">
 				<div class="col-md-6">
-					<h3>Contact Info</h3>
+					<h3 class="contact-info">Contact Info</h3>
 					<ul class="fh5co-contact-info">
 						<li class="fh5co-contact-address ">
 							<i class="icon-home"></i>
@@ -390,7 +400,7 @@
 				</div>
 
 				<div class="col-md-6">
-					<h3>Contact Form</h3>
+					<h3 class="contact-info">Contact Form</h3>
 					<div class="form-group ">
 						<label for="name" class="sr-only">Name</label>
 						<input id="name" class="form-control" placeholder="Name" type="text">
@@ -408,7 +418,7 @@
 						<textarea name="" id="message" cols="30" rows="5" class="form-control" placeholder="Message"></textarea>
 					</div>
 					<div class="form-group ">
-						<input class="btn btn-primary btn-lg" value="Send Message" type="submit">
+						<button class="btn btn-primary btn-lg" type="submit"><i class="icon-envelope"></i> Send Message</button>
 					</div>
 				</div>
 			</div>

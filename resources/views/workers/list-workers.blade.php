@@ -85,8 +85,8 @@
                                     <td>{{ $worker->telephone }}</td>
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                            <a href="/" class="btn btn-default haveLoader" title="@lang('forms.open')"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a>
-                                            <a href="/" class="btn btn-default haveLoader" title="@lang('forms.edit')"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+                                            <a href="" class="btn btn-default haveLoader" title="@lang('forms.open')"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a>
+                                            <a href="{{ route('get-edit-worker', ['user_id'=>$worker->user_id, 'worker_id'=> $worker->id]) }}" class="btn btn-default haveLoader" title="@lang('forms.edit')"><i class="fa fa-cogs" aria-hidden="true"></i></a>
                                             <a href="{{ route('post-delete-worker', ['user_id'=>$worker->user_id, 'worker_id'=> $worker->id]) }}" class="btn btn-default haveLoader" title="@lang('forms.delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                         </div>
                                     </td>

@@ -52,8 +52,15 @@ Route::get('/workers/{user_id}/delete/3167456{worker_id}3124gf29421947', array(
     'uses' => 'WorkersController@post_deleteWorker'
 ))->middleware('auth');
 
+Route::get('/workers/{user_id}/edit/93628{worker_id}5340209324', array(
+    'as' => 'get-edit-worker',
+    'uses' => 'WorkersController@get_editWorker'
+))->middleware('auth');
 
-
+Route::post('/workers/{user_id}/edit/93628{worker_id}5340209324/changed', array(
+    'as' => 'post-edit-worker',
+    'uses' => 'WorkersController@post_editWorker'
+))->middleware('auth');
 
 
 

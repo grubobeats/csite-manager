@@ -77,7 +77,6 @@
 							<select
 									name="language-picker"
 									class="language-picker">
-								<option value="0">Language</option>
 								<option value="en">English</option>
 								<option value="sr">Srpski</option>
 							</select>
@@ -86,8 +85,6 @@
 						<script>
 							var languageRoute = "{{ route('language', ['lang'=>'en']) }}"
 						</script>
-						{{--<li><a href="{{ route('language', ['lang'=>'en']) }}" class="external">En</a></li>--}}
-						{{--<li><a href="{{ route('language', ['lang'=>'sr']) }}" class="external">Srb</a></li>--}}
 					</ul>
 
 					

@@ -8,14 +8,18 @@ use Illuminate\Support\Facades\Auth;
 
 class WorkersController extends Controller
 {
+    public function userID() {
+        $user_id = Auth::id();
+
+        return $user_id;
+    }
 
 
     public function list_workers() {
-        $user_id = Auth::id();
-        $workers = Workers::where('user_id', $user_id)->orderBy('id', 'desc')->get();
+        $workers = Workers::where('user_id', $this->userID())->orderBy('id', 'desc')->get();
 
         $context = array(
-            'user_id' => $user_id,
+            'user_id' => $this->userID(),
             'workers' => $workers
         );
         return view('workers/list-workers', $context);
@@ -50,7 +54,7 @@ class WorkersController extends Controller
         $worker->position = $request['position'];
         $worker->hourly_rate = $request['hourly_rate'];
         $worker->comment = $request['comment'];
-        $worker->user_id = $this->user_id;
+        $worker->user_id = $this->userID();
         $worker->save();
 
         return redirect()->route('list-workers')->with(['added' => true]);
@@ -58,7 +62,12 @@ class WorkersController extends Controller
 
     public function post_deleteWorker($user_id, $worker_id) {
 
-        $worker = Workers::where('id', $worker_id);
+        $conditions = array(
+            'id' => $worker_id,
+            'user_id' => $user_id
+        );
+
+        $worker = Workers::where($conditions);
         $worker->delete();
 
         return redirect()->route('list-workers')->with(['deleted'=>true]);

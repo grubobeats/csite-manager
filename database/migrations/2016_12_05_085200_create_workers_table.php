@@ -24,7 +24,7 @@ class CreateWorkersTable extends Migration
             $table->string('city');
             $table->string('telephone');
             $table->string('position');
-            $table->string('hourly_rate');
+            $table->integer('hourly_rate');
             $table->text('comment');
         });
     }

@@ -37,6 +37,15 @@ Route::get('/workers', array(
     'uses' => 'WorkersController@list_workers'
 ));
 
+Route::get('/workers/add', array(
+    'as' => 'get-add-worker',
+    'uses' => 'WorkersController@get_addWorkers'
+));
+
+Route::post('/workers/added', array(
+    'as' => 'post-add-worker',
+    'uses' => 'WorkersController@post_addWorkers'
+));
 
 
 Route::get('/construction-sites/add', array(

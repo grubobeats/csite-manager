@@ -46,14 +46,14 @@
     <div class="row">
         <div class="col-md-12">
 
-            @if(1 == 1)
+            @if(count($workers) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         List of workers
                     </div>
 
                     <div class="panel-body">
-
+                        {{ $user_id }}
                         <div class="btn-group pull-left" role="group" aria-label="...">
                             {!! Form::open(['method'=>'GET', 'url' => 'search_url_goes_here', 'role'=>'search', 'class'=>'form-inline']) !!}
                                 <div class="form-group">
@@ -65,7 +65,7 @@
 
                         <div class="btn-group pull-right" role="group" aria-label="...">
                             <a href="#" class="btn btn-primary haveLoader"><i class="fa fa-arrow-left" aria-hidden="true"></i> @lang('view-diary.go-back')</a>
-                            <a href="#" class="btn btn-primary haveLoader">@lang('view-diary.add-new') <i class="fa fa-plus" aria-hidden="true"></i></a>
+                            <a href="{{ route('get-add-worker') }}" class="btn btn-primary haveLoader">@lang('view-diary.add-new') <i class="fa fa-plus" aria-hidden="true"></i></a>
                         </div>
 
                         <div class="divider" style="padding:25px"></div>
@@ -80,9 +80,9 @@
                                 <th>@lang('forms.workers')</th>
                                 <th></th>
                             </tr>
-{{--                            @foreach($diaries as $key => $diary)--}}
+                            @foreach($workers as $key => $worker)
                                 <tr>
-                                    <td>/</td>
+                                    <td>{{ ++$key }}</td>
                                     <td>/</td>
                                     <td>/</td>
                                     <td>/</td>
@@ -95,7 +95,7 @@
                                         </div>
                                     </td>
                                 </tr>
-                            {{--@endforeach--}}
+                            @endforeach
                         </table>
                     </div>
                 </div>
@@ -104,8 +104,8 @@
             @else
 
                 <div class="jumbotron">
-                    <h3>@lang('global.no-diaries')</h3>
-                    <p>@lang('global.to-start-working') <a href="">@lang('global.click-here')</a> @lang('global.to-add-first-diary')</p>
+                    <h3>No workers yet</h3>
+                    <p>However, to add new worker just <a href="{{ route('get-add-worker') }}">@lang('global.click-here')</a></p>
                 </div>
 
             @endif

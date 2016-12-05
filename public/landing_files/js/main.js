@@ -434,12 +434,6 @@
 	};
 
 
-	
-	
-
-
-	
-	
 
 	// Document on load.
 	$(function(){
@@ -469,6 +463,35 @@
 		
 
 	});
+
+
+    /**
+	 * Custom functions
+     */
+
+    $('.language-picker').change(function(){
+        var value = $(this).val();
+        var route = languageRoute.replace('en', value);
+        $.ajax({
+            type: "POST",
+            url: route,
+            data: {
+                _token: Laravel.csrfToken,
+            },
+            success: function() {
+                location.reload();
+            },
+            error: function(message) {
+                console.log('Error during changing language.');
+            },
+        });
+    });
+
+    if(!locale) {
+    	locale = "en"
+	}
+
+    $('.language-picker').val(locale);
 
 
 }());

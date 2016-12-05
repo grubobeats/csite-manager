@@ -50,6 +50,16 @@
 	<script src="{{ URL::to('/landing_files/js/respond.min.js') }}"></script>
 	<![endif]-->
 
+		<!-- Scripts -->
+		<script>
+            window.Laravel = <?php echo json_encode([
+                'csrfToken' => csrf_token(),
+            ]); ?>
+
+            var rootPath = "{{ URL::to('/') }}";
+            var locale = "{{ Session::get('locale') }}";
+		</script>
+
 	</head>
 	<body>
 	<header role="banner" id="fh5co-header">
@@ -62,6 +72,25 @@
 		         <a class="navbar-brand" href="index.html">Construction Manager</a>
 		        </div>
 		        <div id="navbar" class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-left">
+						<li>
+							<select
+									name="language-picker"
+									class="language-picker">
+								<option value="0">Language</option>
+								<option value="en">English</option>
+								<option value="sr">Srpski</option>
+							</select>
+
+						</li>
+						<script>
+							var languageRoute = "{{ route('language', ['lang'=>'en']) }}"
+						</script>
+						{{--<li><a href="{{ route('language', ['lang'=>'en']) }}" class="external">En</a></li>--}}
+						{{--<li><a href="{{ route('language', ['lang'=>'sr']) }}" class="external">Srb</a></li>--}}
+					</ul>
+
+					
 		          <ul class="nav navbar-nav navbar-right">
 		            <li class="active"><a href="#" data-nav-section="home"><span>Home</span></a></li>
 		            <li><a href="#" data-nav-section="testimonials"><span>Testimonials</span></a></li>
@@ -69,11 +98,28 @@
 		            <li><a href="#" data-nav-section="about"><span>Premium</span></a></li>
 		            <li><a href="#" data-nav-section="contact"><span>Contact</span></a></li>
 		            <li><a href="#" class="external"><span>Blog</span></a></li>
-		            <li>
-						<a href="/public/login" class="external">
-							<i class="fh5co-intro-icon icon-login"></i>
-						</a>
-					</li>
+
+					  @if (Auth::guest())
+						  <li>
+							  <a href="/public/login" class="external">
+								  <i class="fh5co-intro-icon icon-login"></i>
+							  </a>
+						  </li>
+					  @else
+						  <li><a href="{{ url('/dashboard') }}" class="external" title="@lang('global.dashboard')"><i class="fh5co-intro-icon icon-folder"></i></a></li>
+						  <li><a href="{{ url('/logout') }}"
+								 title="Logout"
+								 class="external"
+								 onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+								  <i class="fh5co-intro-icon icon-logout"></i>
+							  </a>
+						  </li>
+
+						  <form id="logout-form" action="{{ url('/logout') }}" method="POST" style="display: none;">
+							  {{ csrf_field() }}
+						  </form>
+					  @endif
 		          </ul>
 		        </div>
 			    </nav>
@@ -88,7 +134,7 @@
 				<div class="text-inner">
 					<div class="row">
 						<div class="col-md-8 col-md-offset-2">
-							<h1 class="to-animate">Welcome</h1>
+							<h1 class="to-animate">{{ trans('landing.welcome') }}</h1>
 							<h2 class="to-animate">We developed simple software with high capabilities to maintain many construction sites at once - for free.</h2>
 						</div>
 					</div>

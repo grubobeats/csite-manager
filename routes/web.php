@@ -20,11 +20,12 @@ Route::get('/', function () {
 });
 
 // GET - Change language
-Route::get('/choose-language/{lang}', function($lang){
+Route::post('/choose-language/{lang}', function($lang){
     Lang::setLocale($lang);
     Session::set('locale', $lang);
 
-    return redirect()->back();
+//    return redirect()->back();
+    return "ok";
 })->name('language');
 
 /**

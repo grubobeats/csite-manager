@@ -23,6 +23,7 @@
         ]); ?>
 
         var rootPath = "{{ URL::to('/') }}";
+
     </script>
 </head>
 

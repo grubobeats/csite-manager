@@ -1445,3 +1445,17 @@ ul.fh5co-contact-info, ul.fh5co-contact-info a {
 .contact-info {
   color: #fff;
 }
+
+.language-picker {
+  margin: 16px 0 0px 0px;
+  padding: 0;
+  background: transparent;
+  color: white;
+  border: white;
+}
+
+select::-ms-expand {	display: none; }
+select{
+  -webkit-appearance: none;
+  appearance: none;
+}

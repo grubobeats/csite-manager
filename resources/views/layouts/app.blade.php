@@ -8,7 +8,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <title>{{ config('app.name', 'Laravel') }}</title>
+    <title>@yield('title') | {{ config('app.name', 'Laravel') }}</title>
 
     <!-- Styles -->
     <link href="{{ URL::to('/css/app.css') }}" rel="stylesheet">
@@ -52,7 +52,12 @@
                     <ul class="nav navbar-nav">
                         @if (!Auth::guest())
                             <li><a href="{{ url('/dashboard') }}">Construction Sites</a></li>
-                            <li class="disabled"><a href="#">Workers</a></li>
+
+                            @if(Auth::user()->subscribed('main'))
+                                <li><a href="{{ route('list-workers') }}">Workers</a></li>
+                            @else
+                                <li class="disabled"><a href="#">Workers</a></li>
+                            @endif
                         @endif
                     </ul>
 

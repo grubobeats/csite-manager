@@ -32,6 +32,13 @@ Route::post('/choose-language/{lang}', function($lang){
  * Just for authenticated users
  */
 
+Route::get('/workers', array(
+    'as' => 'list-workers',
+    'uses' => 'WorkersController@list_workers'
+));
+
+
+
 Route::get('/construction-sites/add', array(
     'as' => 'add-csite',
     'uses' => 'ConstructionSiteController@index',

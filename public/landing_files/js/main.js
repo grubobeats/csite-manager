@@ -469,6 +469,7 @@
 	 * Custom functions
      */
 
+    // Changing language
     $('.language-picker').change(function(){
         var value = $(this).val();
         var route = languageRoute.replace('en', value);
@@ -481,7 +482,7 @@
             success: function() {
                 location.reload();
             },
-            error: function(message) {
+            error: function() {
                 console.log('Error during changing language.');
             },
         });

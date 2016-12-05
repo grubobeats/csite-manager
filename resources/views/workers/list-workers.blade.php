@@ -5,15 +5,15 @@
 @section('content')
 <div class="container">
     @if (Session::has('added'))
-        @include('includes.success', ['message'=>trans('global.diary-added')])
+        @include('includes.success', ['message'=>'New worker added.'])
     @endif
 
     @if (Session::has('edited'))
-        @include('includes.success', ['message'=>trans('global.diary-edited')])
+        @include('includes.success', ['message'=>'Saved changes.'])
     @endif
 
     @if (Session::has('deleted'))
-        @include('includes.deleted', ['message'=>trans('global.diary-deleted')])
+        @include('includes.deleted', ['message'=>'Worker deleted'])
     @endif
     <!-- Page Heading -->
     <div class="row">
@@ -45,7 +45,6 @@
 
     <div class="row">
         <div class="col-md-12">
-
             @if(count($workers) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
@@ -53,7 +52,6 @@
                     </div>
 
                     <div class="panel-body">
-                        {{ $user_id }}
                         <div class="btn-group pull-left" role="group" aria-label="...">
                             {!! Form::open(['method'=>'GET', 'url' => 'search_url_goes_here', 'role'=>'search', 'class'=>'form-inline']) !!}
                                 <div class="form-group">
@@ -74,24 +72,22 @@
 
                             <tr>
                                 <th>Id</th>
-                                <th>@lang('forms.date')</th>
-                                <th>@lang('forms.day')</th>
-                                <th>@lang('forms.weather')</th>
-                                <th>@lang('forms.workers')</th>
+                                <th>Name</th>
+                                <th>Position</th>
+                                <th>Contact</th>
                                 <th></th>
                             </tr>
                             @foreach($workers as $key => $worker)
                                 <tr>
                                     <td>{{ ++$key }}</td>
-                                    <td>/</td>
-                                    <td>/</td>
-                                    <td>/</td>
-                                    <td>/</td>
+                                    <td>{{ $worker->name }} {{ $worker->last_name }}</td>
+                                    <td>{{ $worker->position }}</td>
+                                    <td>{{ $worker->telephone }}</td>
                                     <td class="text-center">
                                         <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
                                             <a href="/" class="btn btn-default haveLoader" title="@lang('forms.open')"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a>
                                             <a href="/" class="btn btn-default haveLoader" title="@lang('forms.edit')"><i class="fa fa-cogs" aria-hidden="true"></i></a>
-                                            <a href="/" class="btn btn-default haveLoader" title="@lang('forms.delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                            <a href="{{ route('post-delete-worker', ['user_id'=>$worker->user_id, 'worker_id'=> $worker->id]) }}" class="btn btn-default haveLoader" title="@lang('forms.delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
                                         </div>
                                     </td>
                                 </tr>

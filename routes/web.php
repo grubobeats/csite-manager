@@ -35,17 +35,29 @@ Route::post('/choose-language/{lang}', function($lang){
 Route::get('/workers', array(
     'as' => 'list-workers',
     'uses' => 'WorkersController@list_workers'
-));
+))->middleware('auth');
 
 Route::get('/workers/add', array(
     'as' => 'get-add-worker',
     'uses' => 'WorkersController@get_addWorkers'
-));
+))->middleware('auth');
 
 Route::post('/workers/added', array(
     'as' => 'post-add-worker',
     'uses' => 'WorkersController@post_addWorkers'
-));
+))->middleware('auth');
+
+Route::get('/workers/{user_id}/delete/3167456{worker_id}3124gf29421947', array(
+    'as' => 'post-delete-worker',
+    'uses' => 'WorkersController@post_deleteWorker'
+))->middleware('auth');
+
+
+
+
+
+
+
 
 
 Route::get('/construction-sites/add', array(

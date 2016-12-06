@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\ConstructionSite;
 use App\Diary;
+use App\Workers;
 use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
@@ -28,6 +29,7 @@ class HomeController extends Controller
     {
         $user_id = Auth::id();
         $construction_site = ConstructionSite::where('user_id', $user_id)->orderBy('id', 'desc')->get();
+        $workers = Workers::where('user_id', $user_id)->count();
 
         $count_diaries = 0;
 
@@ -37,8 +39,11 @@ class HomeController extends Controller
 
         $context = array(
             'construction_site' => $construction_site,
-            'count_diaries' => $count_diaries
+            'count_diaries' => $count_diaries,
+            'workers' => $workers
         );
+
+
 
         return view('home', $context);
     }

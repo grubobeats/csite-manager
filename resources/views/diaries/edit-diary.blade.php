@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Editing diaries')
+
 @section('content')
 <div class="container">
     @if(count($errors) > 0)

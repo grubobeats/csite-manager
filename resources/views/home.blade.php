@@ -77,7 +77,7 @@
                             <i class="fa fa-male fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">124</div>
+                            <div class="huge">{{ $workers }}</div>
                             <div>@lang('global.workers')</div>
                         </div>
                     </div>

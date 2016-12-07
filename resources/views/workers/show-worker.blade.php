@@ -1,11 +1,13 @@
 @extends('layouts.app')
 
-@section('title', 'Workers')
+@section('title')
+    Workers: {{ $worker->name }} {{ $worker->last_name }}
+@endsection
 
 @section('content')
 <div class="container">
     @if (Session::has('added'))
-        @include('includes.success', ['message'=>'New worker added.'])
+        @include('includes.success', ['message'=>'New record added.'])
     @endif
 
     @if (Session::has('edited'))
@@ -19,7 +21,7 @@
     <div class="row">
         <div class="col-lg-12">
             <h1 class="page-header">
-                Workers
+                Workers: {{ $worker->name }} {{ $worker->last_name }}
             </h1>
             <ol class="breadcrumb">
                 <li>
@@ -45,7 +47,7 @@
 
     <div class="row">
         <div class="col-md-12">
-            @if(count($workers) > 0)
+            @if(count($working_days) > 0)
                 <div class="panel panel-default">
                     <div class="panel-heading">
                         List of workers
@@ -72,26 +74,26 @@
 
                             <tr>
                                 <th>Id</th>
-                                <th>Name</th>
-                                <th>Position</th>
-                                <th>Contact</th>
+                                <th>Date</th>
+                                <th>From</th>
+                                <th>To</th>
+                                <th>Worked hours</th>
+                                <th>Earned</th>
                                 <th></th>
                             </tr>
-                            @foreach($workers as $key => $worker)
+
+                            @foreach($working_days as $key => $day)
                                 <tr>
-                                    <td>{{ ++$key }}</td>
-                                    <td>{{ $worker->name }} {{ $worker->last_name }}</td>
-                                    <td>{{ $worker->position }}</td>
-                                    <td>{{ $worker->telephone }}</td>
-                                    <td class="text-center">
-                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
-                                            <a href="{{ route('show-worker', ['user_id'=>$worker->user_id, 'worker_id'=> $worker->id]) }}" class="btn btn-default haveLoader" title="@lang('forms.open')"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a>
-                                            <a href="{{ route('get-edit-worker', ['user_id'=>$worker->user_id, 'worker_id'=> $worker->id]) }}" class="btn btn-default haveLoader" title="@lang('forms.edit')"><i class="fa fa-cogs" aria-hidden="true"></i></a>
-                                            <a href="{{ route('post-delete-worker', ['user_id'=>$worker->user_id, 'worker_id'=> $worker->id]) }}" class="btn btn-default haveLoader" title="@lang('forms.delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
-                                        </div>
-                                    </td>
+                                    <th>{{ ++$key }}</th>
+                                    <th>{{ $day->date }}</th>
+                                    <th>{{ date('H:i', strtotime($day->started_at)) }}</th>
+                                    <th>{{ date('H:i', strtotime($day->finished_at)) }}</th>
+                                    <th>{{ date('H:i', strtotime($day->hours_worked)) }}</th>
+                                    <th>{{ $day->earned_today }}</th>
+                                    <th></th>
                                 </tr>
                             @endforeach
+
                         </table>
                     </div>
                 </div>

@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    List diaries for {{ $construction_site->name }}
+@endsection
+
 @section('content')
 <div class="container">
     @if (Session::has('added'))

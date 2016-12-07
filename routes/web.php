@@ -32,6 +32,8 @@ Route::post('/choose-language/{lang}', function($lang){
  * Just for authenticated users
  */
 
+// WORKERS
+
 Route::get('/workers', array(
     'as' => 'list-workers',
     'uses' => 'WorkersController@list_workers'
@@ -62,6 +64,13 @@ Route::post('/workers/{user_id}/edit/93628{worker_id}5340209324/changed', array(
     'uses' => 'WorkersController@post_editWorker'
 ))->middleware('auth');
 
+// One worker page
+Route::get('/workers/{user_id}/worker/36502750{worker_id}2092475', array(
+    'as' => 'show-worker',
+    'uses' => 'WorkersController@get_showWorker'
+))->middleware('auth');
+
+// / WORKERS
 
 
 

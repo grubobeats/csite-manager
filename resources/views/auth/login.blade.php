@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Please log in')
+
 @section('content')
 
 <style>

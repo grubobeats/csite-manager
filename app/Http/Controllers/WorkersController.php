@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\WorkingDay;
 use Illuminate\Http\Request;
 use App\Workers;
 use Illuminate\Support\Facades\Auth;
@@ -124,5 +125,17 @@ class WorkersController extends Controller
         return redirect()->route('list-workers')->with(['edited' => true]);
     }
 
+    public function get_showWorker($user_id, $worker_id)
+    {
+        $worker = Workers::where('id', $worker_id)->first();
+        $working_day = WorkingDay::where('worker_id', $worker->id)->orderBy('date', 'desc')->get();
+
+        $context = array(
+            'worker' => $worker,
+            'working_days' => $working_day
+        );
+
+        return view('workers/show-worker', $context);
+    }
 
 }

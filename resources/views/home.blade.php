@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'List construction sites')
+
 @section('content')
 <div class="container">
     @if (Session::has('added'))

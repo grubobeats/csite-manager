@@ -75,7 +75,7 @@
 
                             <div class="form-group">
                                 <label for="date">{{ trans('forms.date') }}</label>
-                                {{ Form::date('date', \Carbon\Carbon::now(), ['class'=>'form-control']) }}
+                                {{ Form::date('date', \Carbon\Carbon::now(), ['class'=>'form-control', 'id'=>'date']) }}
                             </div>
 
                             <div class="form-group">

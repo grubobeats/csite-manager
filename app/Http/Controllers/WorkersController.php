@@ -138,4 +138,33 @@ class WorkersController extends Controller
         return view('workers/show-worker', $context);
     }
 
+    public function post_addWorkersFromDiary(Request $request) {
+
+        $workers = $request['workers'];
+        $starting_at = $request['started_at'];
+        $finished_at = $request['finished_at'];
+
+
+
+        for ($i=0; $i < count($workers); $i++) {
+
+            $worker_data = Workers::where('id', $workers[$i])->first();
+
+            $diff = (strtotime($finished_at[$i]) - strtotime($starting_at[$i])) / 3600;
+
+            $working_day = new WorkingDay();
+            $working_day->worker_id = isset($workers[$i]) ? $workers[$i] : "0";
+            $working_day->started_at = isset($starting_at[$i]) ? $starting_at[$i] : "1";
+            $working_day->finished_at = isset($finished_at[$i]) ? $finished_at[$i] : "2";
+            $working_day->date = $request['date'];
+            $working_day->hours_worked = $diff;
+            $working_day->hourly_rate = $worker_data->hourly_rate;
+            $working_day->earned_today = "7";
+            $working_day->comment = "null";
+            $working_day->save();
+        }
+
+        return "good";
+    }
+
 }

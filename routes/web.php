@@ -70,6 +70,10 @@ Route::get('/workers/{user_id}/worker/36502750{worker_id}2092475', array(
     'uses' => 'WorkersController@get_showWorker'
 ))->middleware('auth');
 
+Route::post('/post-actions/add-workers', array(
+    'as' => 'add-workers-from-diary',
+    'uses' => 'WorkersController@post_addWorkersFromDiary'
+));
 // / WORKERS
 
 

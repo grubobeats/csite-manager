@@ -164,3 +164,4 @@ $('#donate-us').click(function(){
     // $('#donation-form').css('display', 'block');
     $('#donation-form').fadeIn('slow');
 });
+

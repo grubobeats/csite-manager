@@ -1,5 +1,9 @@
 @extends('layouts.app')
 
+@section('title')
+    Add new diary for {{ $construction_site->name }}
+@endsection
+
 @section('content')
 <div class="container">
     @if(count($errors) > 0)
@@ -13,7 +17,7 @@
             </h1>
             <ol class="breadcrumb">
                 <li>
-                    <a href="/public/"><i class="fa fa-building"></i> Construction Manager</a>
+                    <a href="/public"><i class="fa fa-building"></i> Construction Manager</a>
                 </li>
                 <li>
                     <a href="{{ route('dashboard') }}">Dashboard</a>
@@ -51,6 +55,23 @@
                                 <label for="name">{{ trans('forms.day') }}</label>
                                 {{ Form::number('day', ++$last_diary, ['class' => 'form-control']) }}
                             </div>
+
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="input-group">
+                                    <span class="input-group-addon" id="sizing-addon2">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        Working time
+                                    </span>
+                                        <input name="started_at" id="started_at" type="time" value="08:00" class="form-control">
+                                        <input name="finished_at" id="finished_at" type="time" value="16:00" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
+
+
 
                             <div class="form-group">
                                 <label for="date">{{ trans('forms.date') }}</label>
@@ -94,6 +115,8 @@
                         </div>
                     </div>
                     {!! Form::close() !!}
+
+                    @include('includes.add-workers-wid')
                 </div>
             </div>
         </div>

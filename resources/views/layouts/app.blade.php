@@ -14,7 +14,7 @@
     <link href="{{ URL::to('/css/app.css') }}" rel="stylesheet">
     <link href="{{ URL::to('/css/custom.css') }}" rel="stylesheet">
 
-
+    @yield('head')
 
     <!-- Scripts -->
     <script>

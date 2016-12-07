@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Diary;
 use App\ConstructionSite;
 use App\Images;
+use App\Workers;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 use Illuminate\Support\Facades\App;
@@ -95,15 +96,17 @@ class DiaryController extends Controller
             $last_diary = Diary::where('csite_id', $csite_id)->orderBy('day', 'desc')->first();
         } else {
             $last_diary = new Diary;
-
         }
+
+        $workers = Workers::where('user_id', $csite->user_id)->orderBy('name', 'desc')->get();
 
         $context = array(
             'construction_site' => $csite,
-            'last_diary' => $last_diary->day
+            'last_diary' => $last_diary->day,
+            'workers' => $workers
         );
 
-        return view('add-diary', $context);
+        return view('diaries/add-diary', $context);
     }
 
     /**

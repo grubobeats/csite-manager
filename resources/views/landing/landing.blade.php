@@ -367,29 +367,29 @@
 				<div class="col-md-3 col-sm-6 col-xs-12">
 					<div class="fh5co-counter to-animate">
 						<i class="fh5co-counter-icon icon-user-following to-animate-2"></i>
-						<span class="fh5co-counter-number js-counter" data-from="0" data-to="1287" data-speed="2000" data-refresh-interval="50">1287</span>
+						<span class="fh5co-counter-number js-counter" data-from="0" data-to="{{ $ALL_USERS }}" data-speed="2000" data-refresh-interval="50">{{ $ALL_USERS }}</span>
 						<span class="fh5co-counter-label">Users</span>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12">
 					<div class="fh5co-counter to-animate">
 						<i class="fh5co-counter-icon icon-home to-animate-2"></i>
-						<span class="fh5co-counter-number js-counter" data-from="0" data-to="7946" data-speed="2000" data-refresh-interval="50">7946</span>
+						<span class="fh5co-counter-number js-counter" data-from="0" data-to="{{ $ALL_CSITES }}" data-speed="2000" data-refresh-interval="50">{{ $ALL_CSITES }}</span>
 						<span class="fh5co-counter-label">Construction sites</span>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12">
 					<div class="fh5co-counter to-animate">
 						<i class="fh5co-counter-icon icon-book-open to-animate-2"></i>
-						<span class="fh5co-counter-number js-counter" data-from="0" data-to="92893" data-speed="2000" data-refresh-interval="50">92893</span>
+						<span class="fh5co-counter-number js-counter" data-from="0" data-to="{{ $ALL_DIARIES }}" data-speed="2000" data-refresh-interval="50">{{ $ALL_DIARIES }}</span>
 						<span class="fh5co-counter-label">Diaries</span>
 					</div>
 				</div>
 				<div class="col-md-3 col-sm-6 col-xs-12">
 					<div class="fh5co-counter to-animate">
 						<i class="fh5co-counter-icon icon-heart to-animate-2"></i>
-						<span class="fh5co-counter-number js-counter" data-from="0" data-to="14" data-speed="2000" data-refresh-interval="50">14</span>
-						<span class="fh5co-counter-label">Detonators</span>
+						<span class="fh5co-counter-number js-counter" data-from="0" data-to="{{ $ALL_HOURS }}" data-speed="2000" data-refresh-interval="50">{{ $ALL_HOURS }}</span>
+						<span class="fh5co-counter-label">Recorded hours</span>
 					</div>
 				</div>
 			</div>

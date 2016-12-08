@@ -51,10 +51,34 @@
                     <!-- Left Side Of Navbar -->
                     <ul class="nav navbar-nav">
                         @if (!Auth::guest())
-                            <li><a href="{{ url('/dashboard') }}">Construction Sites</a></li>
+
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Construction Sites<span class="caret"></span></a>
+                                <ul class="dropdown-menu">
+                                    <li><a href="{{ url('/dashboard') }}">All Construction Sites</a></li>
+                                    @foreach($CSITES as $csite)
+                                        <li><a href="{{ route('list-diaries', ['csite_id'=>$csite->id]) }}">{{ $csite->name }}</a></li>
+                                    @endforeach
+                                </ul>
+                            </li>
 
                             @if(Auth::user()->subscribed('main'))
-                                <li><a href="{{ route('list-workers') }}">Workers</a></li>
+                                <li class="dropdown">
+                                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Workers<span class="caret"></span></a>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="{{ route('list-workers') }}">All workers</a></li>
+                                        <? $count = 0?>
+                                        @foreach($WORKERS as $worker)
+                                            <? if ( $count == 20 ) : ?>
+                                                <li><a href="{{ route('list-workers') }}">...</a></li>
+                                                <? break ?>
+                                            <? endif ?>
+                                            <li><a href="{{ route('show-worker', ['user_id'=>$worker->user_id, 'worker_id'=>$worker->id]) }}">{{ $worker->name }} {{ $worker->last_name }}</a></li>
+                                            <? $count++?>
+
+                                        @endforeach
+                                    </ul>
+                                </li>
                             @else
                                 <li class="disabled"><a href="#">Workers</a></li>
                             @endif

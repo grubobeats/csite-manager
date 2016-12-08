@@ -9,12 +9,11 @@ use Illuminate\Support\Facades\Auth;
 
 class WorkersController extends Controller
 {
+
     public function userID() {
         $user_id = Auth::id();
-
         return $user_id;
     }
-
 
     public function list_workers(Request $request) {
 //        $workers = Workers::where('user_id', $this->userID())->orderBy('id', 'desc')->get();
@@ -148,7 +147,7 @@ class WorkersController extends Controller
         $working_day = WorkingDay::where(array(
             ['worker_id', $worker_id],
             ['date', 'like', "%$search%" ],
-        ))->orderBy('date', 'desc')->paginate(2);
+        ))->orderBy('date', 'desc')->paginate(10);
 
         $context = array(
             'worker' => $worker,

@@ -16,8 +16,21 @@ class WorkersController extends Controller
     }
 
 
-    public function list_workers() {
-        $workers = Workers::where('user_id', $this->userID())->orderBy('id', 'desc')->get();
+    public function list_workers(Request $request) {
+//        $workers = Workers::where('user_id', $this->userID())->orderBy('id', 'desc')->get();
+
+        $search = $request->input('search');
+
+        // Perform search or just show diaries
+        $workers = Workers::where(array(
+            ['user_id', $this->userID()],
+            ['name', 'like', "%$search%" ],
+        ))
+            ->orWhere(array(
+                ['last_name', 'like', "%$search%"],
+                ['position', 'like', "%$search%" ],
+            ))
+            ->orderBy('name', 'desc')->paginate(10);
 
         $context = array(
             'user_id' => $this->userID(),
@@ -125,10 +138,17 @@ class WorkersController extends Controller
         return redirect()->route('list-workers')->with(['edited' => true]);
     }
 
-    public function get_showWorker($user_id, $worker_id)
+    public function get_showWorker($user_id, $worker_id, Request $request)
     {
         $worker = Workers::where('id', $worker_id)->first();
-        $working_day = WorkingDay::where('worker_id', $worker->id)->orderBy('date', 'desc')->get();
+
+        $search = $request->input('search');
+
+        // Perform search or just show diaries
+        $working_day = WorkingDay::where(array(
+            ['worker_id', $worker_id],
+            ['date', 'like', "%$search%" ],
+        ))->orderBy('date', 'desc')->paginate(2);
 
         $context = array(
             'worker' => $worker,
@@ -151,6 +171,7 @@ class WorkersController extends Controller
             $worker_data = Workers::where('id', $workers[$i])->first();
 
             $diff = (strtotime($finished_at[$i]) - strtotime($starting_at[$i])) / 3600;
+            $earned = $diff * $worker_data->hourly_rate;
 
             $working_day = new WorkingDay();
             $working_day->worker_id = isset($workers[$i]) ? $workers[$i] : "0";
@@ -159,7 +180,7 @@ class WorkersController extends Controller
             $working_day->date = $request['date'];
             $working_day->hours_worked = $diff;
             $working_day->hourly_rate = $worker_data->hourly_rate;
-            $working_day->earned_today = "7";
+            $working_day->earned_today = $earned;
             $working_day->comment = "null";
             $working_day->save();
         }

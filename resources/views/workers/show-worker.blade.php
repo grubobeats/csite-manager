@@ -55,9 +55,9 @@
 
                     <div class="panel-body">
                         <div class="btn-group pull-left" role="group" aria-label="...">
-                            {!! Form::open(['method'=>'GET', 'url' => 'search_url_goes_here', 'role'=>'search', 'class'=>'form-inline']) !!}
+                            {!! Form::open(['method'=>'GET', 'route' => ['show-worker', $worker->user_id, $worker->id], 'role'=>'search', 'class'=>'form-inline']) !!}
                                 <div class="form-group">
-                                    <input type="text" class="form-control" id="search" placeholder="@lang('global.search')" name="search">
+                                    <input type="date" class="form-control" id="search" placeholder="@lang('global.search')" name="search">
                                 </div>
                                 <button type="submit" class="btn btn-default haveLoader"><i class="fa fa-search" aria-hidden="true"></i></button>
                             {!! Form::close() !!}
@@ -84,13 +84,13 @@
 
                             @foreach($working_days as $key => $day)
                                 <tr>
-                                    <th>{{ ++$key }}</th>
-                                    <th>{{ $day->date }}</th>
-                                    <th>{{ date('H:i', strtotime($day->started_at)) }}</th>
-                                    <th>{{ date('H:i', strtotime($day->finished_at)) }}</th>
-                                    <th>{{ date('H:i', strtotime($day->hours_worked)) }}</th>
-                                    <th>{{ $day->earned_today }}</th>
-                                    <th></th>
+                                    <td>{{ ++$key }}</td>
+                                    <td>{{ $day->date }}</td>
+                                    <td>{{ date('H:i', strtotime($day->started_at)) }}</td>
+                                    <td>{{ date('H:i', strtotime($day->finished_at)) }}</td>
+                                    <td>{{ $day->hours_worked }}</td>
+                                    <td>{{ $day->earned_today }}</td>
+                                    <td></td>
                                 </tr>
                             @endforeach
 
@@ -98,7 +98,7 @@
                     </div>
                 </div>
 
-                {{--{{ $diaries->links() }}--}}
+                {{ $working_days->links() }}
             @else
 
                 <div class="jumbotron">

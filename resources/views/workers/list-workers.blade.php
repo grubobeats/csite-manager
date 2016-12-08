@@ -53,7 +53,7 @@
 
                     <div class="panel-body">
                         <div class="btn-group pull-left" role="group" aria-label="...">
-                            {!! Form::open(['method'=>'GET', 'url' => 'search_url_goes_here', 'role'=>'search', 'class'=>'form-inline']) !!}
+                            {!! Form::open(['method'=>'GET', 'route' => 'list-workers', 'role'=>'search', 'class'=>'form-inline']) !!}
                                 <div class="form-group">
                                     <input type="text" class="form-control" id="search" placeholder="@lang('global.search')" name="search">
                                 </div>
@@ -96,7 +96,7 @@
                     </div>
                 </div>
 
-                {{--{{ $diaries->links() }}--}}
+                {{ $workers->links() }}
             @else
 
                 <div class="jumbotron">

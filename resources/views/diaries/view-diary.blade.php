@@ -74,6 +74,7 @@
                                 <th>@lang('forms.date')</th>
                                 <th>@lang('forms.weather')</th>
                                 <th>@lang('forms.workers')</th>
+                                <th>Working hours</th>
                             </tr>
 
                             <tr>
@@ -81,35 +82,36 @@
                                 <th>{{ $diary->date }}</th>
                                 <th>{{ \App\Http\Controllers\DiaryController::weather($diary->weather) }}, {{ $diary->temperature }} &deg;C</th>
                                 <th>{{ $diary->workers }}</th>
+                                <th>{{ date('G:i', strtotime($diary->hours_from)) }} - {{ date('G:i', strtotime($diary->hours_to)) }}</th>
                             </tr>
                             <tr>
-                                <th colspan="4">@lang('forms.description')</th>
+                                <th colspan="5">@lang('forms.description')</th>
                             </tr>
                             <tr>
-                                <th colspan="4" id="description">{{ $diary->description }}</th>
+                                <th colspan="5" id="description">{{ $diary->description }}</th>
                             </tr>
 
                             @if( $diary->issues === "")
                                 <tr class="success">
-                                    <th colspan="4">
+                                    <th colspan="5">
                                         @lang('view-diary.no-issues')
                                     </th>
                                 </tr>
                             @else
                                 <tr class="danger">
-                                    <th colspan="4">
+                                    <th colspan="5">
                                         @lang('view-diary.issues')
                                     </th>
                                 </tr>
                                 <tr class="danger">
-                                    <th colspan="4" id="issues">{{ $diary->issues }}</th>
+                                    <th colspan="5" id="issues">{{ $diary->issues }}</th>
                                 </tr>
                             @endif
                         </table>
                         <br>
                         <table class="table table-bordered">
                             <tr>
-                                <th colspan="4">@lang('forms.images'): {{ count($images) }}</th>
+                                <th colspan="5">@lang('forms.images'): {{ count($images) }}</th>
                             </tr>
                             @foreach($images as $key => $image)
                                 <tr>

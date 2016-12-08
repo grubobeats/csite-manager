@@ -54,6 +54,20 @@
                                 {{ Form::number('day', $diary->day, ['class' => 'form-control']) }}
                             </div>
 
+                            <div class="row">
+                                <div class="col-sm-12">
+                                    <div class="input-group">
+                                    <span class="input-group-addon" id="sizing-addon2">
+                                        <i class="fa fa-clock-o" aria-hidden="true"></i>
+                                        Working time
+                                    </span>
+                                        <input name="started_at" id="started_at" type="time" value="{{ $diary->hours_from }}" class="form-control">
+                                        <input name="finished_at" id="finished_at" type="time" value="{{ $diary->hours_to }}" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
+
                             <div class="form-group">
                                 <label for="date">{{ trans('forms.date') }}</label>
                                 {{ Form::date('date', $diary->date, ['class'=>'form-control']) }}

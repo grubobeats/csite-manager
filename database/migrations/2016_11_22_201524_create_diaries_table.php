@@ -24,8 +24,8 @@ class CreateDiariesTable extends Migration
             $table->string('images');
             $table->integer('temperature');
             $table->integer('csite_id');
-            $table->integer('hours_from');
-            $table->integer('hours_to');
+            $table->time('hours_from');
+            $table->time('hours_to');
             $table->timestamps();
         });
 

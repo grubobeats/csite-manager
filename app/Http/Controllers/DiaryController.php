@@ -124,6 +124,8 @@ class DiaryController extends Controller
             'workers' => 'required',
             'description' => 'required',
             'temperature' => 'required',
+            'started_at' => 'required',
+            'finished_at' => 'required',
             'images.*' => 'image|between:10,3000', // Checking is it image or not and it's size
             'images' => 'between:0,5' // Availible number of images
         ));
@@ -166,6 +168,8 @@ class DiaryController extends Controller
         $diary->temperature = $request['temperature'];
         $diary->images = $diary_key;
         $diary->csite_id = $csite_id;
+        $diary->hours_from = $request['started_at'];
+        $diary->hours_to = $request['finished_at'];
 
         $diary->save();
 
@@ -220,6 +224,8 @@ class DiaryController extends Controller
         $diary->description = $request['description'];
         $diary->temperature = $request['temperature'];
         $diary->issues = $request['issues'];
+        $diary->hours_from = $request['started_at'];
+        $diary->hours_to = $request['finished_at'];
 
         $diary->update();
 

@@ -64,17 +64,17 @@
                             </tr>
 
                             <tr>
-                                <th>{{ $diary->day }}</th>
-                                <th>{{ $diary->date }}</th>
-                                <th>{{ \App\Http\Controllers\DiaryController::weather($diary->weather) }}, {{ $diary->temperature }} &deg;C</th>
-                                <th>{{ $diary->workers }}</th>
-                                <th>{{ date('G:i', strtotime($diary->hours_from)) }} - {{ date('G:i', strtotime($diary->hours_to)) }}</th>
+                                <td>{{ $diary->day }}</td>
+                                <td>{{ $diary->date }}</td>
+                                <td>{{ \App\Http\Controllers\DiaryController::weather($diary->weather) }}, {{ $diary->temperature }} &deg;C</td>
+                                <td>{{ $diary->workers }}</td>
+                                <td>{{ date('G:i', strtotime($diary->hours_from)) }} - {{ date('G:i', strtotime($diary->hours_to)) }}</td>
                             </tr>
                             <tr>
                                 <th colspan="5">@lang('forms.description')</th>
                             </tr>
                             <tr>
-                                <th colspan="5" id="description">{{ $diary->description }}</th>
+                                <td colspan="5" id="description">{{ $diary->description }}</td>
                             </tr>
                             @if( $diary->issues === "")
                                 <tr class="success">
@@ -89,7 +89,7 @@
                                     </th>
                                 </tr>
                                 <tr class="danger">
-                                    <th colspan="5" id="issues">{{ $diary->issues }}</th>
+                                    <td colspan="5" id="issues">{{ $diary->issues }}</td>
                                 </tr>
                             @endif
                             <tr>

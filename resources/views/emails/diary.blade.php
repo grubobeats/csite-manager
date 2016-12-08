@@ -288,6 +288,10 @@
                                     <td>@lang('forms.workers'): {{ $diary->workers }}</td>
                                 </tr>
                                 <tr>
+                                    <td>From: {{ date('G:i', strtotime($diary->hours_from)) }}</td>
+                                    <td>To: {{ date('G:i', strtotime($diary->hours_to)) }}</td>
+                                </tr>
+                                <tr>
                                     <td colspan="2">@lang('forms.description')</td>
                                 </tr>
                                 <tr>

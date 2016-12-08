@@ -78,17 +78,17 @@
                             </tr>
 
                             <tr>
-                                <th>{{ $diary->day }}</th>
-                                <th>{{ $diary->date }}</th>
-                                <th>{{ \App\Http\Controllers\DiaryController::weather($diary->weather) }}, {{ $diary->temperature }} &deg;C</th>
-                                <th>{{ $diary->workers }}</th>
-                                <th>{{ date('G:i', strtotime($diary->hours_from)) }} - {{ date('G:i', strtotime($diary->hours_to)) }}</th>
+                                <td>{{ $diary->day }}</td>
+                                <td>{{ $diary->date }}</td>
+                                <td>{{ \App\Http\Controllers\DiaryController::weather($diary->weather) }}, {{ $diary->temperature }} &deg;C</td>
+                                <td>{{ $diary->workers }}</td>
+                                <td>{{ date('G:i', strtotime($diary->hours_from)) }} - {{ date('G:i', strtotime($diary->hours_to)) }}</td>
                             </tr>
                             <tr>
                                 <th colspan="5">@lang('forms.description')</th>
                             </tr>
                             <tr>
-                                <th colspan="5" id="description">{{ $diary->description }}</th>
+                                <td colspan="5" id="description">{{ $diary->description }}</td>
                             </tr>
 
                             @if( $diary->issues === "")
@@ -104,7 +104,7 @@
                                     </th>
                                 </tr>
                                 <tr class="danger">
-                                    <th colspan="5" id="issues">{{ $diary->issues }}</th>
+                                    <td colspan="5" id="issues">{{ $diary->issues }}</td>
                                 </tr>
                             @endif
                         </table>
@@ -114,7 +114,7 @@
                                 <th colspan="5">@lang('forms.images'): {{ count($images) }}</th>
                             </tr>
                             @foreach($images as $key => $image)
-                                <tr>
+                                <tr class="image-wrapper">
                                     <td>{{ ++$counter }}</td>
                                     <td colspan="3">
                                         <img class="diary-image img-responsive" src="{{ route('diary.image', ['filename'=>$image->name]) }}">
@@ -141,11 +141,12 @@
     <script>
         $(document).ready(function () {
             var raw_description = $('#description').text();
-            var raw_iddues = $('#issues').text();
+            var raw_issues = $('#issues').text();
 
             $('#description').html(raw_description);
-            $('#issues').html(raw_iddues);
-        }, 3000);
+            $('#issues').html(raw_issues);
+        
+        });
 
     </script>
 @endsection

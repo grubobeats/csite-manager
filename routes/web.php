@@ -74,6 +74,12 @@ Route::post('/post-actions/add-workers', array(
     'as' => 'add-workers-from-diary',
     'uses' => 'WorkersController@post_addWorkersFromDiary'
 ));
+
+Route::get('/workers/{user_id}/working-day/{worker_id}/6592550{working_day_id}93472/remove', array(
+    'as' => 'delete-working-record',
+    'uses' => 'WorkersController@removeWorkingDay'
+));
+
 // / WORKERS
 
 

@@ -188,4 +188,13 @@ class WorkersController extends Controller
         return "good";
     }
 
+    public function removeWorkingDay($user_id, $worker_id, $working_day_id) {
+        $workingDay = WorkingDay::where('id', $working_day_id)->first();
+        $workingDay->delete();
+
+        return redirect()
+            ->route('show-worker', ['user_id'=>$this->userID(), 'worker_id'=>$worker_id])
+            ->with(['deleted'=>true]);
+    }
+
 }

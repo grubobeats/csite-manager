@@ -15,7 +15,7 @@
     @endif
 
     @if (Session::has('deleted'))
-        @include('includes.deleted', ['message'=>'Worker deleted'])
+        @include('includes.deleted', ['message'=>'Records deleted'])
     @endif
     <!-- Page Heading -->
     <div class="row">
@@ -90,7 +90,13 @@
                                     <td>{{ date('H:i', strtotime($day->finished_at)) }}</td>
                                     <td>{{ $day->hours_worked }}</td>
                                     <td>{{ $day->earned_today }}</td>
-                                    <td></td>
+                                    <td class="text-center">
+                                        <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                                            <a href="#" class="btn btn-default haveLoader" title="@lang('forms.open')"><i class="fa fa-folder-open-o" aria-hidden="true"></i></a>
+                                            <a href="#" class="btn btn-default haveLoader" title="@lang('forms.edit')"><i class="fa fa-cogs" aria-hidden="true"></i></a>
+                                            <a href="{{ route('delete-working-record', ['user_id'=>$worker->user_id, 'worker_id'=>$worker->id, 'working_day_id' => $day->id]) }}" class="btn btn-default haveLoader" title="@lang('forms.delete')"><i class="fa fa-trash-o" aria-hidden="true"></i></a>
+                                        </div>
+                                    </td>
                                 </tr>
                             @endforeach
 

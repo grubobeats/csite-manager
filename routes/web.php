@@ -16,8 +16,8 @@
 Route::get('/', function () {
     Lang::setLocale(Session::get('locale'));
 
-    return view('welcome');
-});
+    return view('landing/landing');
+})->name('first');
 
 // GET - Change language
 Route::post('/choose-language/{lang}', function($lang){

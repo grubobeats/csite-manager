@@ -94,8 +94,8 @@
                             <i class="fa fa-calendar fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                            <div class="huge">26</div>
-                            <div>Days left</div>
+                            <div class="huge">{{ $HOURS }}</div>
+                            <div>Hours worked</div>
                         </div>
                     </div>
                 </div>

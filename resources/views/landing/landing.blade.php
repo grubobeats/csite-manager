@@ -349,7 +349,7 @@
 
 			<div class="row">
 				<div class="col-sm-12 text-center" style="padding-top: 110px">
-					<button class="btn btn-lg btn-primary">Register now!</button>
+					<a href="{{ url('/register') }}" class="btn btn-lg btn-primary">Register now!</a>
 				</div>
 			</div>
 		</div>
@@ -406,7 +406,7 @@
 							{{--<h3>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</h3>--}}
 						{{--</div>--}}
 					{{--</div>--}}
-					<button class="btn btn-lg btn-primary"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Click Here</button>
+					<a href="{{ url('/register') }}" class="btn btn-lg btn-primary"><i class="fa fa-check-circle-o" aria-hidden="true"></i> Click Here</a>
 				</div>
 			</div>
 		</div>
